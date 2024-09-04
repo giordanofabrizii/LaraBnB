@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('sponsorships', function (Blueprint $table) {
+        Schema::create('visualizations', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->tinyInteger('period');
-            $table->decimal('price', 6, 2);
+            $table->foreignId('apartment_id')->constrained()->onDelete('cascade');
+            $table->date('date');
+            $table->string('user_ip');
             $table->timestamps();
         });
     }
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('sponsorships');
+        Schema::dropIfExists('visualizations');
     }
 };
