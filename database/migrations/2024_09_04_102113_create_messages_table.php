@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('apartment_id')->constrained()->onDelete('cascade');
             $table->string('sender_email');
             $table->string('sender_name');
-            $table->string('text');
+            $table->text('text');
             $table->dateTime('date');
             $table->dateTime('seen_date')->nullable();
             $table->timestamps();
