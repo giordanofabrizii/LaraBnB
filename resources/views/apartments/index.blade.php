@@ -52,12 +52,16 @@
                                         </a>
 
                                         <div class="dropdown-menu dropdown-menu-end">
-                                            <a class="dropdown-item" href="{{-- {{ route('logout') }} --}}">
+                                            <a class="dropdown-item" href="{{ route('apartments.edit', $apartment) }}">
                                                 Modifica
                                             </a>
-                                            <a class="dropdown-item text-danger" href="{{-- {{ route('logout') }} --}}">
-                                                Elimina
-                                            </a>
+                                            <form action="{{route('apartments.destroy', $apartment)}}" class="form-delete" method="POST" data-apartment-name="{{$apartment->name}}">
+                                                @method("delete")
+                                                @csrf
+                                                <button class="dropdown-item text-danger" href="">
+                                                    Elimina
+                                                </button>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -71,7 +75,8 @@
     </div>
 </div>
 
+@endsection
 
-
-
+@section('scripts')
+    @vite('resources/js/delete-confirmation.js')
 @endsection
