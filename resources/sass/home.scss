@@ -1,0 +1,46 @@
+@import 'variables';
+@import 'app';
+
+#home{
+    h1{
+        color: $primary-color;
+    }
+
+    #profile{
+        border: 2px solid $primary-color;
+        border-radius: 2rem;
+        display: flex;
+
+        img,
+        .img{
+            width: 10rem;
+            aspect-ratio: 1 / 1;
+            border-radius: 50%;
+        }
+
+        .img{
+            background-color: #e2e065;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            span{
+                font-size: 2rem;
+            }
+        }
+    }
+
+    #buttons{
+        a{
+            background-color: $primary-color;
+            color: white;
+            text-decoration: none;
+        }
+    }
+
+    #apartments{
+        article{
+            background-color: rgba(0, 128, 0, 0.61);
+        }
+    }
+}
