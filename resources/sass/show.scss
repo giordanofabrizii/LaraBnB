@@ -5,13 +5,15 @@
         background-color: rgb(138, 236, 236);
         background-size: cover;
         background-position: center;
-        height: 400px;
-        width: 600px;
+        height: 30vw;
+        width: 45vw;
+        max-height: 400px;
+        max-width: 600px;
         transition: height 0.5s ease, width 0.5s ease;
     }
 
     .apartment-name {
-        font-size: 2.5rem;
+        font-size: 2.5vw;
         font-weight: bold;
         color: #2c3e50;
         transition: font-size 0.5s ease;
@@ -19,8 +21,42 @@
 
     .apartment-description,
     .apartment-price {
+        font-size: 1.5vw;
         transition: font-size 0.5s ease;
     }
+
+    @media (max-width: 1290px) {
+        .apartment-name {
+            font-size: 2rem;
+        }
+
+        .apartment-img {
+            height: 25vw;
+            width: 40vw;
+        }
+
+        .apartment-description,
+        .apartment-price {
+            font-size: 1.2rem;
+        }
+    }
+
+    @media (max-width: 1024px) {
+        .apartment-name {
+            font-size: 2.2rem;
+        }
+
+        .apartment-img {
+            height: 27vw;
+            width: 42vw;
+        }
+
+        .apartment-description,
+        .apartment-price {
+            font-size: 1.3rem;
+        }
+    }
+
 
     @media (max-width: 768px) {
         .apartment-name {
@@ -44,8 +80,8 @@
         }
 
         .apartment-img {
-            height: 150px;
-            width: 340px;
+            height: 200px;
+            width: 80vw;
         }
 
         .apartment-description {
