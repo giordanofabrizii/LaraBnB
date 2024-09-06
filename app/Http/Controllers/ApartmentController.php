@@ -81,7 +81,7 @@ class ApartmentController extends Controller
      * @param Apartment $apartment
      * @return void
      */
-    public function destroy(Apartment $apartment){
+    public function destroy (Apartment $apartment) {
         $apartment->delete();
         return redirect()->Route('apartments.index');
     }
