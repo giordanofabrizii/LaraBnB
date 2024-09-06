@@ -24,7 +24,7 @@
                                         <strong>
                                             {{ $service->name }}
                                         </strong>
-                                        {{-- <i class="fa-solid fa-circle-check"></i> --}}
+                                        <i class="fa-solid fa-circle-check"></i>
                                     </span>
                             @endforeach
                         </ul>
