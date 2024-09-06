@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Message;
 
 class HomeController extends Controller
 {
@@ -29,6 +30,7 @@ class HomeController extends Controller
     // Show the inbox
     public function inbox()
     {
-        return view('inbox');
+        $messages = Message::all();
+        return view('inbox', compact('messages'));
     }
 }
