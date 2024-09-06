@@ -22,10 +22,6 @@ class ApartmentController extends Controller
         return view('apartments.index', compact('apartments'));
     }
 
-    public function show (Apartment $apartment) {
-        return view('apartments.show',compact('apartment'));
-    }
-
     /**
      * show a specific apartment
      *
