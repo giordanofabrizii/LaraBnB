@@ -14,10 +14,11 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
-    <!-- Custom SCSS -->
-    @section('custom-scss')
+    @vite(['resources/sass/app.scss', 'resources/js/app.js', ])
+
+    <!-- Custom CSS -->
+    @yield('custom-scss')
 </head>
 <body>
     <div id="app">
