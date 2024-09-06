@@ -55,6 +55,9 @@ class ApartmentController extends Controller
         $data = $request->validated();
         // take the user logged id
         $data['user_id'] = Auth::user()->id;
+        $data['image'] = "ciao";
+        $data['latitude'] = 43.4891;
+        $data['longitude'] = 43.4891;
 
         $apartment = new Apartment($data);
         $apartment->save();
@@ -81,7 +84,7 @@ class ApartmentController extends Controller
      * @param UpdateApartmentRequest $request
      * @return view
      */
-    public function update (Apartment $apartment, UpdateApartmentRequest $request) {
+    public function update (UpdateApartmentRequest $request, Apartment $apartment) {
         $data = $request->validated();
 
         $apartment->update($data);
