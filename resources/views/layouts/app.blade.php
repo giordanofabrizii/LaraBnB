@@ -15,6 +15,9 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
+    <!-- Custom SCSS -->
+    @section('custom-scss')
 </head>
 <body>
     <div id="app">

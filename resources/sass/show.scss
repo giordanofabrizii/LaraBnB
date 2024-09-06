@@ -1,0 +1,68 @@
+@import "variables";
+
+.apartment-show {
+    .apartment-img {
+        background-color: rgb(138, 236, 236);
+        background-size: cover;
+        background-position: center;
+        height: 400px;
+        width: 600px;
+        transition: height 0.5s ease, width 0.5s ease;
+    }
+
+    .apartment-name {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #2c3e50;
+        transition: font-size 0.5s ease;
+    }
+
+    .apartment-description,
+    .apartment-price {
+        transition: font-size 0.5s ease;
+    }
+
+    @media (max-width: 768px) {
+        .apartment-name {
+            font-size: 2rem;
+        }
+
+        .apartment-img {
+            height: 250px;
+            width: 480px;
+        }
+
+        .apartment-description,
+        .apartment-price {
+            font-size: 1rem;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .apartment-name {
+            font-size: 1.8rem;
+        }
+
+        .apartment-img {
+            height: 150px;
+            width: 340px;
+        }
+
+        .apartment-description {
+            font-size: 0.9rem;
+        }
+    }
+
+    .custom-btn {
+        background-color: #f8fc02;
+        color: #973000;
+        border-radius: 50px;
+        padding: 10px 20px;
+        font-size: 1.2rem;
+        transition: background-color 0.3s ease, font-size 0.3s ease; // Transizione sul font-size e il colore
+
+        &:hover {
+            background-color: #f2f70080;
+        }
+    }
+}
