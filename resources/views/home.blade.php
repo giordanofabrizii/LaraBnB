@@ -7,7 +7,7 @@
 @section('content')
     <div class="container" id="home">
         <h1>Dashboard</h1>
-        <div id="profile" class="p-3 col-8">
+        <div id="profile" class="p-3 col-12 col-lg-8 col-xl-6 d-flex">
             @if(Auth::user()->image != null)
                 <img src="{{Auth::user()->image}}" alt="profile picture">
             @else
@@ -18,21 +18,21 @@
                 <p>{{ Auth::user()->email }}</p>
             </div>
         </div>
-        <section id="buttons" class="col-12 my-4">
-            <a href="" class="col-3 p-3 rounded-3 me-2">
+        <section id="buttons" class="col-12 my-4 d-flex flex-column d-md-block flex-wrap">
+            <a href="{{ Route('apartments.create') }}" class="col-12 p-3 rounded-3 me-2">
                 <span>New Apartment</span>
             </a>
-            <a href="" class="col-3 p-3 rounded-3 me-2">
+            <a href="{{ Route('apartments.index') }}" class="col-12 p-3 rounded-3 me-2 mt-2">
                 <span>Yours Apartment</span>
             </a>
         </section>
         <section id="apartments" class="pt-3">
             <h2>I tuoi appartamenti</h2>
             @foreach ($apartments as $apartment)
-                <article class="my-3 p-3 rounded-3 d-flex ">
-                    <img src="{{$apartment->image}}" alt="apartment image">
+                <a href="{{ Route('apartments.show',$apartment) }}" class="my-3 p-2 rounded-3 d-flex align-items-center">
+                    <img class="rounded-3 me-3" src="{{$apartment->image}}" alt="apartment image">
                     <span>{{$apartment->name}} - {{$apartment->address}}</span>
-                </article>
+                </a>
             @endforeach
         </section>
     </div>

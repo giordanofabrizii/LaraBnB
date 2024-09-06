@@ -9,7 +9,6 @@
     #profile{
         border: 2px solid $primary-color;
         border-radius: 2rem;
-        display: flex;
 
         img,
         .img{
@@ -39,8 +38,28 @@
     }
 
     #apartments{
-        article{
+        a{
             background-color: rgba(0, 128, 0, 0.61);
+            text-decoration: none;
+            color: black;
+
+            img{
+                height: 3rem;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 354px) {
+    #home{
+        #profile{
+            flex-direction: column;
+            align-items: center;
+
+            .info{
+                padding-left: 0 !important;
+                text-align: center;
+            }
         }
     }
 }
