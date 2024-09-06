@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\User;
+use Faker\Generator;
 
 class UserSeeder extends Seeder
 {
@@ -51,7 +52,6 @@ class UserSeeder extends Seeder
             $user->email = $userData['email'];
             $user->password = bcrypt($userData['password']);
             $user->birthdate = $userData['birthdate'];
-            // $user->image = $userData['image'];
             $user->save();
         }
     }
