@@ -6,6 +6,9 @@
 
 @section('content')
     <div class="container" id="home">
+        @if (Auth::user() == null)
+            <h1 class="guest">Please, login or register</h1>
+        @else
         <h1>Dashboard</h1>
         <div id="profile" class="p-3 col-12 col-lg-8 col-xl-6 d-flex">
             @if(Auth::user()->image != null)
@@ -35,5 +38,6 @@
                 </a>
             @endforeach
         </section>
+        @endif
     </div>
 @endsection
