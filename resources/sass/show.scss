@@ -1,0 +1,133 @@
+@import "variables";
+
+.apartment-show {
+    .apartment-img {
+        background-color: rgb(138, 236, 236);
+        background-size: cover;
+        background-position: center;
+        max-height: 400px;
+        max-width: 100%;
+        transition: height 0.5s ease, width 0.5s ease;
+
+        img {
+            width: 100%;
+            height: auto;
+            max-height: 400px;
+            object-fit: cover;
+        }
+    }
+
+    .services {
+        h3 {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+
+        ul {
+            padding-left: 0;
+        }
+
+        li {
+            display: flex;
+            align-items: center;
+        }
+    }
+
+
+
+    .apartment-name {
+        font-size: 2.5vw;
+        font-weight: bold;
+        color: #2c3e50;
+        transition: font-size 0.5s ease;
+    }
+
+    .apartment-description,
+    .apartment-price {
+        font-size: 1.5vw;
+        transition: font-size 0.5s ease;
+    }
+
+    /* Media Queries */
+    @media (max-width: 1290px) {
+        .apartment-name {
+            font-size: 2rem;
+        }
+
+        .apartment-img {
+            max-height: 300px;
+        }
+
+        .apartment-description,
+        .apartment-price {
+            font-size: 1.2rem;
+        }
+    }
+
+    @media (max-width: 1024px) {
+        .apartment-name {
+            font-size: 2.2rem;
+        }
+
+        .apartment-img {
+            max-height: 270px;
+        }
+
+        .apartment-description,
+        .apartment-price {
+            font-size: 1.3rem;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .apartment-name {
+            font-size: 2rem;
+        }
+
+        .apartment-img {
+            max-height: 250px;
+        }
+
+        .apartment-description,
+        .apartment-price {
+            font-size: 1rem;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .apartment-name {
+            font-size: 1.8rem;
+        }
+
+        .apartment-img {
+            max-height: 200px;
+            width: 80vw;
+            margin: 2rem auto;
+        }
+
+        .apartment-description {
+            font-size: 0.9rem;
+        }
+    }
+
+    .custom-btn {
+        background-color: #f8fc02;
+        color: #973000;
+        border-radius: 50px;
+        padding: 10px 20px;
+        font-size: 1.2rem;
+        transition: background-color 0.3s ease, font-size 0.3s ease;
+
+        &:hover {
+            background-color: #f2f70080;
+            text-decoration: none;
+            color: #973000;
+        }
+
+        a {
+            color: inherit;
+        }
+    }
+}

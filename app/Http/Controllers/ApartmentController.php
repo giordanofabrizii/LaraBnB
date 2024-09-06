@@ -29,7 +29,10 @@ class ApartmentController extends Controller
      * @return view
      */
     public function show (Apartment $apartment) {
-        return view('apartments.show',compact('apartment'));
+
+        $apartment->load('services');
+
+        return view('apartments.show', compact('apartment'));
     }
 
     /**
