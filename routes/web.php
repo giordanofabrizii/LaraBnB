@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ApartmentController as ApartmentController;
+use App\Models\Apartment;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +22,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// Definizione rotte per l'entita apartment con middlewere auth per richiesta log in
+Route::middleware('auth')->group(function () {
+    Route::resource("apartments",ApartmentController::class);
+});
