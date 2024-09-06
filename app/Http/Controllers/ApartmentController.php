@@ -22,6 +22,10 @@ class ApartmentController extends Controller
         return view('apartments.index', compact('apartments'));
     }
 
+    public function show (Apartment $apartment) {
+        return view('apartments.show',compact('apartment'));
+    }
+
     /**
      * show a specific apartment
      *
@@ -68,7 +72,7 @@ class ApartmentController extends Controller
     public function edit (Apartment $apartment){
         $services = Service::all();
 
-        return view('apartments.edit',compact('services'));
+        return view('apartments.edit',compact('services', 'apartment'));
     }
 
     /**
@@ -91,6 +95,7 @@ class ApartmentController extends Controller
      * @param Apartment $apartment
      * @return void
      */
+
     public function destroy (Apartment $apartment) {
         $apartment->delete();
         return redirect()->Route('apartments.index');
