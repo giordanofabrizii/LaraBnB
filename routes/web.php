@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApartmentController as ApartmentController;
 use App\Models\Apartment;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
