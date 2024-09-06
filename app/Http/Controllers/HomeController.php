@@ -25,4 +25,10 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    // Show the inbox
+    public function inbox()
+    {
+        return view('inbox');
+    }
 }
