@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container" id="create">
     <div class="row">
         <div class="col-12 p-3">
             <h1>Add a new apartment</h1>
@@ -48,17 +48,17 @@
                     @enderror
                 </div>
                 <div class="form-group p-2">
-                    <label class="me-2" for="n_room">How many rooms?</label>
+                    <label class="m-2" for="n_room">How many rooms?</label>
                     <input type="number" name="n_room" id="n_room">
 
-                    <label class="mx-2" for="n_bed">How many beds?</label>
+                    <label class="m-2" for="n_bed">How many beds?</label>
                     <input type="number" name="n_bed" id="n_bed">
 
-                    <label class="mx-2" for="n_bath">How many baths?</label>
+                    <label class="m-2" for="n_bath">How many baths?</label>
                     <input type="number" name="n_bath" id="n_bath">
                 </div>
                 <div class="form-group p-2">
-                    <label class="me-2" for="price">Price per night:</label>
+                    <label class="m-2" for="price">Price per night:</label>
                     <input type="text" name="price" id="price">
                 </div>
                 <button type="submit" class="btn btn-primary mt-3">Publish apartment</button>
