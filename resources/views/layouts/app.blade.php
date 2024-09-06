@@ -34,10 +34,10 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mx-auto">
                         <li>
-                            <a href="">Home</a>
-                            <a href="">My Apartments</a>
-                            <a href="">Inbox</a>
-                            <a href="">Stats</a>
+                            <a href="{{Route('home')}}">Home</a>
+                            <a href="{{Route('apartments.index')}}">My Apartments</a>
+                            <a href="{{Route('inbox')}}">Inbox</a>
+                            <a href="{{Route('home')}}">Stats</a>
                         </li>
                     </ul>
 

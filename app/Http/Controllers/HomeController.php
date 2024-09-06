@@ -38,6 +38,8 @@ class HomeController extends Controller
     public function inbox()
     {
         $messages = Message::all();
-        return view('inbox', compact('messages'));
+        $notseen = Message::where('seen_date', null)
+            ->get();
+        return view('inbox', compact('messages', 'notseen'));
     }
 }
