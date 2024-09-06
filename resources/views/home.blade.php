@@ -26,11 +26,11 @@
                 <span>New Apartment</span>
             </a>
             <a href="{{ Route('apartments.index') }}" class="col-12 p-3 rounded-3 me-2 mt-2">
-                <span>Your Apartment</span>
+                <span>Your apartments</span>
             </a>
         </section>
         <section id="apartments" class="pt-3">
-            <h2>Your apartments</h2>
+            <h2>Quick link</h2>
             @foreach ($apartments as $apartment)
                 <a href="{{ Route('apartments.show',$apartment) }}" class="my-3 p-2 rounded-3 d-flex align-items-center">
                     <img class="rounded-3 me-3" src="{{$apartment->image}}" alt="apartment image">
