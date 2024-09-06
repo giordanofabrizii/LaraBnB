@@ -20,7 +20,28 @@
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
 
-// .new-messages{
-//     background-color: red;
-// }
+#app.dark{
+    background-color: $dark-primary !important;
+    color: white;
 
+    nav{
+        background-color: $dark-primary !important;
+        a.navbar-brand,
+        ul.navbar-nav a,
+        ul.navbar-nav button{
+            color: white;
+        }
+
+        .dropdown-menu{
+            background-color: rgb(26, 26, 26);
+
+            .dropdown-item:hover{
+                background-color: $primary-color !important;
+            }
+        }
+    }
+}
+
+body.dark{
+    background-color: $dark-primary;
+}
