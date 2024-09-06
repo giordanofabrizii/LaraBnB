@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Message;
+use App\Models\Apartment;
+use Illuminate\Support\Facades\Auth;
+
 
 class HomeController extends Controller
 {
@@ -24,7 +27,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $apartments = Apartment::where('user_id', Auth::user()->id) // appartamenti dell'id
+            ->take(5) // solo 5 appartamenti
+            ->get();
+
+        return view('home', compact('apartments'));
     }
 
     // Show the inbox
