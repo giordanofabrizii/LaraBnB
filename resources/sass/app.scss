@@ -1,11 +1,11 @@
 // random color functions
 @use "sass:math";
 @function random-color() {
-  $hue: math.random(360); // Valore random per la hue
-  $saturation: math.random(100) + 0%; // Valore random per la saturazione
-  $lightness: math.random(100) + 0%;
+    $hue: math.random(360); // Valore random per la hue
+    $saturation: math.random(100) + 0%; // Valore random per la saturazione
+    $lightness: math.random(100) + 0%;
 
-  @return hsl($hue, $saturation, $lightness);
+    @return hsl($hue, $saturation, $lightness);
 }
 
 // Fonts
@@ -19,4 +19,6 @@
 
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
+
+
 

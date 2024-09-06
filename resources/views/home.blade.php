@@ -18,7 +18,7 @@
                 <p>{{ Auth::user()->email }}</p>
             </div>
         </div>
-        <section id="buttons" class="col-12 my-4 d-flex flex-column d-md-block flex-wrap">
+        <section id="buttons" class="col-12 col-sm-4 col-md-6 my-4 d-flex flex-column d-md-block flex-wrap">
             <a href="{{ Route('apartments.create') }}" class="col-12 p-3 rounded-3 me-2">
                 <span>New Apartment</span>
             </a>
