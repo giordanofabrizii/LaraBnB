@@ -47,7 +47,7 @@
                     <label class="m-2" for="n_bed">How many beds?</label>
                     <input type="number" name="n_bed" id="n_bed" value="{{ old('n_bed', $apartment->n_bed) }}">
 
-                    <label class="m-2" for="n_bath">How many beds?</label>
+                    <label class="m-2" for="n_bath">How many bathrooms?</label>
                     <input type="number" name="n_bath" id="n_bath" value="{{ old('n_bath', $apartment->n_bath) }}">
                 </div>
                 <button type="submit" class="btn btn-primary mt-3">Edit apartment</button>

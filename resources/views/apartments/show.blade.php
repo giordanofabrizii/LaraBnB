@@ -24,7 +24,7 @@
                                         <strong>
                                             {{ $service->name }}
                                         </strong>
-                                        {{-- <i class="fa-solid fa-circle-check"></i> --}}
+                                        <i class="fa-solid fa-circle-check"></i>
                                     </span>
                             @endforeach
                         </ul>
@@ -39,21 +39,21 @@
                 <div class="details">
                     <h1 class="apartment-name mb-3">{{ $apartment->name }}</h1>
                     <p class="apartment-description mb-2">{{ $apartment->description }}</p>
-                    <p class="apartment-surface mb-2"><strong>Superficie:</strong> {{ $apartment->surface }} m²</p>
-                    <p class="apartment-rooms mb-2"><strong>Stanze:</strong> {{ $apartment->n_room }}</p>
-                    <p class="apartment-beds mb-2"><strong>Letti:</strong> {{ $apartment->n_bed }}</p>
-                    <p class="apartment-bathrooms mb-2"><strong>Bagni:</strong> {{ $apartment->n_bath }}</p>
-                    <p class="apartment-address mb-2"><strong>Indirizzo:</strong> {{ $apartment->address }}</p>
-                    <p class="apartment-price mb-2"><strong>Prezzo:</strong> €{{ $apartment->price }}</p>
-                    <p class="apartment-lat-lng mb-2"><strong>Latitudine:</strong> {{ $apartment->latitude }},
-                        <strong>Longitudine:</strong> {{ $apartment->longitude }}
+                    <p class="apartment-surface mb-2"><strong>Surface:</strong> {{ $apartment->surface }} m²</p>
+                    <p class="apartment-rooms mb-2"><strong>Rooms:</strong> {{ $apartment->n_room }}</p>
+                    <p class="apartment-beds mb-2"><strong>Beds:</strong> {{ $apartment->n_bed }}</p>
+                    <p class="apartment-bathrooms mb-2"><strong>Bathrooms:</strong> {{ $apartment->n_bath }}</p>
+                    <p class="apartment-address mb-2"><strong>Address:</strong> {{ $apartment->address }}</p>
+                    <p class="apartment-price mb-2"><strong>Price:</strong> €{{ $apartment->price }}</p>
+                    <p class="apartment-lat-lng mb-2"><strong>Latitude:</strong> {{ $apartment->latitude }},
+                        <strong>Longitude:</strong> {{ $apartment->longitude }}
                     </p>
-                    <p class="apartment-created mb-2"><strong>Creato il giorno:</strong> {{ $apartment->created_at }}</p>
-                    <p class="apartment-updated mb-4"><strong>Ultimo aggiornamento:</strong> {{ $apartment->updated_at }}</p>
+                    <p class="apartment-created mb-2"><strong>Created in date:</strong> {{ $apartment->created_at }}</p>
+                    <p class="apartment-updated mb-4"><strong>Last update:</strong> {{ $apartment->updated_at }}</p>
 
                     <!-- Pulsante Modifica -->
                     <div class="text-center">
-                        <a href="{{ route('apartments.edit', $apartment->id) }}" class="btn custom-btn text-decoration-none">Modifica</a>
+                        <a href="{{ route('apartments.edit', $apartment->id) }}" class="btn custom-btn text-decoration-none">Edit</a>
                     </div>
                 </div>
             </div>

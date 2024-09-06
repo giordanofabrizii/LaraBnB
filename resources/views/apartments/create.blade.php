@@ -13,7 +13,7 @@
 
 
                 <div class="form-group p-2">
-                    <label class="mb-2" for="name">Apartment name:</label>
+                    <label class="mb-2" for="name">Apartment's name:</label>
                     <input type="text" class="form-control" name="name" id="name" placeholder="Type a name for the apartment">
                     @error('name')
                         <div class="alert alert-danger">Type a valid name</div>
@@ -54,7 +54,7 @@
                     <label class="m-2" for="n_bed">How many beds?</label>
                     <input type="number" name="n_bed" id="n_bed">
 
-                    <label class="m-2" for="n_bath">How many baths?</label>
+                    <label class="m-2" for="n_bath">How many bathrooms?</label>
                     <input type="number" name="n_bath" id="n_bath">
                 </div>
                 <div class="form-group p-2">
