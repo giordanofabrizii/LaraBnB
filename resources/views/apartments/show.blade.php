@@ -11,7 +11,7 @@
             <div class="col-lg-8 col-md-8 col-sm-12 mb-4">
                 <!-- IMG section -->
                 <div class="apartment-img mb-4">
-                    <img src="" alt="{{ $apartment->name }}" class="img-fluid apartment-image rounded shadow">
+                    <img src="{{ asset('storage/' . $apartment->image) }}" alt="{{ $apartment->name }}" class="img-fluid apartment-image rounded shadow">
                 </div>
 
                 <!-- Services section -->

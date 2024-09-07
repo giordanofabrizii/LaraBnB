@@ -8,6 +8,7 @@ use App\Models\Service;
 use App\Http\Requests\StoreApartmentRequest as StoreApartmentRequest;
 use App\Http\Requests\UpdateApartmentRequest as UpdateApartmentRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class ApartmentController extends Controller
 {
@@ -86,6 +87,17 @@ class ApartmentController extends Controller
      */
     public function update (UpdateApartmentRequest $request, Apartment $apartment) {
         $data = $request->validated();
+        if ($request->hasFile('image')) { // if the user want to replace the image
+            if ($apartment->image) {
+                Storage::disk('public')->delete($apartment->image); // delete the hold image
+            }
+
+            // save the image on the storage
+            $img_path = $request->file('image')->store('uploads', 'public');
+
+            // Aupdate the path in the $data
+            $data['image'] = $img_path;
+        }
 
         $apartment->update($data);
         return redirect()->Route('apartments.show',$apartment);
@@ -98,7 +110,7 @@ class ApartmentController extends Controller
      * @return void
      */
 
-  
+
     public function destroy (Apartment $apartment) {
 
         $apartment->delete();
