@@ -98,10 +98,16 @@ class ApartmentController extends Controller
      * @return void
      */
 
-  
+
     public function destroy (Apartment $apartment) {
 
         $apartment->delete();
         return redirect()->Route('apartments.index');
+    }
+
+    public function statistics() {
+
+        $apartments = Apartment::where('user_id', Auth::user()->id)->get(); // appartamenti dell'id
+        return view('apartments.statistics', $apartments);
     }
 }
