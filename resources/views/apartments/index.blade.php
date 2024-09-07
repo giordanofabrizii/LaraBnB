@@ -8,8 +8,13 @@
 @section('content')
 
 <div class="container" id="index">
+    <div class="row d-flex flex-row-reverse">
+        <div class="col-2">
+            <a class="btn btn-success" href="{{route('apartments.create')}}">Register an apartment</a>
+        </div>
+    </div>
 
-    <div class="col-12">
+    <div class="row">
         <table class="table table-hover">
             <thead>
                 <tr>
@@ -17,7 +22,7 @@
                     <th scope="col" class="text-center">Visibilità</th>
                     <th scope="col" class="text-center">Camere da letto</th>
                     <th scope="col" class="text-center">Letti</th>
-                    <th scope="col" class="text-center">bagni</th>
+                    <th scope="col" class="text-center">Bagni</th>
                     <th scope="col"></th>
                 </tr>
             </thead>
