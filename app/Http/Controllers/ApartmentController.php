@@ -56,7 +56,10 @@ class ApartmentController extends Controller
         $data = $request->validated();
         // take the user logged id
         $data['user_id'] = Auth::user()->id;
-        $data['image'] = "ciao";
+        // store the image
+        $img_path = $request->file('image')->store('uploads', 'public');
+        $data['image'] = $img_path; // Aupdate the path in the $data
+        
         $data['latitude'] = 43.4891;
         $data['longitude'] = 43.4891;
 

@@ -26,12 +26,14 @@
                 @foreach ($apartments as $apartment)
                     @if (Auth::user()->id == $apartment['user_id'])
                         <tr>
-                            <td class="d-flex">
-                                <img class="mx-3" src="https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png" alt="">
-                                <div>
-                                    <strong>{{ $apartment->name}}</strong>
-                                    <p>{{ $apartment->address}}</p>
-                                </div>
+                            <td>
+                                <a class="d-flex apartment-info" href="{{ route('apartments.show',$apartment) }}">
+                                    <img class="mx-3" src="{{ asset('storage/' . $apartment->image) }}" alt="apartment image">
+                                    <div>
+                                        <strong>{{ $apartment->name}}</strong>
+                                        <p>{{ $apartment->address}}</p>
+                                    </div>
+                                </a>
                             </td>
                                 @if ( $apartment->visible == 1)
                                     <td class="text-center align-middle"><div class="green circle mx-auto"></div>

@@ -33,7 +33,7 @@
             <h2>Quick link</h2>
             @foreach ($apartments as $apartment)
                 <a href="{{ Route('apartments.show',$apartment) }}" class="my-3 p-2 rounded-3 d-flex align-items-center">
-                    <img class="rounded-3 me-3" src="{{$apartment->image}}" alt="apartment image">
+                    <img class="mx-3" src="{{ asset('storage/' . $apartment->image) }}" alt="apartment image">
                     <span>{{$apartment->name}} - {{$apartment->address}}</span>
                 </a>
             @endforeach
