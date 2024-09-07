@@ -27,7 +27,7 @@ class ApartmentSeeder extends Seeder
                 'latitude' => 41.895465,
                 'longitude' => 12.466701,
                 'price' => 120,
-                'visible' => 1
+                'visible' => 0
             ],
             [
                 'user_id' => 2,
@@ -42,7 +42,7 @@ class ApartmentSeeder extends Seeder
                 'latitude' => 41.893683,
                 'longitude' => 12.489873,
                 'price' => 180,
-                'visible' => 1
+                'visible' => 0
             ],
             [
                 'user_id' => 3,
@@ -57,7 +57,7 @@ class ApartmentSeeder extends Seeder
                 'latitude' => 41.879544,
                 'longitude' => 12.509348,
                 'price' => 90,
-                'visible' => 1
+                'visible' => 0
             ],
             [
                 'user_id' => 4,
@@ -72,7 +72,7 @@ class ApartmentSeeder extends Seeder
                 'latitude' => 41.876095,
                 'longitude' => 12.474295,
                 'price' => 110,
-                'visible' => 1
+                'visible' => 0
             ],
             [
                 'user_id' => 1,

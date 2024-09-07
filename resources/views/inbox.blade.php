@@ -5,7 +5,12 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-12">
-            <h1>Your messages</h1>
+            <h1>
+                Your messages
+                @if (count($notseen) > 0)
+                    <span class="fs-4 new-messages bg-success px-2 rounded-circle">{{(count($notseen))}}</span>
+                @endif
+            </h1>
         </div>
         <div class="col-12">
             <div class="accordion" id="inbox">
