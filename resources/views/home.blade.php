@@ -23,7 +23,7 @@
                 <span>New Apartment</span>
             </a>
             <a href="{{ Route('apartments.index') }}" class="col-12 p-3 rounded-3 me-2 mt-2">
-                <span>Your Apartment</span>
+                <span>Your Apartments</span>
             </a>
         </section>
         <section id="apartments" class="pt-3">
