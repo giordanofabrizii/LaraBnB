@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Message;
 use App\Models\Apartment;
 use Illuminate\Support\Facades\Auth;
+
 
 class HomeController extends Controller
 {
@@ -30,5 +32,14 @@ class HomeController extends Controller
             ->get();
 
         return view('home', compact('apartments'));
+    }
+
+    // Show the inbox
+    public function inbox()
+    {
+        $messages = Message::all();
+        $notseen = Message::where('seen_date', null)
+            ->get();
+        return view('inbox', compact('messages', 'notseen'));
     }
 }
