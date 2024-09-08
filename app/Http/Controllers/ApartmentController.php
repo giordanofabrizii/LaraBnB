@@ -31,7 +31,7 @@ class ApartmentController extends Controller
      */
     public function show (Apartment $apartment) {
 
-        $apartment->load('services');
+        $apartment->load([ 'services','sponsorships' ]);
 
         return view('apartments.show', compact('apartment'));
     }

@@ -17,6 +17,50 @@
         }
     }
 
+
+
+        .sponsorship {
+            font-size: 1rem;
+            padding: 5px 10px;
+            margin-right: 5px;
+            color: white;
+            border-radius: 15px;
+            display: inline-block;
+            text-transform: uppercase;
+            font-weight: bold;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: .7rem;
+            &:hover {
+                transform: scale(1.05); // Effetto hover per migliorare l'interazione
+                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+            }
+        }
+
+        // Badge Silver
+        .badge-silver {
+            background-color: #C0C0C0;
+            border: solid 1px #A9A9A9;
+            color: #333; // Testo scuro per contrastare con il colore chiaro
+        }
+
+        // Badge Gold
+        .badge-gold {
+            background-color: #FFD700;
+            border: solid 1px #DAA520;
+            color: #333; // Testo scuro per migliorare la leggibilità
+        }
+
+        // Badge Platinum
+        .badge-platinum {
+            background-color: #A5C9CA;
+            border: solid 1px #66B2B2;
+            color: #333; // Testo scuro per contrastare con il colore brillante
+        }
+
+
+
+
+
     .services {
         h3 {
             font-size: 1.5rem;
