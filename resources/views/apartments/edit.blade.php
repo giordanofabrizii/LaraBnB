@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('custom-scss')
-    @vite(['resources/js/apartment-validation.js', 'resources/sass/form.scss']);
+    @vite(['resources/js/apartment-validation.js', 'resources/sass/form.scss'])
 @endsection
 
 @section('content')
@@ -12,7 +12,7 @@
                 <h1>Edit apartment</h1>
             </div>
             <div class="col-12">
-                <form id="form" action="{{ route('apartments.update', $apartment) }}" method="POST" enctype="multipart/form-data">
+                <form name="form" id="form" action="{{ route('apartments.update', $apartment) }}" method="POST" enctype="multipart/form-data">
                     @method('PUT')
                     @csrf
 
@@ -42,7 +42,7 @@
                     </div>
                     <div class="form-group p-2">
                         <label for="surface">Surface (in m2):</label>
-                        <input type="number" class="form-control" name="surface" id="description" placeholder="How many m2" value="{{ old('surface', $apartment->surface) }}">
+                        <input type="number" class="form-control" name="surface" id="surface" placeholder="How many m2" value="{{ old('surface', $apartment->surface) }}">
                         @error('surface')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
