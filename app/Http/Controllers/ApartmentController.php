@@ -8,6 +8,7 @@ use App\Models\Service;
 use App\Http\Requests\StoreApartmentRequest as StoreApartmentRequest;
 use App\Http\Requests\UpdateApartmentRequest as UpdateApartmentRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Carbon;
 
 class ApartmentController extends Controller
 {
@@ -109,5 +110,27 @@ class ApartmentController extends Controller
 
         $apartments = Apartment::where('user_id', Auth::user()->id)->get(); // appartamenti dell'id
         return view('apartments.statistics', $apartments);
+    }
+
+
+    //funzione per prendere le visualizzazioni dgli appartamenti per mese
+    public function getViewsData()
+    {
+        $data = [];
+
+        for ($i = 5; $i >= 0; $i--) {
+            $month = Carbon::now()->subMonths($i)->format('Y-m');
+            $viewsCount = \DB::table('visualizations')
+                            ->whereYear('date', Carbon::now()->subMonths($i)->year)
+                            ->whereMonth('date', Carbon::now()->subMonths($i)->month)
+                            ->count();
+
+            $data[] = [
+                'month' => $month,
+                'count' => $viewsCount
+            ];
+        }
+
+        return response()->json($data);
     }
 }

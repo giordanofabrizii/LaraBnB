@@ -1,8 +1,9 @@
 @extends('layouts.app')
 
 @section('custom-scss')
-    @vite(['resources/sass/statistics.scss'])
+    @vite(['resources/sass/statistics.scss', 'resources/js/stats.js'])
 @endsection
+
 
 @section('content')
 
@@ -12,6 +13,10 @@
             <h1>
                 My Apartment Statistics
             </h1>
+        </div>
+
+        <div class="col-6">
+            <div style="width: 800px;"><canvas id="statsChart"></canvas></div>
         </div>
     </div>
 </div>
