@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('custom-scss')
-    @vite(['resources/js/apartment-validation.js', 'resources/sass/form.scss'])
+    @vite(['resources/js/apartment-validation.js', 'resources/sass/form.scss', 'resources/js/tomtom.js'])
 @endsection
 
 @section('content')
@@ -14,7 +14,6 @@
         <div class="col-10">
             <form action="{{ route('apartments.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
-
 
                 <div class="form-group p-2">
                     <label class="mb-2" for="name">Apartment's name:</label>
@@ -33,12 +32,18 @@
                     <div class="error"></div>
                 </div>
                 <div class="form-group p-2">
-                    <label class="mb-2" for="address">Address:</label>
-                    <input type="text" class="form-control" name="address" id="address" placeholder="Type the address" value="{{ old('address') }}">
-                    @error('address')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-                    <div class="error"></div>
+                    <div class="form-group p-2">
+                        <label for="address">Address:</label>
+
+                        <input type="hidden" class="form-control" name="address" id="address" placeholder="Add a address" >
+                        <div id="map" style="width:70%; height: 290px;" class="m-auto"></div>
+                        <input type="hidden" id="latitude" name="latitude">
+                        <input type="hidden" id="longitude" name="longitude">
+
+                        @error('description')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                        <div class="error"></div>
                 </div>
                 <div class="form-group p-2">
                     <label class="mb-2" for="surface">Surface (in m2):</label>

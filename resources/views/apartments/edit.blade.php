@@ -1,9 +1,7 @@
 @extends('layouts.app')
-@vite(['resources/js/tomtom.js'])
-
 
 @section('custom-scss')
-    @vite(['resources/js/apartment-validation.js', 'resources/sass/form.scss'])
+    @vite(['resources/js/apartment-validation.js', 'resources/sass/form.scss', 'resources/js/tomtom.js'])
 @endsection
 
 @section('content')
