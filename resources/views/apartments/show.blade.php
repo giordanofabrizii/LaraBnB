@@ -8,14 +8,14 @@
     <div class="container apartment-show" id="show">
         <div class="row">
             <!-- Left Column: Image and Services -->
-            <div class="col-lg-8 col-md-8 col-sm-12 mb-4">
+            <div class="col-lg-8 col-md-8 col-sm-12 mb-4 order-lg-2 order-md-2 order-sm-2">
                 <!-- IMG section -->
                 <div class="apartment-img mb-4">
                     <img src="{{ asset('storage/' . $apartment->image) }}" alt="{{ $apartment->name }}" class="img-fluid apartment-image rounded shadow">
                 </div>
 
                 <!-- Services section -->
-                <div class="services">
+                <div class="apartment-services">
                     <h3 class="mb-3">Offered services</h3>
                     @if ($apartment->services->isNotEmpty())
                         <ul class="list-unstyled">
@@ -35,7 +35,7 @@
             </div>
 
             <!-- Right column: Infos and edit button -->
-            <div class="col-lg-4 col-md-4 col-sm-12">
+            <div class="col-lg-4 col-md-4 col-sm-12 order-lg-2 order-md-2 order-sm-1 ">
                 <div class="details">
                     <h1 class="apartment-name mb-3">{{ $apartment->name }}</h1>
                     <p class="apartment-description mb-2">{{ $apartment->description }}</p>
@@ -67,11 +67,11 @@
                 <p class="apartment-created mb-2"><strong>Created in date:</strong> {{ $apartment->created_at }}</p>
                 <p class="apartment-updated mb-4"><strong>Last update:</strong> {{ $apartment->updated_at }}</p>
 
-                <!-- Edit button -->
-                <div class="text-center">
-                    <a href="{{ route('apartments.edit', $apartment->id) }}"
-                        class="btn custom-btn text-decoration-none">Edit</a>
-                </div>
+            </div>
+            <!-- Edit button -->
+            <div class="text-center order-lg-3 order-sm-3">
+                <a href="{{ route('apartments.edit', $apartment->id) }}"
+                    class="btn custom-btn text-decoration-none">Edit</a>
             </div>
         </div>
     </div>
