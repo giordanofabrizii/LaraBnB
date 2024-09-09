@@ -84,6 +84,68 @@
         transition: font-size 0.5s ease;
     }
 
+
+    .custom-btn {
+        border-radius: 50px;
+        padding: 5px 20px;
+        font-size: 1.2rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &.warning{
+            background-color: #f8fc02;
+            color: #973000;
+            border: solid 2px #b69307;
+
+            &:hover{
+                background-color: #ffcc00;
+                border: solid 2px #b69307;
+            }
+
+            &:focus{
+                box-shadow: 0 0 0 3px rgba(255, 204, 0, 0.5);
+            }
+        }
+
+        &.danger{
+            background-color: #fc6602;
+            color: #973000;
+            border: solid 2px #b62a07;
+
+            &:hover{
+                background-color: #ff5100;
+                border: solid 2px #a70000;
+            }
+
+            &:focus{
+                box-shadow: 0 0 0 3px rgba(255, 51, 0, 0.5);
+            }
+        }
+
+        &:hover {
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+            transform: translateY(-2px);
+            color: #000000;
+            text-decoration: none;
+        }
+
+        &:focus {
+            outline: none;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+    }
+
+    #app.dark{
+        .apartment-name{
+            color: #A9A9A9;
+        }
+    }
+
     /* Media Queries */
     @media (max-width: 1290px) {
         .apartment-name {
@@ -156,42 +218,5 @@
         .apartment-description {
             font-size: 0.9rem;
         }
-    }
-
-    .custom-btn {
-        background-color: #f8fc02;
-        color: #973000;
-        border-radius: 50px;
-        padding: 5px 20px;
-        font-size: 1.2rem;
-        border: solid 2px #b69307;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        cursor: pointer;
-        transition: all 0.3s ease;
-
-        &:hover {
-            background-color: #ffcc00;
-            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
-            transform: translateY(-2px);
-            color: #000000;
-            text-decoration: none;
-            border: solid 2px #b69307;
-        }
-
-        &:focus {
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(255, 204, 0, 0.5);
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-    }
-}
-
-#app.dark{
-    .apartment-name{
-        color: #A9A9A9;
     }
 }

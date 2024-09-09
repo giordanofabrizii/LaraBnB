@@ -70,8 +70,13 @@
             </div>
             <!-- Edit button -->
             <div class="text-center order-lg-3 order-sm-3">
-                <a href="{{ route('apartments.edit', $apartment->id) }}"
-                    class="btn custom-btn text-decoration-none">Edit</a>
+                <a href="{{ route('apartments.edit', $apartment->id) }}" class="btn custom-btn warning text-decoration-none">Edit</a>
+                <form action="{{ route('apartments.destroy', $apartment) }}" method="POST">
+                    @method('DELETE')
+                    @csrf
+
+                    <button class="btn custom-btn danger text-decoration-none" type="submit">Delete</button>
+                </form>
             </div>
 
 
