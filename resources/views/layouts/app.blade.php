@@ -13,12 +13,17 @@
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
+
     <!-- TomTomAPI -->
     <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.17.0/maps/maps-web.min.js"></script>
     <link rel="stylesheet" href="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.17.0/maps/maps.css">
     <link rel="stylesheet" href="https://api.tomtom.com/maps-sdk-for-web/cdn/plugins/SearchBox/3.1.12/SearchBox.css">
 
     <!-- Scripts -->
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> {{--  ChartJS --}}
+
     @vite(['resources/sass/app.scss', 'resources/js/app.js', ])
 
     <!-- Custom CSS -->
@@ -41,7 +46,7 @@
                             <a href="{{Route('home')}}">Home</a>
                             <a href="{{Route('apartments.index')}}">My Apartments</a>
                             <a href="{{Route('inbox')}}">Inbox</a>
-                            <a href="{{Route('home')}}">Stats</a>
+                            <a href="{{Route('statistics')}}">Stats</a>
                         </li>
                     </ul>
 
