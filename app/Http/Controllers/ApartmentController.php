@@ -8,7 +8,9 @@ use App\Models\Service;
 use App\Http\Requests\StoreApartmentRequest as StoreApartmentRequest;
 use App\Http\Requests\UpdateApartmentRequest as UpdateApartmentRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Storage;
+
 
 class ApartmentController extends Controller
 {
@@ -119,4 +121,42 @@ class ApartmentController extends Controller
         $apartment->delete();
         return redirect()->Route('apartments.index');
     }
+
+    public function statistics() {
+
+        $apartments = Apartment::where('user_id', Auth::user()->id)->get(); // appartamenti dell'id
+        return view('apartments.statistics', compact('apartments'));
+    }
+
+
+    //function to get views per month for every apartment
+    public function getViewsData()
+    {
+        $data = [];
+
+        $apartments = Apartment::with(['visualizations' => function($query) {
+            // get last 6 months views
+            $query->where('date', '>=', Carbon::now()->subMonths(6)->startOfMonth());
+        }])->get();
+
+        foreach ($apartments as $apartment) {
+            $viewsByMonth = $apartment->visualizations
+                ->groupBy(function($date) {
+                    return Carbon::parse($date->date)->format('m-Y');
+                })
+                ->map(function($group) {
+                    // get number of views by month
+                    return $group->count();
+                });
+
+            $data[] = [
+                'apartment_id' => $apartment->id,
+                'apartment_name' => $apartment->name,
+                'views_by_month' => $viewsByMonth
+            ];
+        }
+
+        return response()->json($data);
+    }
+
 }

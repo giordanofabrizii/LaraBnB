@@ -21,9 +21,11 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/inbox', [App\Http\Controllers\HomeController::class, 'inbox'])->name('inbox');
+
 
 // Definizione rotte per l'entita' apartment con middlewere auth per richiesta log in
 Route::middleware('auth')->group(function () {
+    Route::get('/apartments/statistics', [ApartmentController::class, 'statistics'])->name('statistics');
     Route::resource("apartments",ApartmentController::class);
+    Route::get('/inbox', [App\Http\Controllers\HomeController::class, 'inbox'])->name('inbox');
 });
