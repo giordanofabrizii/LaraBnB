@@ -17,13 +17,48 @@
         }
     }
 
+    .sponsorship {
+        font-size: 1rem;
+        padding: 5px 10px;
+        margin-right: 5px;
+        color: white;
+        border-radius: 15px;
+        display: inline-block;
+        text-transform: uppercase;
+        font-weight: bold;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        margin-bottom: .7rem;
+
+        &:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+        }
+    }
+
+    .badge-silver {
+        background-color: #C0C0C0;
+        border: solid 1px #A9A9A9;
+        color: #333;
+    }
+
+    .badge-gold {
+        background-color: #FFD700;
+        border: solid 1px #DAA520;
+        color: #333;
+    }
+
+    .badge-platinum {
+        background-color: #A5C9CA;
+        border: solid 1px #66B2B2;
+        color: #333;
+    }
+
     .services {
         h3 {
             font-size: 1.5rem;
             color: #2c3e50;
             margin-bottom: 1rem;
         }
-
 
         ul {
             padding-left: 0;
@@ -34,8 +69,6 @@
             align-items: center;
         }
     }
-
-
 
     .apartment-name {
         font-size: 2.5vw;
@@ -64,6 +97,10 @@
         .apartment-price {
             font-size: 1.2rem;
         }
+
+        .apartment-services{
+            margin-top: 7rem;
+        }
     }
 
     @media (max-width: 1024px) {
@@ -79,6 +116,10 @@
         .apartment-price {
             font-size: 1.3rem;
         }
+
+        .apartment-services{
+            margin-top: 9rem;
+        }
     }
 
     @media (max-width: 768px) {
@@ -93,6 +134,10 @@
         .apartment-description,
         .apartment-price {
             font-size: 1rem;
+        }
+
+        .apartment-services{
+            margin-top: 10rem;
         }
     }
 
@@ -116,18 +161,30 @@
         background-color: #f8fc02;
         color: #973000;
         border-radius: 50px;
-        padding: 10px 20px;
+        padding: 5px 20px;
         font-size: 1.2rem;
-        transition: background-color 0.3s ease, font-size 0.3s ease;
+        border: solid 2px #b69307;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        transition: all 0.3s ease;
 
         &:hover {
-            background-color: #f2f70080;
+            background-color: #ffcc00;
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+            transform: translateY(-2px);
+            color: #000000;
             text-decoration: none;
-            color: #973000;
+            border: solid 2px #b69307;
+        }
+
+        &:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255, 204, 0, 0.5);
         }
 
         a {
             color: inherit;
+            text-decoration: none;
         }
     }
 }

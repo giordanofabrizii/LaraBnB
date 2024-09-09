@@ -9,6 +9,8 @@ use App\Http\Requests\StoreApartmentRequest as StoreApartmentRequest;
 use App\Http\Requests\UpdateApartmentRequest as UpdateApartmentRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Storage;
+
 
 class ApartmentController extends Controller
 {
@@ -31,7 +33,7 @@ class ApartmentController extends Controller
      */
     public function show (Apartment $apartment) {
 
-        $apartment->load('services');
+        $apartment->load([ 'services','sponsorships' ]);
 
         return view('apartments.show', compact('apartment'));
     }
@@ -56,7 +58,10 @@ class ApartmentController extends Controller
         $data = $request->validated();
         // take the user logged id
         $data['user_id'] = Auth::user()->id;
-        $data['image'] = "ciao";
+        // store the image
+        $img_path = $request->file('image')->store('uploads', 'public');
+        $data['image'] = $img_path; // Aupdate the path in the $data
+        
         $data['latitude'] = 43.4891;
         $data['longitude'] = 43.4891;
 
@@ -87,6 +92,17 @@ class ApartmentController extends Controller
      */
     public function update (UpdateApartmentRequest $request, Apartment $apartment) {
         $data = $request->validated();
+        if ($request->hasFile('image')) { // if the user want to replace the image
+            if ($apartment->image) {
+                Storage::disk('public')->delete($apartment->image); // delete the hold image
+            }
+
+            // save the image on the storage
+            $img_path = $request->file('image')->store('uploads', 'public');
+
+            // Aupdate the path in the $data
+            $data['image'] = $img_path;
+        }
 
         $apartment->update($data);
         return redirect()->Route('apartments.show',$apartment);

@@ -8,7 +8,7 @@
                 <h1>Edit apartment</h1>
             </div>
             <div class="col-12">
-                <form action="{{ Route('apartments.update', $apartment) }}" method="POST">
+                <form action="{{ route('apartments.update', $apartment) }}" method="POST" enctype="multipart/form-data">
                     @method('PUT')
                     @csrf
 
@@ -27,6 +27,13 @@
                         @enderror
                     </div>
                     <div class="form-group p-2">
+                        <label for="address">Description:</label>
+                        <input type="text" class="form-control" name="address" id="address" placeholder="Add a address" value="{{ old('address', $apartment->address) }}">
+                        @error('description')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="form-group p-2">
                         <label for="surface">Surface (in m2):</label>
                         <input type="number" class="form-control" name="surface" id="description" placeholder="How many m2" value="{{ old('surface', $apartment->surface) }}">
                         @error('surface')
@@ -34,8 +41,9 @@
                         @enderror
                     </div>
                     <div class="form-group p-2">
-                        <label for="image">Image Url</label>
-                        <input type="text" class="form-control" name="image" id="image" placeholder="Enter a valid url" value="{{ old('image', $apartment->image) }}">
+                        <label for="image">Want to edit the image?</label>
+                        <img src="{{ asset('storage/' . $apartment->image) }}" alt="apartment old image">
+                        <input type="file" class="form-control" name="image" id="image" placeholder="Upload an image">
                         @error('image')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror

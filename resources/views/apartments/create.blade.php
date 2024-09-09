@@ -8,7 +8,7 @@
         </div>
 
         <div class="col-10">
-            <form action="{{ route('apartments.store') }}" method="POST">
+            <form action="{{ route('apartments.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
 
 
@@ -41,8 +41,8 @@
                     @enderror
                 </div>
                 <div class="form-group p-2">
-                    <label class="mb-2" for="image">Image Url</label>
-                    <input type="text" class="form-control" name="image" id="image" placeholder="Enter a valid url" value="{{ old('image') }}">
+                    <label for="image">Want to edit the image?</label>
+                    <input type="file" class="form-control" name="image" id="image" placeholder="Upload an image">
                     @error('image')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
