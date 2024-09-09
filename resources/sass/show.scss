@@ -8,6 +8,7 @@
         max-height: 400px;
         max-width: 100%;
         transition: height 0.5s ease, width 0.5s ease;
+        border-radius: 7px;
 
         img {
             width: 100%;
@@ -186,5 +187,11 @@
             color: inherit;
             text-decoration: none;
         }
+    }
+}
+
+#app.dark{
+    .apartment-name{
+        color: #A9A9A9;
     }
 }

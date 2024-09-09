@@ -1,4 +1,6 @@
 @extends('layouts.app')
+@vite(['resources/js/tomtom.js'])
+
 
 @section('custom-scss')
     @vite(['resources/js/apartment-validation.js', 'resources/sass/form.scss'])
@@ -34,7 +36,14 @@
                     </div>
                     <div class="form-group p-2">
                         <label for="address">Address:</label>
+
+                        <input type="hidden" class="form-control" name="address" id="address" placeholder="Add a address" >
+                        <div id="map" style="width:70%; height: 290px;" class="m-auto"></div>
+                        <input type="hidden" id="latitude" name="latitude">
+                        <input type="hidden" id="longitude" name="longitude">
+
                         <input type="text" class="form-control" name="address" id="address" placeholder="Add a address" value="{{ old('address', $apartment->address) }}">
+
                         @error('description')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
@@ -50,7 +59,7 @@
                     </div>
                     <div class="form-group p-2">
                         <label for="image">Want to edit the image?</label>
-                        <img src="{{ asset('storage/' . $apartment->image) }}" alt="apartment old image">
+                        <img src="{{ asset('storage/' . $apartment->image) }}" class="m-4" alt="apartment old image">
                         <input type="file" class="form-control" name="image" id="image" placeholder="Upload an image">
                         @error('image')
                             <div class="alert alert-danger">{{ $message }}</div>
