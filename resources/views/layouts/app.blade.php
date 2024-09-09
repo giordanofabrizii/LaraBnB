@@ -37,7 +37,7 @@
                             <a href="{{Route('home')}}">Home</a>
                             <a href="{{Route('apartments.index')}}">My Apartments</a>
                             <a href="{{Route('inbox')}}">Inbox</a>
-                            <a href="{{Route('home')}}">Stats</a>
+                            <a href="{{Route('statistics')}}">Stats</a>
                         </li>
                     </ul>
 
