@@ -161,18 +161,30 @@
         background-color: #f8fc02;
         color: #973000;
         border-radius: 50px;
-        padding: 10px 20px;
+        padding: 5px 20px;
         font-size: 1.2rem;
-        transition: background-color 0.3s ease, font-size 0.3s ease;
+        border: solid 2px #b69307;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        transition: all 0.3s ease;
 
         &:hover {
-            background-color: #f2f70080;
+            background-color: #ffcc00;
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+            transform: translateY(-2px);
+            color: #000000;
             text-decoration: none;
-            color: #973000;
+            border: solid 2px #b69307;
+        }
+
+        &:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255, 204, 0, 0.5);
         }
 
         a {
             color: inherit;
+            text-decoration: none;
         }
     }
 }
