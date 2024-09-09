@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('custom-scss')
+    @vite(['resources/js/apartment-validation.js', 'resources/sass/form.scss'])
+@endsection
+
 @section('content')
 <div class="container" id="edit-form">
     <div class="row">
@@ -8,7 +12,7 @@
                 <h1>Edit apartment</h1>
             </div>
             <div class="col-12">
-                <form action="{{ route('apartments.update', $apartment) }}" method="POST" enctype="multipart/form-data">
+                <form name="form" id="form" action="{{ route('apartments.update', $apartment) }}" method="POST" enctype="multipart/form-data">
                     @method('PUT')
                     @csrf
 
@@ -18,6 +22,7 @@
                         @error('name')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
+                        <div class="error"></div>
                     </div>
                     <div class="form-group p-2">
                         <label for="description">Description:</label>
@@ -25,20 +30,23 @@
                         @error('description')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
+                        <div class="error"></div>
                     </div>
                     <div class="form-group p-2">
-                        <label for="address">Description:</label>
+                        <label for="address">Address:</label>
                         <input type="text" class="form-control" name="address" id="address" placeholder="Add a address" value="{{ old('address', $apartment->address) }}">
                         @error('description')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
+                        <div class="error"></div>
                     </div>
                     <div class="form-group p-2">
                         <label for="surface">Surface (in m2):</label>
-                        <input type="number" class="form-control" name="surface" id="description" placeholder="How many m2" value="{{ old('surface', $apartment->surface) }}">
+                        <input type="number" class="form-control" name="surface" id="surface" placeholder="How many m2" value="{{ old('surface', $apartment->surface) }}">
                         @error('surface')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
+                        <div class="error"></div>
                     </div>
                     <div class="form-group p-2">
                         <label for="image">Want to edit the image?</label>
@@ -47,6 +55,7 @@
                         @error('image')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
+                        <div class="error"></div>
                     </div>
                     <div class="form-group p-2">
                         <label class="m-2" for="n_room">How many rooms?</label>
@@ -54,18 +63,21 @@
                         @error('n_room')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
+                        <div class="error"></div>
 
                         <label class="m-2" for="n_bed">How many beds?</label>
                         <input type="number" name="n_bed" id="n_bed" value="{{ old('n_bed', $apartment->n_bed) }}">
                         @error('n_bed')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
+                        <div class="error"></div>
 
                         <label class="m-2" for="n_bath">How many bathrooms?</label>
                         <input type="number" name="n_bath" id="n_bath" value="{{ old('n_bath', $apartment->n_bath) }}">
                         @error('n_bath')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
+                        <div class="error"></div>
                     </div>
                     <div class="form-group p-2">
                         <label class="m-2" for="price">Price per night:</label>
@@ -73,8 +85,9 @@
                         @error('price')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
+                        <div class="error"></div>
                     </div>
-                    <button type="submit" class="btn btn-primary mt-3">Edit apartment</button>
+                    <button id="submit" type="submit" class="btn btn-primary mt-3">Edit apartment</button>
                 </form>
             </div>
         @else

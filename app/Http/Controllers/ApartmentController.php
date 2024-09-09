@@ -61,7 +61,7 @@ class ApartmentController extends Controller
         // store the image
         $img_path = $request->file('image')->store('uploads', 'public');
         $data['image'] = $img_path; // Aupdate the path in the $data
-        
+
         $data['latitude'] = 43.4891;
         $data['longitude'] = 43.4891;
 
