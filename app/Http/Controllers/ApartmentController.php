@@ -34,6 +34,7 @@ class ApartmentController extends Controller
         $apartment->load([ 'services','sponsorships' ]);
 
         return view('apartments.show', compact('apartment'));
+
     }
 
     /**
@@ -59,7 +60,7 @@ class ApartmentController extends Controller
         // store the image
         $img_path = $request->file('image')->store('uploads', 'public');
         $data['image'] = $img_path; // Aupdate the path in the $data
-        
+
         $data['latitude'] = 43.4891;
         $data['longitude'] = 43.4891;
 
@@ -102,6 +103,10 @@ class ApartmentController extends Controller
             $data['image'] = $img_path;
         }
 
+        if ($request->filled('address')) {
+            $data['address'] = $request->input('address');
+        }
+
         $apartment->update($data);
         return redirect()->Route('apartments.show',$apartment);
     }
@@ -118,5 +123,6 @@ class ApartmentController extends Controller
 
         $apartment->delete();
         return redirect()->Route('apartments.index');
+
     }
 }

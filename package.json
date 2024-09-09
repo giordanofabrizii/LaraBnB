@@ -13,6 +13,8 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
-        "@fortawesome/fontawesome-free": "^6.6.0"
+        "@fortawesome/fontawesome-free": "^6.6.0",
+        "@tomtom-international/web-sdk-maps": "^6.25.0",
+        "@tomtom-international/web-sdk-plugin-searchbox": "^3.2.0"
     }
 }

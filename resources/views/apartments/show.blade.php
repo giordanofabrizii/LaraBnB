@@ -73,6 +73,9 @@
                 <a href="{{ route('apartments.edit', $apartment->id) }}"
                     class="btn custom-btn text-decoration-none">Edit</a>
             </div>
+
+
+
         </div>
     </div>
     </div>
