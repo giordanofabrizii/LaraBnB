@@ -109,28 +109,38 @@ class ApartmentController extends Controller
     public function statistics() {
 
         $apartments = Apartment::where('user_id', Auth::user()->id)->get(); // appartamenti dell'id
-        return view('apartments.statistics', $apartments);
+        return view('apartments.statistics', compact('apartments'));
     }
 
 
-    //funzione per prendere le visualizzazioni dgli appartamenti per mese
+    //function to get views per month for every apartment
     public function getViewsData()
     {
         $data = [];
 
-        for ($i = 5; $i >= 0; $i--) {
-            $month = Carbon::now()->subMonths($i)->format('Y-m');
-            $viewsCount = \DB::table('visualizations')
-                            ->whereYear('date', Carbon::now()->subMonths($i)->year)
-                            ->whereMonth('date', Carbon::now()->subMonths($i)->month)
-                            ->count();
+        $apartments = Apartment::with(['visualizations' => function($query) {
+            // get last 6 months views
+            $query->where('date', '>=', Carbon::now()->subMonths(6)->startOfMonth());
+        }])->get();
+
+        foreach ($apartments as $apartment) {
+            $viewsByMonth = $apartment->visualizations
+                ->groupBy(function($date) {
+                    return Carbon::parse($date->date)->format('m-Y');
+                })
+                ->map(function($group) {
+                    // get number of views by month
+                    return $group->count();
+                });
 
             $data[] = [
-                'month' => $month,
-                'count' => $viewsCount
+                'apartment_id' => $apartment->id,
+                'apartment_name' => $apartment->name,
+                'views_by_month' => $viewsByMonth
             ];
         }
 
         return response()->json($data);
     }
+
 }

@@ -3,29 +3,35 @@ import Chart from 'chart.js/auto';
 document.addEventListener('DOMContentLoaded', async function() {
     try {
         const response = await fetch('/api/statistics');
-        const contentType = response.headers.get("content-type");
+        const data = await response.json();
+        const graphEl = document.getElementsByClassName('graph');
 
-        if (contentType && contentType.includes("application/json")) {
-            const data = await response.json();
-            // Elabora i dati JSON
-            const labels = data.map(row => row.month);
-            const counts = data.map(row => row.count);
+        data.forEach(apartment => {
+            // console.log(apartment);
+            for (let i = 0; i < graphEl.length; i++) {
+                let el = graphEl[i];
 
-            new Chart(document.getElementById('statsChart'), {
-                type: 'bar',
-                data: {
-                    labels: labels,
-                    datasets: [{
-                        label: 'Views per month',
-                        data: counts
-                    }]
+                if (el['id'] == apartment['apartment_id']) {
+                    const canvas = document.createElement('canvas');
+                    el.appendChild(canvas);
+
+                    new Chart(canvas, {
+                        type: 'bar',
+                        data: {
+                            labels: Object.keys(apartment.views_by_month),
+                            datasets: [{
+                                label: `Views for ${apartment.apartment_name}`,
+                                data: Object.values(apartment.views_by_month)
+                            }]
+                        }
+                    });
                 }
-            });
-        } else {
-            console.error("La risposta non è in formato JSON:", await response.text());
-        }
+            }
+        })
     } catch (error) {
         console.error('Errore durante il recupero dei dati:', error);
     }
 });
+
+
 

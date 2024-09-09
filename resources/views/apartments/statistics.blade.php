@@ -14,11 +14,18 @@
                 My Apartment Statistics
             </h1>
         </div>
-
-        <div class="col-6">
-            <div style="width: 800px;"><canvas id="statsChart"></canvas></div>
+    </div>
+    @foreach ($apartments as $apartment)
+    <div class="row d-flex justify-content-center">
+        <div class="col-8">
+            <h2>{{$apartment->name}}</h2>
+            <div class="graph" id="{{$apartment->id}}"></div>
         </div>
     </div>
+    @endforeach
 </div>
 
 @endsection
+
+
+
