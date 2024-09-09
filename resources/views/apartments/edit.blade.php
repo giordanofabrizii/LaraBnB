@@ -86,6 +86,16 @@
                         @enderror
                         <div class="error"></div>
                     </div>
+                    <div class="form-group">
+                        <label for="service_id">Services</label>
+                        <div class="customChechBoxHolder">
+                            @foreach ($services as $service)
+                                <input type="checkbox" class="btn-check" value="{{ $service->id }}" name="services[]" id="service-check-{{ $service->id }}" autocomplete="off"
+                                {{ in_array($service->id, old('services', $apartment->services->pluck('id')->toArray())) ? "checked" : ""}}>
+                                <label class="btn btn-outline-primary" for="service-check-{{$service->id}}">{{ $service->name }}</label>
+                            @endforeach
+                        </div>
+                    </div>
                     <div class="form-group p-2">
                         <label class="m-2" for="price">Price per night:</label>
                         <input type="price" name="price" id="price" value="{{ old('price', $apartment->price) }}">

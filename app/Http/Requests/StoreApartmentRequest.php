@@ -30,6 +30,7 @@ class StoreApartmentRequest extends FormRequest
             'n_room' => 'required',
             'n_bed' => 'required',
             'n_bath' => 'required',
+            'services' => ['required','array','exists:services,id'],
             'price' => 'required',
         ];
     }
@@ -45,6 +46,7 @@ class StoreApartmentRequest extends FormRequest
             'n_room.required' => 'Insert a number',
             'n_bed.required' => 'Insert a number',
             'n_bath.required' => 'Insert a number',
+            'service_id.required' => 'Inserire un tipo',
             'price.required' => 'Insert the price per night',
         ];
     }

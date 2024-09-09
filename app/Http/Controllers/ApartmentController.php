@@ -73,7 +73,7 @@ class ApartmentController extends Controller
 
         $apartment = new Apartment($data);
         $apartment->save();
-
+        $apartment->services()->sync($data['services']);
         return redirect()->Route('apartments.show',$apartment);
     }
 
@@ -122,6 +122,7 @@ class ApartmentController extends Controller
         }
 
         $apartment->update($data);
+        $apartment->services()->sync($data['services']);
         return redirect()->Route('apartments.show',$apartment);
     }
 
