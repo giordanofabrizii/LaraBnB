@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('custom-scss')
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/sass/apartments/show.scss'])
 @endsection
 
 @section('content')

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('custom-scss')
-    @vite(['resources/js/apartment-validation.js', 'resources/sass/form.scss', 'resources/js/tomtom.js'])
+    @vite(['resources/js/apartment-validation.js', 'resources/sass/apartments/form.scss', 'resources/js/tomtom.js'])
 @endsection
 
 @section('content')
@@ -15,7 +15,7 @@
                 @csrf
 
                 <div class="form-group p-2">
-                    <label class="mb-2" for="name">Il nome del tuo appartamento::</label>
+                    <label class="mb-2" for="name">Il nome del tuo appartamento:</label>
                     <input type="text" class="form-control" name="name" id="name" placeholder="Scrivi il nome del tuo appartamento" value="{{ old('name') }}">
                     <div class="error"></div>
                     @error('name')

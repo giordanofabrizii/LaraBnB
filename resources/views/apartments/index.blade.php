@@ -1,16 +1,16 @@
 @extends('layouts.app')
 
 @section('custom-scss')
-    @vite(['resources/sass/index.scss'])
+    @vite(['resources/sass/apartments/index.scss'])
 @endsection
 
 
 @section('content')
 <div class="container" id="index">
-    <div class="row d-flex flex-row-reverse">
-        <div class="col-3">
+    <div class="row">
+        <div class="col-12 d-flex flex-row-reverse">
+            <a class="btn btn-success ms-2" href="{{route('apartments.create')}}">Aggiungi un nuovo appartamento</a>
             <a class="btn btn-warning" href="{{route('apartments.trashed')}}">Cestino</a>
-            <a class="btn btn-success" href="{{route('apartments.create')}}">Aggiungi un nuovo appartamento</a>
         </div>
     </div>
 

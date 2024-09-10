@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', async function() {
         const graphEl = document.getElementsByClassName('graph');
 
         data.forEach(apartment => {
-            // console.log(apartment);
             for (let i = 0; i < graphEl.length; i++) {
                 let el = graphEl[i];
 
@@ -33,5 +32,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     }
 });
 
+// document.querySelector('.graphs').classList.remove('off');
+// document.querySelector('.loader').classList.remove('on');
 
 
