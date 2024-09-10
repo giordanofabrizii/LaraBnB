@@ -9,8 +9,8 @@
 <div class="container" id="index">
     <div class="row d-flex flex-row-reverse">
         <div class="col-3">
-            <a class="btn btn-warning" href="{{route('apartments.trashed')}}">Bin</a>
-            <a class="btn btn-success" href="{{route('apartments.create')}}">Register an apartment</a>
+            <a class="btn btn-warning" href="{{route('apartments.trashed')}}">Cestino</a>
+            <a class="btn btn-success" href="{{route('apartments.create')}}">Aggiungi un nuovo appartamento</a>
         </div>
     </div>
 

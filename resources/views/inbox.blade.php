@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
         <div class="col-12">
             <h1>
-                Your messages
+                I tuoi messaggi
                 @if (count($notseen) > 0)
                     <span class="fs-4 new-messages bg-success px-2 rounded-circle">{{(count($notseen))}}</span>
                 @endif
@@ -29,10 +29,10 @@
                         <div class="accordion-body">
                             <div class="card">
                                 <div class="card-body">
-                                    <h5 class="card-title">From: {{ $message->sender_name}}</h5>
+                                    <h5 class="card-title">Mittente: {{ $message->sender_name}}</h5>
                                     <h6 class="card-subtitle mb-2 text-body-secondary">{{ $message->sender_email}}</h6>
                                     <p class="card-text">{{ $message->text}}</p>
-                                    <p class="card-text"><em>Sended at: {{ $message->date}}</em></p>
+                                    <p class="card-text"><em>Ricevuto: {{ $message->date}}</em></p>
                                 </div>
                             </div>
                         </div>

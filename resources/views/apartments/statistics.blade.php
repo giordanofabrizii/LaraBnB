@@ -11,7 +11,7 @@
     <div class="row">
         <div class="col-12">
             <h1>
-                My Apartment Statistics
+                Le statistiche dei miei appartamenti
             </h1>
         </div>
     </div>
