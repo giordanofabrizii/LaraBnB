@@ -40,8 +40,6 @@
                         <input type="hidden" id="latitude" name="latitude">
                         <input type="hidden" id="longitude" name="longitude">
 
-                        <input type="text" class="form-control" name="address" id="address" placeholder="Add a address" value="{{ old('address', $apartment->address) }}">
-
                         @error('description')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
