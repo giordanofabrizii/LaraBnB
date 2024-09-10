@@ -45,7 +45,7 @@
                                             L'indirizzo corrente è: {{ old('address', $apartment->address) }}
                                         </button>
                                     </h2>
-                                    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                                    <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                                         <div class="accordion-body">
                                             <p><strong>Modifica l'indirizzo:</strong></p>
                                             <input type="hidden" class="form-control" name="address" id="address"
@@ -71,9 +71,9 @@
                             @enderror
                             <div class="error"></div>
                         </div>
-                        <div class="form-group p-2">
+                        <div class="form-group p-2 m-auto d-flex flex-column">
                             <label for="image">Want to edit the image?</label>
-                            <img src="{{ asset('storage/' . $apartment->image) }}" class="m-4" alt="apartment old image">
+                            <img src="{{ asset('storage/' . $apartment->image) }}" class="m-4"   alt="apartment old image" >
                             <input type="file" class="form-control" name="image" id="image"
                                 placeholder="Upload an image">
                             @error('image')
