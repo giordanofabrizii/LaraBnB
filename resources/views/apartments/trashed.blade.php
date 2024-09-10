@@ -46,16 +46,15 @@
                                 <td class="text-center align-middle">{{ $apartment->n_bath}}</td>
                                 <td class="text-center align-middle">
                                     <div class="d-flex justify-content-center align-items-center">
-                                        <form action="{{route('apartments.restore',$apartment)}}" method="POST">
+                                        <form action="{{route('apartments.restore',$apartment)}}" class="form-restore" method="POST" data-apartment-name="{{$apartment->name}}">
                                             @method('PATCH')
                                             @csrf
 
                                             <button class="ms-2 btn btn-warning" type="submit">Restore</button>
                                         </form>
-                                        <form action="{{route('apartments.forceDestroy', $apartment)}}" method="POST">
-                                            @method('DELETE')
+                                        <form action="{{route('apartments.forceDestroy', $apartment)}}" class="form-delete" method="POST" data-apartment-name="{{$apartment->name}}">
+                                            @method("delete")
                                             @csrf
-
                                             <button class="ms-2 btn btn-danger" type="submit">Destroy</button>
                                         </form>
                                     </div>
@@ -75,5 +74,6 @@
 @endsection
 
 @section('scripts')
-    @vite('resources/js/delete-confirmation.js')
+    @vite('resources/js/perma-delete-confirmation.js')
+    @vite('resources/js/restore-confirmation.js')
 @endsection
