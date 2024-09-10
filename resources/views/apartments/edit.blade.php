@@ -33,17 +33,32 @@
                         @enderror
                     </div>
                     <div class="form-group p-2">
-                        <label for="address">Address:</label>
-
-                        <input type="hidden" class="form-control to-control" name="address" id="address" placeholder="Add a address" >
-                        <div id="map" style="width:70%; height: 290px;" class="m-auto"></div>
-                        <input type="hidden" class="to-control" id="latitude" name="latitude">
-                        <input type="hidden" class="to-control" id="longitude" name="longitude">
-                        <div class="error"></div>
-
-                        @error('description')
-                            <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
+                      <div class="form-group p-2 mb-1 mt-1">
+                            <div class="accordion" id="accordionExample">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                            L'indirizzo corrente è: {{ old('address', $apartment->address) }}
+                                        </button>
+                                    </h2>
+                                    <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <p><strong>Modifica l'indirizzo:</strong></p>
+                                            <input type="hidden" class="form-control" name="address" id="address"
+                                                placeholder="Add a address" value="{{ old('address', $apartment->address) }}">
+                                            <div id="map" style="width:70%; height: 290px;" class="m-auto"></div>
+                                            <input type="hidden" id="latitude" name="latitude" value="{{ old('latitude', $apartment->latitude) }}">
+                                            <input type="hidden" id="longitude" name="longitude" value="{{ old('longitude', $apartment->longitude) }}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @error('address')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                            <div class="error"></div>
+                        </div>
                     </div>
                     <div class="form-group p-2">
                         <label for="surface">Surface (in m2):</label>
@@ -108,6 +123,7 @@
         @else
             {{@abort(404)}} {{-- if it's not your apartment --}}
         @endif
+
+        </div>
     </div>
-</div>
 @endsection

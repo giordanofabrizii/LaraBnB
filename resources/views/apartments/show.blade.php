@@ -73,16 +73,21 @@
                 <!-- Edit button -->
                 <div class="text-center order-lg-3 order-sm-3">
                     <a href="{{ route('apartments.edit', $apartment->id) }}" class="btn custom-btn warning text-decoration-none">Edit</a>
-                    <form action="{{ route('apartments.destroy', $apartment) }}" method="POST">
-                        @method('DELETE')
+                    <form action="{{route('apartments.destroy', $apartment)}}" class="form-delete" method="POST" data-apartment-name="{{$apartment->name}}">
+                        @method("delete")
                         @csrf
-
                         <button class="btn custom-btn danger text-decoration-none" type="submit">Delete</button>
                     </form>
+
                 </div>
             </div>
         </div>
     @else
         {{@abort(404)}} {{-- if it's not your apartment --}}
     @endif
+@endsection
+
+
+@section('scripts')
+    @vite('resources/js/delete-confirmation.js')
 @endsection
