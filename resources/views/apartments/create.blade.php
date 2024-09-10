@@ -8,7 +8,7 @@
 <div class="container" id="create">
     <div class="row">
         <div class="col-12 p-3">
-            <h1>Add a new apartment</h1>
+            <h1>Aggiungi un nuovo appartamento</h1>
         </div>
 
         <div class="col-10">
@@ -16,16 +16,16 @@
                 @csrf
 
                 <div class="form-group p-2">
-                    <label class="mb-2" for="name">Apartment's name:</label>
-                    <input type="text" class="form-control" name="name" id="name" placeholder="Type a name for the apartment" value="{{ old('name') }}">
+                    <label class="mb-2" for="name">Il nome del tuo appartamento:</label>
+                    <input type="text" class="form-control" name="name" id="name" placeholder="Assegna un nome al tuo appartamento" value="{{ old('name') }}">
                     @error('name')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                     <div class="error"></div>
                 </div>
                 <div class="form-group p-2">
-                    <label class="mb-2" for="description">Description:</label>
-                    <input type="text" class="form-control" name="description" id="description" placeholder="Add a description" value="{{ old('description') }}">
+                    <label class="mb-2" for="description">Descrizione:</label>
+                    <input type="text" class="form-control" name="description" id="description" placeholder="Aggiungi una descrizione" value="{{ old('description') }}">
                     @error('description')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
@@ -33,9 +33,9 @@
                 </div>
                 <div class="form-group p-2">
                     <div class="form-group p-2">
-                        <label for="address">Address:</label>
+                        <label for="address">Indirizzo:</label>
 
-                        <input type="hidden" class="form-control" name="address" id="address" placeholder="Add a address" >
+                        <input type="hidden" class="form-control" name="address" id="address" placeholder="Aggiungi l'indirizzo" >
                         <div id="map" style="width:70%; height: 290px;" class="m-auto"></div>
                         <input type="hidden" id="latitude" name="latitude">
                         <input type="hidden" id="longitude" name="longitude">
@@ -46,37 +46,37 @@
                         <div class="error"></div>
                 </div>
                 <div class="form-group p-2">
-                    <label class="mb-2" for="surface">Surface (in m2):</label>
-                    <input type="number" class="form-control" name="surface" id="surface" placeholder="How many m2" value="{{ old('surface') }}">
+                    <label class="mb-2" for="surface">Superficie (m²):</label>
+                    <input type="number" class="form-control" name="surface" id="surface" placeholder="Quanti metri quadri?" value="{{ old('surface') }}">
                     @error('surface')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                     <div class="error"></div>
                 </div>
                 <div class="form-group p-2">
-                    <label for="image">Want to edit the image?</label>
-                    <input type="file" class="form-control" name="image" id="image" placeholder="Upload an image">
+                    <label for="image">Aggiungi una foto del tuo appartamento</label>
+                    <input type="file" class="form-control" name="image" id="image" placeholder="Carica un'immagine">
                     @error('image')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                     <div class="error"></div>
                 </div>
                 <div class="form-group p-2">
-                    <label class="m-2" for="n_room">How many rooms?</label>
+                    <label class="m-2" for="n_room">Quante stanze?</label>
                     <input type="number" name="n_room" id="n_room" value="{{ old('n_room') }}">
                     @error('n_room')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                     <div class="error"></div>
 
-                    <label class="m-2" for="n_bed">How many beds?</label>
+                    <label class="m-2" for="n_bed">Quanti letti?</label>
                     <input type="number" name="n_bed" id="n_bed" value="{{ old('n_bed') }}">
                     @error('n_bed')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                     <div class="error"></div>
 
-                    <label class="m-2" for="n_bath">How many bathrooms?</label>
+                    <label class="m-2" for="n_bath">Quanti bagni?</label>
                     <input type="number" name="n_bath" id="n_bath" value="{{ old('n_bath') }}">
                     @error('n_bath')
                         <div class="alert alert-danger">{{ $message }}</div>
@@ -84,7 +84,7 @@
                     <div class="error"></div>
                 </div>
                 <div class="form-group">
-                    <label for="service_id">Services</label>
+                    <label for="service_id">Servizi</label>
                     <div class="customChechBoxHolder">
                         @foreach ($services as $service)
                             <input type="checkbox" class="btn-check" value="{{ $service->id }}" name="services[]" id="service-check-{{ $service->id }}" autocomplete="off">
@@ -93,14 +93,14 @@
                     </div>
                 </div>
                 <div class="form-group p-2">
-                    <label class="m-2" for="price">Price per night:</label>
+                    <label class="m-2" for="price">Prezzo per notte:</label>
                     <input type="price" name="price" id="price" value="{{ old('price') }}">
                     @error('price')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                     <div class="error"></div>
                 </div>
-                <button type="submit" class="btn btn-primary mt-3">Publish apartment</button>
+                <button type="submit" class="btn btn-primary mt-3">Pubblica l'appartamento</button>
             </form>
         </div>
     </div>
