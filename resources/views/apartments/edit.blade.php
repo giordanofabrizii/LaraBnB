@@ -33,7 +33,7 @@
                         @enderror
                     </div>
                     <div class="form-group p-2">
-                      <div class="form-group p-2 mb-1 mt-1">
+                        <div class="form-group p-2 mb-1 mt-1">
                             <div class="accordion" id="accordionExample">
                                 <div class="accordion-item">
                                     <h2 class="accordion-header">
@@ -54,10 +54,10 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="error"></div>
                             @error('address')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
-                            <div class="error"></div>
                         </div>
                     </div>
                     <div class="form-group p-2">

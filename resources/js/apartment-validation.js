@@ -1,7 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
     const myForm = document.getElementById('formEl');
-    // Inizializza una variabile per tenere traccia se ci sono errori
-    let result = true;
 
     // ! NAME string length > 2
     const nameEl = document.getElementById('name');
@@ -10,14 +8,11 @@ document.addEventListener('DOMContentLoaded', function () {
         const nameLength = nameEl.value;
         console.log("input")
         if (nameLength.trim().length < 3) {
-            nameErrorEl.style.display = 'block';
-            nameErrorEl.innerHTML = "Inserisci un nome di almeno 3 lettere";
-            result = false;
-            console.log(result)
+            nameErrorEl.classList.add('on');
+            nameErrorEl.innerText = "Inserisci un nome di almeno 3 lettere";
         } else {
-            result = true;
-            console.log(result)
-            nameErrorEl.style.display = 'none';
+            nameErrorEl.classList.remove('on');
+            nameErrorEl.innerText = "";
         }
     })
 
@@ -26,14 +21,12 @@ document.addEventListener('DOMContentLoaded', function () {
     const descriptionErrorEl = document.querySelector('#description + .error');
     descriptionEl.addEventListener('input', function() {
         const descriptionLength = descriptionEl.value.length;
-
         if (descriptionLength < 10) {
-            descriptionErrorEl.style.display = 'block';
-            descriptionErrorEl.innerHTML = "Inserisci un nome di almeno 9 lettere";
-            result = false;
+            descriptionErrorEl.classList.add('on');
+            descriptionErrorEl.innerText = "Inserisci un nome di almeno 9 lettere";
         } else {
-            result = true;
-            descriptionErrorEl.style.display = 'none';
+            descriptionErrorEl.classList.remove('on');
+            descriptionErrorEl.innerText = "";
         }
     })
 
@@ -42,14 +35,12 @@ document.addEventListener('DOMContentLoaded', function () {
     const addressErrorEl = document.querySelector('[name="address"] + .error');
     addressEl.addEventListener('input', function() {
         const addressLength = addressEl.value.length;
-
         if (addressLength < 1) {
-            addressErrorEl.style.display = 'block';
-            addressErrorEl.innerHTML = "Inserisci un indirizzo";
-            result = false;
+            addressErrorEl.classList.add('on');
+            addressErrorEl.innerText = "Inserisci un indirizzo";
         } else {
-            result = true;
-            addressErrorEl.style.display = 'none';
+            addressErrorEl.classList.remove('on');
+            addressErrorEl.innerText = "";
         }
     })
 
@@ -59,14 +50,12 @@ document.addEventListener('DOMContentLoaded', function () {
     surfaceEl.addEventListener('input', function() {
         console.log('surface')
         const surfaceText = surfaceEl.value;
-
         if (surfaceText.length < 0 || isNaN(Number(surfaceText)) || Number(surfaceText) <= 0) {
-            surfaceErrorEl.style.display = 'block';
-            surfaceErrorEl.innerHTML = "Inserisci un numero positivo";
-            result = false;
+            surfaceErrorEl.classList.add('on');
+            surfaceErrorEl.innerText = "Inserisci un numero positivo";
         } else {
-            result = true;
-            surfaceErrorEl.style.display = 'none';
+            surfaceErrorEl.classList.remove('on');
+            surfaceErrorEl.innerText = "";
         }
     })
 
@@ -75,14 +64,12 @@ document.addEventListener('DOMContentLoaded', function () {
     const n_roomErrorEl = document.querySelector('[name="n_room"] + .error');
     n_roomEl.addEventListener('input', function() {
         const roomText = n_roomEl.value;
-
         if (roomText.length < 0 ||isNaN(Number(roomText)) || Number(roomText) <= 0) {
-            n_roomErrorEl.style.display = 'block';
-            n_roomErrorEl.innerHTML = "Inserisci un numero positivo";
-            result = false;
+            n_roomErrorEl.classList.add('on');
+            n_roomErrorEl.innerText = "Inserisci un numero positivo";
         } else {
-            result = true;
-            n_roomErrorEl.style.display = 'none';
+            n_roomErrorEl.classList.remove('on');
+            n_roomErrorEl.innerText = "";
         }
     })
 
@@ -91,14 +78,12 @@ document.addEventListener('DOMContentLoaded', function () {
     const n_bedErrorEl = document.querySelector('[name="n_bed"] + .error');
     n_bedEl.addEventListener('input', function() {
         const bedText = n_bedEl.value;
-
         if (bedText.length < 0 ||isNaN(Number(bedText)) || Number(bedText) <= 0) {
-            n_bedErrorEl.style.display = 'block';
-            n_bedErrorEl.innerHTML = "Inserisci un numero positivo";
-            result = false;
+            n_bedErrorEl.classList.add('on');
+            n_bedErrorEl.innerText = "Inserisci un numero positivo";
         } else {
-            n_bedErrorEl.style.display = 'none';
-            result = true;
+            n_bedErrorEl.classList.remove('on');
+            n_bedErrorEl.innerText = "";
         }
     })
 
@@ -107,14 +92,12 @@ document.addEventListener('DOMContentLoaded', function () {
     const n_bathErrorEl = document.querySelector('[name="n_bath"] + .error');
     n_bathEl.addEventListener('input', function() {
     const bathText = n_bathEl.value;
-
         if (bathText.length < 0 ||isNaN(Number(bathText)) || Number(bathText) <= 0) {
-            n_bathErrorEl.style.display = 'block';
-            n_bathErrorEl.innerHTML = "Inserisci un numero positivo";
-            result = false;
+            n_bathErrorEl.classList.add('on');
+            n_bathErrorEl.innerText = "Inserisci un numero positivo";
         } else {
-            n_bathErrorEl.style.display = 'none';
-            result = true;
+            n_bathErrorEl.classList.remove('on');
+            n_bathErrorEl.innerText = "";
         }
     })
 
@@ -123,19 +106,22 @@ document.addEventListener('DOMContentLoaded', function () {
     const priceErrorEl = document.querySelector('[name="price"] + .error');
     priceEl.addEventListener('input', function() {
         const priceText = priceEl.value;
-
         if (priceText.length < 0 ||isNaN(Number(priceText)) || Number(priceText) <= 0) {
-            priceErrorEl.style.display = 'block';
-            priceErrorEl.innerHTML = "Inserisci un numero positivo";
-            result = false;
+            priceErrorEl.classList.add('on');
+            priceErrorEl.innerText = "Inserisci un numero positivo";
         } else {
-            priceErrorEl.style.display = 'none';
-            result = true;
+            priceErrorEl.classList.remove('on');
+            priceErrorEl.innerText = "";
         }
     })
 
+
     myForm.addEventListener('submit', function (event) {
         event.preventDefault();
+
+        // Inizializza una variabile per tenere traccia se ci sono errori
+        let result = validate();
+        console.log(result);
 
         // Se non ci sono errori, invia il modulo
         if (result === true) {
@@ -143,3 +129,14 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
+function validate() {
+    const inputs = document.querySelectorAll('.error');
+
+    for (let i = 0; i < inputs.length; i++) {
+        if (inputs[i].classList.contains('on')) { // if an input is showed, return false
+            return false;
+        }
+    }
+    return true; // else return true
+}
