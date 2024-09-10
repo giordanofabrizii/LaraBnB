@@ -21,7 +21,6 @@ class ApartmentController extends Controller
      */
     public function index () {
         $apartments = Apartment::all();
-
         return view('apartments.index', compact('apartments'));
     }
 
@@ -32,9 +31,7 @@ class ApartmentController extends Controller
      * @return view
      */
     public function show (Apartment $apartment) {
-
         $apartment->load([ 'services','sponsorships' ]);
-
         return view('apartments.show', compact('apartment'));
     }
 
@@ -45,7 +42,6 @@ class ApartmentController extends Controller
      */
     public function create () {
         $services = Service::all();
-
         return view('apartments.create',compact('services'));
     }
 
@@ -85,7 +81,6 @@ class ApartmentController extends Controller
      */
     public function edit (Apartment $apartment){
         $services = Service::all();
-
         return view('apartments.edit',compact('services', 'apartment'));
     }
 
@@ -127,22 +122,55 @@ class ApartmentController extends Controller
     }
 
     /**
+     * Soft delete an apartment
+     *
+     * @param Apartment $apartment
+     * @return void
+     */
+    public function destroy (Apartment $apartment) {
+        $apartment->delete();
+        return redirect()->Route('apartments.index');
+    }
+
+    /**
      * Permanent delete an apartment
      *
      * @param Apartment $apartment
      * @return void
      */
+    public function forceDestroy ($id) {
+        $apartment = Apartment::onlyTrashed()->where('id', $id)->where('user_id', Auth::id())->firstOrFail();
+        $apartment->forceDelete();
+        return redirect()->route('apartments.index');
+    }
 
+    /**
+     * View all the deleted apartment
+     *
+     * @return view
+     */
+    public function trashed()
+    {
+        $apartments = Apartment::onlyTrashed()
+                ->where('user_id', Auth::user()->id)
+                ->get();
+        return view('apartments.trashed', compact('apartments'));
+    }
 
-    public function destroy (Apartment $apartment) {
-
-        $apartment->delete();
-        return redirect()->Route('apartments.index');
-
+    /**
+     * Restore a deleted apartment
+     *
+     * @param Apartment $apartment
+     * @return void
+     */
+    public function restore($id)
+    {
+        $apartment = Apartment::onlyTrashed()->where('id', $id)->where('user_id', Auth::id())->firstOrFail();
+        $apartment->restore();
+        return redirect()->route('apartments.index')->with('success', 'Apartment restored successfully.');
     }
 
     public function statistics() {
-
         $apartments = Apartment::where('user_id', Auth::user()->id)->get(); // appartamenti dell'id
         return view('apartments.statistics', compact('apartments'));
     }

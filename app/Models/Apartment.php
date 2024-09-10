@@ -9,10 +9,11 @@ use App\Models\Visualization;
 use App\Models\Message;
 use App\Models\Sponsorship;
 use App\Models\Service;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Apartment extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     protected $fillable = [
         'user_id',
@@ -29,6 +30,8 @@ class Apartment extends Model
         'price',
         'visible',
     ];
+
+    protected $dates = ['deleted_at'];
 
     public function user()
     {

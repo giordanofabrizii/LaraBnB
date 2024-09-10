@@ -26,6 +26,7 @@ return new class extends Migration
             $table->decimal('longitude', 10, 6);
             $table->smallInteger('price')->unsigned();
             $table->boolean('visible')->default(1);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

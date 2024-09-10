@@ -6,10 +6,10 @@
 
 
 @section('content')
-
 <div class="container" id="index">
     <div class="row d-flex flex-row-reverse">
-        <div class="col-2">
+        <div class="col-3">
+            <a class="btn btn-warning" href="{{route('apartments.trashed')}}">Bin</a>
             <a class="btn btn-success" href="{{route('apartments.create')}}">Register an apartment</a>
         </div>
     </div>
