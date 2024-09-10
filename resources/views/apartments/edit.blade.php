@@ -106,7 +106,7 @@
                 </form>
             </div>
         @else
-            <h1>You can edit only your apartments</h1>
+            {{@abort(404)}} {{-- if it's not your apartment --}}
         @endif
     </div>
 </div>
