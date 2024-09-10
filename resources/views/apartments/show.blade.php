@@ -17,7 +17,7 @@
 
                     <!-- Services section -->
                     <div class="apartment-services">
-                        <h3 class="mb-3">Offered services</h3>
+                        <h3 class="mb-3">Servizi offerti</h3>
                         @if ($apartment->services->isNotEmpty())
                             <ul class="list-unstyled">
                                 @foreach ($apartment->services as $service)
@@ -54,29 +54,29 @@
                             @endforeach
                     </div>
                     @else
-                        <p>No sponsorship plan active</p>
+                        <p>Nessuna sponsorship in corso</p>
                     @endif
-                    <p class="apartment-price mb-2"><strong>Price:</strong> €{{ $apartment->price }}</p>
-                    <p class="apartment-surface mb-2"><strong>Surface:</strong> {{ $apartment->surface }} m²</p>
-                    <p class="apartment-rooms mb-2"><strong>Rooms:</strong> {{ $apartment->n_room }}</p>
-                    <p class="apartment-beds mb-2"><strong>Beds:</strong> {{ $apartment->n_bed }}</p>
-                    <p class="apartment-bathrooms mb-2"><strong>Bathrooms:</strong> {{ $apartment->n_bath }}</p>
-                    <p class="apartment-address mb-2"><strong>Address:</strong> {{ $apartment->address }}</p>
+                    <p class="apartment-price mb-2"><strong>Prezzo:</strong> €{{ $apartment->price }}</p>
+                    <p class="apartment-surface mb-2"><strong>Superficie:</strong> {{ $apartment->surface }} m²</p>
+                    <p class="apartment-rooms mb-2"><strong>Stanze:</strong> {{ $apartment->n_room }}</p>
+                    <p class="apartment-beds mb-2"><strong>Letti:</strong> {{ $apartment->n_bed }}</p>
+                    <p class="apartment-bathrooms mb-2"><strong>Bagni:</strong> {{ $apartment->n_bath }}</p>
+                    <p class="apartment-address mb-2"><strong>Indirizzo:</strong> {{ $apartment->address }}</p>
                     <p class="apartment-lat-lng mb-2">
-                        <strong>Latitude:</strong> {{ $apartment->latitude }},
-                        <strong>Longitude:</strong> {{ $apartment->longitude }}
+                        <strong>Latitudine:</strong> {{ $apartment->latitude }},
+                        <strong>Longitudine:</strong> {{ $apartment->longitude }}
                     </p>
-                    <p class="apartment-created mb-2"><strong>Created in date:</strong> {{ $apartment->created_at }}</p>
-                    <p class="apartment-updated mb-4"><strong>Last update:</strong> {{ $apartment->updated_at }}</p>
+                    <p class="apartment-created mb-2"><strong>Creato il giorno:</strong> {{ $apartment->created_at }}</p>
+                    <p class="apartment-updated mb-4"><strong>Ultimo aggiornamento:</strong> {{ $apartment->updated_at }}</p>
 
                 </div>
                 <!-- Edit button -->
                 <div class="text-center order-lg-3 order-sm-3">
-                    <a href="{{ route('apartments.edit', $apartment) }}" class="btn custom-btn warning text-decoration-none">Edit</a>
+                    <a href="{{ route('apartments.edit', $apartment) }}" class="btn custom-btn warning text-decoration-none">Modifica</a>
                     <form action="{{route('apartments.destroy', $apartment)}}" class="form-delete" method="POST" data-apartment-name="{{$apartment->name}}">
                         @method("delete")
                         @csrf
-                        <button class="btn custom-btn danger text-decoration-none" type="submit">Delete</button>
+                        <button class="btn custom-btn danger text-decoration-none" type="submit">Elimina</button>
                     </form>
 
                 </div>

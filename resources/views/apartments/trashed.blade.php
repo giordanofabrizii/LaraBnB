@@ -8,7 +8,7 @@
 @section('content')
 <div class="container" id="index">
     <div class="row">
-        <h1 class="col-12">Trashed</h1>
+        <h1 class="col-12">Appartamenti nel cestino</h1>
         @if (count($apartments) > 0)
             <table class="table table-hover">
                 <thead>
@@ -66,7 +66,7 @@
 
             </table>
         @else
-            <p>No deleted apartment</p>
+            <p>Nessun appartamento presente nel cestino</p>
         @endif
     </div>
 </div>
