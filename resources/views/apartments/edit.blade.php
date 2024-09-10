@@ -45,14 +45,14 @@
                                             L'indirizzo corrente è: {{ old('address', $apartment->address) }}
                                         </button>
                                     </h2>
-                                    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                                    <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                                         <div class="accordion-body">
                                             <p><strong>Modifica l'indirizzo:</strong></p>
                                             <input type="hidden" class="form-control" name="address" id="address"
-                                                placeholder="Add a address">
+                                                placeholder="Add a address" value="{{ old('address', $apartment->address) }}">
                                             <div id="map" style="width:70%; height: 290px;" class="m-auto"></div>
-                                            <input type="hidden" id="latitude" name="latitude">
-                                            <input type="hidden" id="longitude" name="longitude">
+                                            <input type="hidden" id="latitude" name="latitude" value="{{ old('latitude', $apartment->latitude) }}">
+                                            <input type="hidden" id="longitude" name="longitude" value="{{ old('longitude', $apartment->longitude) }}">
                                         </div>
                                     </div>
                                 </div>
@@ -71,9 +71,9 @@
                             @enderror
                             <div class="error"></div>
                         </div>
-                        <div class="form-group p-2">
+                        <div class="form-group p-2 align-items-center d-flex flex-column">
                             <label for="image">Want to edit the image?</label>
-                            <img src="{{ asset('storage/' . $apartment->image) }}" class="m-4" alt="apartment old image">
+                            <img src="{{ asset('storage/' . $apartment->image) }}" class="m-4"   alt="apartment old image" >
                             <input type="file" class="form-control" name="image" id="image"
                                 placeholder="Upload an image">
                             @error('image')
@@ -81,7 +81,7 @@
                             @enderror
                             <div class="error"></div>
                         </div>
-                        <div class="form-group p-2">
+                        <div class="form-group p-2 d-flex flex-column align-items-start">
                             <label class="m-2" for="n_room">How many rooms?</label>
                             <input type="number" name="n_room" id="n_room"
                                 value="{{ old('n_room', $apartment->n_room) }}">
@@ -106,9 +106,9 @@
                             @enderror
                             <div class="error"></div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group mt-2">
                             <label for="service_id">Services</label>
-                            <div class="customChechBoxHolder">
+                            <div class="customChechBoxHolder d-flex flex-wrap gap-2 m-2">
                                 @foreach ($services as $service)
                                     <input type="checkbox" class="btn-check" value="{{ $service->id }}"
                                         name="services[]" id="service-check-{{ $service->id }}" autocomplete="off"
@@ -118,7 +118,7 @@
                                 @endforeach
                             </div>
                         </div>
-                        <div class="form-group p-2">
+                        <div class="form-group p-2 mt-2">
                             <label class="m-2" for="price">Price per night:</label>
                             <input type="price" name="price" id="price"
                                 value="{{ old('price', $apartment->price) }}">
