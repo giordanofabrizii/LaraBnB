@@ -54,10 +54,10 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="error"></div>
                             @error('address')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
-                            <div class="error"></div>
                         </div>
                     </div>
                     <div class="form-group p-2">
