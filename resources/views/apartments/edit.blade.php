@@ -48,6 +48,7 @@
                                             <input type="hidden" class="form-control" name="address" id="address"
                                                 placeholder="Add a address" value="{{ old('address', $apartment->address) }}">
                                             <div id="map" style="width:70%; height: 290px;" class="m-auto"></div>
+                                            <div class="error"></div>
                                             <input type="hidden" id="latitude" name="latitude" value="{{ old('latitude', $apartment->latitude) }}">
                                             <input type="hidden" id="longitude" name="longitude" value="{{ old('longitude', $apartment->longitude) }}">
                                         </div>

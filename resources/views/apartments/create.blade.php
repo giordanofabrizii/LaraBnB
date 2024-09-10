@@ -36,9 +36,9 @@
 
                         <input type="hidden" class="form-control" name="address" id="address" placeholder="Aggiungi l'indirizzo" >
                         <div id="map" style="width:70%; height: 290px;" class="m-auto"></div>
+                        <div class="error"></div>
                         <input type="hidden" id="latitude" name="latitude">
                         <input type="hidden" id="longitude" name="longitude">
-                        <div class="error"></div>
 
                         @error('description')
                             <div class="alert alert-danger">{{ $message }}</div>
