@@ -10,6 +10,7 @@ use App\Models\Message;
 use App\Models\Sponsorship;
 use App\Models\Service;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Str;
 
 class Apartment extends Model
 {
@@ -56,5 +57,25 @@ class Apartment extends Model
     public function services()
     {
         return $this->belongsToMany(Service::class);
+    }
+
+    public static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($apartment) {
+            $apartment->slug = Str::random(10);
+        });
+
+        static::updating(function ($apartment) {
+            if (!$apartment->slug) {
+                $apartment->slug = Str::random(10);
+            }
+        });
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
     }
 }
