@@ -41,16 +41,16 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul id="links" class="navbar-nav mx-auto">
-                        <li>
+                        <li title="Home">
                             <a href="{{Route('home')}}" class="{{ (Route::is('home') || (Route::is('welcome'))) ? 'active' : '' }}"><i class="fa-solid fa-qrcode"></i><span class="text">Home</span></a>
                         </li>
-                        <li>
+                        <li title="Appartamenti">
                             <a href="{{Route('apartments.index')}}" class="{{ Route::is('apartments.index') ? 'active' : '' }}"><i class="fa-regular fa-building"></i><span class="text">Appartamenti</span></a>
                         </li>
-                        <li>
+                        <li title="Messaggi">
                             <a href="{{Route('inbox')}}" class="{{ Route::is('inbox') ? 'active' : '' }}"><i class="fa-solid fa-comment"></i><span class="text">Messaggi</span></a>
                         </li>
-                        <li>
+                        <li title="Statistiche">
                             <a href="{{Route('statistics')}}" class="{{ Route::is('statistics') ? 'active' : '' }}"><i class="fa-solid fa-chart-simple"></i><span class="text">Statistiche</span></a>
                         </li>
                     </ul>

@@ -71,7 +71,7 @@
                     </div>
                     <div class="form-group p-2">
                         <label for="image">Vuoi modificare la foto?</label>
-                        <img src="{{ asset('storage/' . $apartment->image) }}" class="m-4" alt="apartment old image">
+                        <img src="{{ asset('storage/' . $apartment->image) }}" class="m-4 apartment" alt="apartment old image">
                         <input type="file" class="form-control to-control" name="image" id="image" placeholder="Upload an image">
                         <div class="error"></div>
                         @error('image')

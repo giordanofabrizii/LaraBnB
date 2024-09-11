@@ -56,8 +56,6 @@
                     <label for="image">Aggiungi una foto del tuo appartamento</label>
                     <input type="file" class="form-control" name="image" id="image" placeholder="Carica un'immagine">
                     <div class="error"></div>
-                    <label for="image">Aggiungi una foto del tuo appartamento</label>
-                    <input type="file" class="form-control" name="image" id="image" placeholder="Carica un'immagine">
                     @error('image')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
