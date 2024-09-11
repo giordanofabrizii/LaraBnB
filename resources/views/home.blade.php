@@ -12,7 +12,7 @@
         <h1>Dashboard</h1>
         <div id="profile" class="p-3 col-12 col-lg-8 col-xl-6 d-flex">
             @if(Auth::user()->image != null)
-                <img src="{{Auth::user()->image}}" alt="profile picture">
+                <img src="{{ asset('storage/uploads/' . Auth::user()->image) }}" alt="profile picture">
             @else
                 <article class="img"><span>{{Auth::user()->name[0]}}{{Auth::user()->lastname[0]}}</span></article>
             @endif

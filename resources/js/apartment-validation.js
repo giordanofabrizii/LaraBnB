@@ -20,7 +20,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 function validate() {
     const inputs = document.querySelectorAll('.error');
-    console.log(inputs)
 
     for (let i = 0; i < inputs.length; i++) {
         if (inputs[i].classList.contains('on')) { // if an input is showed, return false
