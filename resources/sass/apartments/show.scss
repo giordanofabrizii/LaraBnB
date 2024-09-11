@@ -1,5 +1,6 @@
 @import "resources/sass/variables";
 
+
 .apartment-show {
     .apartment-img {
         background-color: rgb(138, 236, 236);
@@ -17,6 +18,13 @@
             object-fit: cover;
         }
     }
+
+    .rgt-column{
+        border: solid 2px $primary-color;
+        border-radius: 10px;
+        box-shadow: 0px 6px 15px 0px rgba(55, 172, 55, 0.46);
+    }
+
 
     .sponsorship {
         font-size: 1rem;
@@ -89,24 +97,55 @@
         border-radius: 50px;
         padding: 5px 20px;
         font-size: 1.2rem;
+        font-weight: 900;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         cursor: pointer;
         transition: all 0.3s ease;
+        color: white;
+        text-transform: uppercase;
+        background-color: #008000;
+        border: solid 2px #006400;
 
-        &.warning{
-            background-color: #f8fc02;
-            color: #973000;
-            border: solid 2px #b69307;
+        &:hover {
+            background-color: #006400;
+            border: solid 2px #004d00;
+        }
 
-            &:hover{
+        &:focus {
+            box-shadow: 0 0 0 3px rgba(0, 128, 0, 0.5);
+        }
+
+        &.warning {
+            background-color: #ffd700;
+            color: #8b4513;
+            border: solid 2px #b8860b;
+
+            &:hover {
                 background-color: #ffcc00;
-                border: solid 2px #b69307;
+                border: solid 2px #b8860b;
             }
 
-            &:focus{
+            &:focus {
                 box-shadow: 0 0 0 3px rgba(255, 204, 0, 0.5);
             }
         }
+
+        &.danger {
+            background-color: #d32f2f;
+            color: white;
+            border: solid 2px #b71c1c;
+
+            &:hover {
+                background-color: #c62828;
+                border: solid 2px #b71c1c;
+            }
+
+            &:focus {
+                box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.5);
+            }
+        }
+
+
 
         &.danger{
             background-color: #fc6602;
