@@ -1,5 +1,10 @@
 @extends('layouts.app')
 
+@section('custom-script')
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script> {{--  ChartJS --}}
+@endsection
+
+
 @section('custom-scss')
     @vite(['resources/sass/statistics.scss', 'resources/js/statistics.js'])
 @endsection

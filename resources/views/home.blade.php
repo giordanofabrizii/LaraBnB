@@ -9,37 +9,47 @@
         @if (Auth::user() == null)
             <h1 class="guest">Registrati o fai il login!</h1>
         @else
-        <h1>Dashboard</h1>
-        <div id="profile" class="p-3 col-12 col-lg-8 col-xl-6 d-flex">
-            @if(Auth::user()->image != null)
-                <img src="{{ asset('storage/uploads/' . Auth::user()->image) }}" alt="profile picture">
-            @else
-                <article class="img"><span>{{Auth::user()->name[0]}}{{Auth::user()->lastname[0]}}</span></article>
-            @endif
-            <div class="info ps-5 d-flex flex-column justify-content-center">
-                <h2>{{Auth::user()->name}} {{Auth::user()->lastname}}</h2>
-                <p>{{ Auth::user()->email }}</p>
+        <h1 class="mb-4">Dashboard</h1>
+        <div class="row mb-3 d-flex justify-content-between">
+            <div id="profile" class="p-3  col-lg-6 col-md-8 col-sm-12 d-flex align-items-center">
+                @if(Auth::user()->image != null)
+                    <img class="ms-3" src="{{ asset('storage/uploads/' . Auth::user()->image) }}" alt="profile picture">
+                @else
+                    <article class="ms-3 img"><span>{{Auth::user()->name[0]}}{{Auth::user()->lastname[0]}}</span></article>
+                @endif
+                <div class="info me-2 ps-5 d-flex flex-column justify-content-center">
+                    <h2>{{Auth::user()->name}} {{Auth::user()->lastname}}</h2>
+                    <p>{{ Auth::user()->email }}</p>
+                </div>
             </div>
-        </div>
-        <section id="buttons" class="col-12 col-sm-4 col-md-6 my-4 d-flex flex-column d-md-block flex-wrap">
-            <a href="{{ Route('apartments.create') }}" class="col-12 p-3 rounded-3 me-2">
-                <span>Aggiungi un nuovo appartamento</span>
-            </a>
-            <a href="{{ Route('apartments.index') }}" class="col-12 p-3 rounded-3 me-2 mt-2">
-
-                <span>I tuoi appartamenti</span>
-
-
-            </a>
-        </section>
-        <section id="apartments" class="pt-3">
-            <h2>Quick links ai tuoi appartamenti</h2>
-            @foreach ($apartments as $apartment)
-                <a href="{{ Route('apartments.show',$apartment) }}" class="my-3 p-2 rounded-3 d-flex align-items-center">
-                    <img class="mx-3" src="{{ asset('storage/' . $apartment->image) }}" alt="apartment image">
-                    <span>{{$apartment->name}} - {{$apartment->address}}</span>
+            <section id="buttons" class="col-lg-4 col-md-8 col-12 my-5 me-3 d-flex flex-column flex-wrap">
+                <a href="{{ Route('apartments.create') }}" class="p-3 m-2 text-center rounded-3">
+                    Aggiungi un nuovo appartamento
                 </a>
-            @endforeach
+                <a href="{{ Route('apartments.index') }}" class="p-3 m-2 mt-2 text-center rounded-3">
+                    I tuoi appartamenti
+                </a>
+            </section>
+        </div>
+
+        <section id="apartments" class="mt-5">
+            <h2 class="mb-3">Link rapidi</h2>
+            <div class="row d-flex justify-content-center">
+                @foreach ($apartments as $apartment)
+                <div class="card col-lg-3 col-md-4 col-12 p-0 m-3">
+                    <div class="card-top">
+                        <a href="{{ Route('apartments.show',$apartment) }}">
+                            <img src="{{ asset('storage/' . $apartment->image) }}" class="card-img-top" alt="...">
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{$apartment->name}}</h5>
+                        <p class="card-text">{{$apartment->address}}</p>
+                        {{-- <a href="{{ Route('apartments.show',$apartment) }}" class="btn">Vedi appartamento</a> --}}
+                    </div>
+                </div>
+                @endforeach
+            </div>
         </section>
         @endif
     </div>
