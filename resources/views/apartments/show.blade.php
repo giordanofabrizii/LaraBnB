@@ -9,14 +9,14 @@
         <div class="container apartment-show" id="show">
             <div class="row">
                 <!-- Left Column: Image and Services -->
-                <div class="col-lg-8 col-md-8 col-sm-12 mb-4 order-lg-2 order-md-2 order-sm-2">
+                <div class="col-lg-8 col-md-8 col-sm-12 mb-4 order-lg-1 order-md-1 order-sm-1">
                     <!-- IMG section -->
                     <div class="apartment-img mb-4">
                         <img src="{{ asset('storage/' . $apartment->image) }}" alt="{{ $apartment->name }}" class="img-fluid apartment-image rounded shadow">
                     </div>
 
                     <!-- Services section -->
-                    <div class="apartment-services">
+                    <div class="apartment-services mt-3">
                         <h3 class="mb-3">Servizi offerti</h3>
                         @if ($apartment->services->isNotEmpty())
                             <ul class="list-unstyled">
@@ -36,7 +36,7 @@
                 </div>
 
                 <!-- Right column: Infos and edit button -->
-                <div class="col-lg-4 col-md-4 col-sm-12 order-lg-2 order-md-2 order-sm-1 ">
+                <div class="col-lg-4 col-md-4 col-sm-12 order-lg-2 order-md-2 order-sm-2 ">
                     <div class="details">
                         <h1 class="apartment-name mb-3">{{ $apartment->name }}</h1>
                         <p class="apartment-description mb-2">{{ $apartment->description }}</p>
@@ -54,7 +54,7 @@
                             @endforeach
                     </div>
                     @else
-                        <p>Nessuna sponsorship in corso</p>
+                        <p>Nessuna sponsorizzazione in corso</p>
                     @endif
                     <p class="apartment-price mb-2"><strong>Prezzo:</strong> €{{ $apartment->price }}</p>
                     <p class="apartment-surface mb-2"><strong>Superficie:</strong> {{ $apartment->surface }} m²</p>
@@ -63,7 +63,7 @@
                     <p class="apartment-bathrooms mb-2"><strong>Bagni:</strong> {{ $apartment->n_bath }}</p>
                     <p class="apartment-address mb-2"><strong>Indirizzo:</strong> {{ $apartment->address }}</p>
                     <p class="apartment-lat-lng mb-2">
-                        <strong>Latitudine:</strong> {{ $apartment->latitude }},
+                        <strong>Latitudine:</strong> {{ $apartment->latitude }}
                         <strong>Longitudine:</strong> {{ $apartment->longitude }}
                     </p>
                     <p class="apartment-created mb-2"><strong>Creato il giorno:</strong> {{ $apartment->created_at }}</p>
@@ -71,12 +71,12 @@
 
                 </div>
                 <!-- Edit button -->
-                <div class="text-center order-lg-3 order-sm-3">
-                    <a href="{{ route('apartments.edit', $apartment) }}" class="btn custom-btn warning text-decoration-none">Modifica</a>
+                <div class="text-center order-lg-3 order-sm-3 d-flex flex-wrap justify-content-around">
+                    <a href="{{ route('apartments.edit', $apartment) }}" class="btn custom-btn warning text-decoration-none my-2">Modifica</a>
                     <form action="{{route('apartments.destroy', $apartment)}}" class="form-delete" method="POST" data-apartment-name="{{$apartment->name}}">
                         @method("delete")
                         @csrf
-                        <button class="btn custom-btn danger text-decoration-none" type="submit">Elimina</button>
+                        <button class="btn custom-btn danger text-decoration-none my-2" type="submit">Elimina</button>
                     </form>
 
                 </div>

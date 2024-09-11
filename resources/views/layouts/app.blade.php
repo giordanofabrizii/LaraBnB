@@ -20,9 +20,8 @@
     <link rel="stylesheet" href="https://api.tomtom.com/maps-sdk-for-web/cdn/plugins/SearchBox/3.1.12/SearchBox.css">
 
     <!-- Scripts -->
-
+    @yield('custom-script')
     <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> {{--  ChartJS --}}
 
     @vite(['resources/sass/app.scss', 'resources/js/app.js', ])
 

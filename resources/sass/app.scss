@@ -17,6 +17,8 @@
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
 
+
+//Darkmode
 #app.dark{
     background-color: $dark-primary !important;
     color: white;
@@ -27,6 +29,10 @@
         ul.navbar-nav a,
         ul.navbar-nav button{
             color: white;
+        }
+
+        ul.navbar-nav a{
+            text-decoration: none;
         }
 
         .dropdown-menu{
@@ -41,5 +47,24 @@
 
 body.dark{
     background-color: $dark-primary;
+}
+
+
+//Navbar
+
+nav{
+    box-shadow: 0px 6px 15px 0px rgba(55, 172, 55, 0.46);
+    margin-bottom: 1.5rem;
+
+    a.navbar-brand{
+        color: $primary-color;
+    }
+}
+
+nav a{
+    text-decoration: none;
+    color: $dark-primary;
+    margin: 0 1rem 0 1rem;
+
 }
 
