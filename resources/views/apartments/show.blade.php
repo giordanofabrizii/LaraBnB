@@ -25,7 +25,7 @@
                                         <strong>
                                             {{ $service->name }}
                                         </strong>
-                                        <i class="fa-solid fa-circle-check"></i>
+                                        <i class= "{{ $service->icon }}"></i>
                                     </span>
                                 @endforeach
                             </ul>
