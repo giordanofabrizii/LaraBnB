@@ -16,87 +16,87 @@ class ServiceSeeder extends Seeder
         $services = [
             [
                 'name' => 'Aria Condizionata',
-                'icon' => 'prova',
+                'icon' => "fa-solid fa-wind",
             ],
             [
                 'name' => 'Piscina',
-                'icon' => 'prova',
+                'icon' => "fa-solid fa-water-ladder",
             ],
             [
                 'name' => 'Giardino',
-                'icon' => 'prova',
+                'icon' => "fa-solid fa-tree",
             ],
             [
                 'name' => 'Vista cortile interno',
-                'icon' => 'prova',
+                'icon' => "fa-brands fa-pagelines",
             ],
             [
-                'name' => 'Patio',
-                'icon' => 'prova',
+                'name' => 'Portico',
+                'icon' => "fa-solid fa-shop",
             ],
             [
                 'name' => 'Lavastoviglie',
-                'icon' => 'prova',
+                'icon' => "fa-solid fa-kitchen-set",
             ],
             [
                 'name' => 'Lavatrice',
-                'icon' => 'prova',
+                'icon' => "fa-solid fa-shirt",
             ],
             [
                 'name' => 'Wifi',
-                'icon' => 'prova',
+                'icon' => "fa-solid fa-wifi",
             ],
             [
                 'name' => 'Smart-Tv',
-                'icon' => 'prova',
+                'icon' => "fa-solid fa-tv",
             ],
             [
                 'name' => 'Barbecue',
-                'icon' => 'prova',
+                'icon' => "fa-solid fa-table-cells",
             ],
             [
                 'name' => 'Vasca da Bagno',
-                'icon' => 'prova',
+                'icon' => "fa-solid fa-bath",
             ],
             [
                 'name' => 'Jacuzzi',
-                'icon' => 'prova',
+                'icon' => "fa-solid fa-hot-tub-person",
             ],
             [
                 'name' => 'Ascensore',
-                'icon' => 'prova',
+                'icon' => "fa-solid fa-elevator",
             ],
             [
                 'name' => 'Accessibilità',
-                'icon' => 'prova',
+                'icon' => "fa-solid fa-wheelchair-move",
             ],
             [
                 'name' => 'Riscaldamento',
-                'icon' => 'prova',
+                'icon' => "fa-solid fa-temperature-arrow-up",
             ],
             [
                 'name' => 'Microonde',
-                'icon' => 'prova',
+                'icon' => "fa-solid fa-bread-slice",
             ],
             [
                 'name' => 'Parcheggio',
-                'icon' => 'prova',
+                'icon' => '"fa-solid fa-square-parking"',
             ],
             [
                 'name' => 'Bidet',
-                'icon' => 'prova',
+                'icon' => "fa-solid fa-sink",
             ],
             [
                 'name' => 'Ferro da Stiro',
-                'icon' => 'prova',
+                'icon' => "fa-solid fa-shirt",
             ],
             [
                 'name' => 'Kit di pronto soccorso',
-                'icon' => 'prova',
+                'icon' => "fa-solid fa-kit-medical",
             ],
             [
                 'name' => 'Macchina del caffè',
-                'icon' => 'prova',
+                'icon' => "fa-solid fa-mug-saucer",
             ],
         ];
 
