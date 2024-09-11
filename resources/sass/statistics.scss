@@ -16,21 +16,27 @@ h2 {
     margin-bottom: 1rem;
 }
 
-// .graphs.off{
-//     display: none ;
-// }
+.graph{
+    height: 20rem;
+    display: flex;
+    justify-content: center;
+}
 
-// .loading{
-//     display: none;
+.graphs.off{
+    display: none ;
+}
 
-//     &.on{
-//         display: flex;
-//         align-items: center;
-//         justify-content: center;
-//         width: 100vw;
-//         height: 80vh;
-//     }
-// }
+.loading{
+    display: none;
+
+    &.on{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100vw;
+        height: 80vh;
+    }
+}
 
 // ###########
 // LOADER

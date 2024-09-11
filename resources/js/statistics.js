@@ -26,13 +26,19 @@ document.addEventListener('DOMContentLoaded', async function() {
                     });
                 }
             }
-        })
+        });
+
+        removeLoader();
+
     } catch (error) {
         console.error('Errore durante il recupero dei dati:', error);
     }
 });
 
-// document.querySelector('.graphs').classList.remove('off');
-// document.querySelector('.loader').classList.remove('on');
-
+async function removeLoader(){
+    setTimeout(() => {
+        document.querySelector('.graphs').classList.remove('off');
+        document.querySelector('.loading').classList.remove('on');
+    }, 1500);
+}
 
