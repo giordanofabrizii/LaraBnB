@@ -35,20 +35,40 @@
 
     #buttons{
         a{
+            border-radius: 50px;
+            border: solid 2px rgb(23, 193, 23);
             background-color: $primary-color;
             color: white;
+            font-size: 1.2rem;
             text-decoration: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+
+            &:hover{
+                background-color: rgb(2, 159, 2);
+            }
+
+            &:focus{
+                box-shadow: 0 0 0 3px rgb(59, 168, 59);
+            }
         }
     }
 
     #apartments{
         a{
-            background-color: rgba(0, 128, 0, 0.61);
+            background-color: rgba(43, 204, 43, 0.61);
             text-decoration: none;
-            color: black;
+            color: $dark-primary;
+            transition: all 0.3s ease;
+
+            &:hover{
+                    transform: scale(1.05);
+                }
 
             img{
                 height: 3rem;
+
+
             }
         }
     }

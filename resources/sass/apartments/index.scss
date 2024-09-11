@@ -1,4 +1,10 @@
+@import '../variables';
+
 #index{
+
+    h1{
+        color: $primary-color;
+    }
 
     img{
         height: 3rem;

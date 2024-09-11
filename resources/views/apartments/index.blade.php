@@ -7,13 +7,7 @@
 
 @section('content')
 <div class="container" id="index">
-    <div class="row">
-        <div class="col-12 d-flex flex-row-reverse">
-            <a class="btn btn-success ms-2" href="{{route('apartments.create')}}">Aggiungi un nuovo appartamento</a>
-            <a class="btn btn-warning" href="{{route('apartments.trashed')}}">Cestino</a>
-        </div>
-    </div>
-
+    <h1>I tuoi appartamenti</h1>
     <div class="row">
         <table class="table table-hover">
             <thead>
@@ -32,11 +26,11 @@
                     @if (Auth::user()->id == $apartment['user_id'])
                         <tr>
                             <td>
-                                <a class="d-flex apartment-info" href="{{ route('apartments.show',$apartment) }}">
+                                <a class="d-flex apartment-info align-items-center p-2" href="{{ route('apartments.show',$apartment) }}">
                                     <img class="mx-3" src="{{ asset('storage/' . $apartment->image) }}" alt="apartment image">
                                     <div>
                                         <strong>{{ $apartment->name}}</strong>
-                                        <p>{{ $apartment->address}}</p>
+                                        <p class="m-0">{{ $apartment->address}}</p>
                                     </div>
                                 </a>
                             </td>
@@ -79,6 +73,14 @@
             </tbody>
 
         </table>
+
+        <div class="row my-4">
+            <div class="col-12 d-flex flex-row-reverse">
+                <a class="btn btn-success ms-2" href="{{route('apartments.create')}}">Aggiungi un nuovo appartamento</a>
+                <a class="btn btn-warning" href="{{route('apartments.trashed')}}">Cestino</a>
+            </div>
+        </div>
+
     </div>
 </div>
 
