@@ -45,7 +45,7 @@
                     <div class="card-body">
                         <h5 class="card-title">{{$apartment->name}}</h5>
                         <p class="card-text">{{$apartment->address}}</p>
-                        <a href="#" class="btn">Go somewhere</a>
+                        {{-- <a href="{{ Route('apartments.show',$apartment) }}" class="btn">Vedi appartamento</a> --}}
                     </div>
                 </div>
                 @endforeach
