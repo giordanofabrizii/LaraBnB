@@ -50,7 +50,10 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
+            'lastname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'image' => ['nullable'],
+            'birthdate' => ['nullable'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -63,9 +66,21 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        // Verifica se è stata caricata un'immagine
+        $img_path = null;
+        if (isset($data['image']) && $data['image']->isValid()) {
+            // Usa direttamente $data['image'] senza file()
+            $data['image']->store('uploads', 'public');
+        }
+
+        // dd($data['image']->hashName());
+
         return User::create([
             'name' => $data['name'],
+            'lastname' => $data['lastname'],
             'email' => $data['email'],
+            'image' => $img_path, // Salva il percorso dell'immagine nel database
+            'birthdate' => $data['birthdate'],
             'password' => Hash::make($data['password']),
         ]);
     }

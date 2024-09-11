@@ -56,7 +56,7 @@ class ApartmentController extends Controller
         $data['user_id'] = Auth::user()->id;
         // store the image
         $img_path = $request->file('image')->store('uploads', 'public');
-        $data['image'] = $img_path; // Aupdate the path in the $data
+        $data['image'] = $img_path; // Save the path in the $data
 
         if ($request->filled('address')) {
             $data['address'] = $request->input('address');
