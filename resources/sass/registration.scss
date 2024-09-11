@@ -1,0 +1,28 @@
+.error{
+    display: none;
+    color: red;
+
+    &.on{
+        display: block;
+    }
+
+    p{
+        svg{
+            display: none;
+            margin-right: .5rem;
+        }
+
+        &.red{
+            color: red;
+            svg.fa-xmark{
+                display: inline-block;
+            }
+        }
+        &.green{
+            color: green;
+            svg.fa-check{
+                display: inline-block;
+            }
+        }
+    }
+}
