@@ -30,25 +30,31 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                <a class="logo" href="{{ url('/') }}">
+                    <img src="{{ asset('storage/icons/logo-verde.png') }}" alt="">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mx-auto">
+                    <ul id="links" class="navbar-nav mx-auto">
                         <li>
-                            <a href="{{Route('home')}}">Home</a>
-                            <a href="{{Route('apartments.index')}}">I miei appartamenti</a>
-                            <a href="{{Route('inbox')}}">Messaggi</a>
-                            <a href="{{Route('statistics')}}">Statistiche</a>
+                            <a href="{{Route('home')}}" class="{{ (Route::is('home') || (Route::is('welcome'))) ? 'active' : '' }}"><i class="fa-solid fa-qrcode"></i><span class="text">Home</span></a>
+                        </li>
+                        <li>
+                            <a href="{{Route('apartments.index')}}" class="{{ Route::is('apartments.index') ? 'active' : '' }}"><i class="fa-regular fa-building"></i><span class="text">Appartamenti</span></a>
+                        </li>
+                        <li>
+                            <a href="{{Route('inbox')}}" class="{{ Route::is('inbox') ? 'active' : '' }}"><i class="fa-solid fa-comment"></i><span class="text">Messaggi</span></a>
+                        </li>
+                        <li>
+                            <a href="{{Route('statistics')}}" class="{{ Route::is('statistics') ? 'active' : '' }}"><i class="fa-solid fa-chart-simple"></i><span class="text">Statistiche</span></a>
                         </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav">
+                    <ul class="navbar-nav profile">
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
@@ -67,8 +73,13 @@
                             @endif
                             @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
+                                    @if(Auth::user()->image != null)
+                                        <img src="{{ asset('storage/uploads/' . Auth::user()->image) }}" alt="profile picture">
+                                    @else
+                                        <article class="img"><span>{{Auth::user()->name[0]}}{{Auth::user()->lastname[0]}}</span></article>
+                                    @endif
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">

@@ -1,13 +1,3 @@
-// random color functions
-@use "sass:math";
-@function random-color() {
-    $hue: math.random(360); // Valore random per la hue
-    $saturation: math.random(100) + 0%; // Valore random per la saturazione
-    $lightness: math.random(100) + 0%;
-
-    @return hsl($hue, $saturation, $lightness);
-}
-
 // Fonts
 @import url('https://fonts.bunny.net/css?family=Nunito');
 
@@ -17,16 +7,100 @@
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
 
+#app{
+    background-color: white;
+
+    nav{
+        background-color: white;
+        .logo{
+            img{
+                width: 8rem;
+            }
+        }
+
+        ul#links{
+            li{
+                padding: .5rem .2rem;
+                &:hover {
+                    background-color: rgb(233, 233, 233);
+                    border-radius: 1rem;
+
+                }
+            }
+            a{
+                text-decoration: none;
+                color: black;
+                margin: 0 .4rem;
+                svg{
+                    margin: 0 .5rem;
+                }
+                .text{
+                    display: none;
+                    margin-right: .4rem;
+                }
+                &.active{
+                    .text{
+                        display: inline;
+                    }
+                }
+            }
+        }
+
+        a#navbarDropdown{
+            .img{
+                background-color: #aefaa4;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 2rem;
+                height: 2rem;
+                border-radius: 50%;
+                margin: 0 .5rem;
+
+                span{
+                    font-size: .8rem;
+                    color: black;
+                }
+            }
+        }
+
+        .dropdown-menu{
+            background-color: white;
+            .dropdown-item:hover{
+                background-color: #aefaa4;
+            }
+        }
+    }
+
+    main{
+        border-top-left-radius: 24px;
+        border-top-right-radius: 24px;
+        background-color: $body-bg;
+    }
+}
+
 #app.dark{
     background-color: $dark-primary !important;
-    color: white;
+
+    main{
+        background-color: $dark-body !important;
+        color: white;
+    }
 
     nav{
         background-color: $dark-primary !important;
-        a.navbar-brand,
-        ul.navbar-nav a,
-        ul.navbar-nav button{
-            color: white;
+
+        ul#links{
+            a{
+                filter: invert(100%) !important;
+            }
+        }
+
+        ul.profile{
+            li a,
+            button{
+                color: white;
+            }
         }
 
         .dropdown-menu{
@@ -37,9 +111,46 @@
             }
         }
     }
+
+    .navbar-toggler-icon{
+        filter: invert(100%);
+    }
 }
 
 body.dark{
-    background-color: $dark-primary;
+    background-color: $dark-body;
 }
 
+// ###############
+// MEDIA QUERY
+// ###############
+
+@media screen and (max-width : 992px) {
+    #app nav ul#links a.active .text{
+        display: none;
+    }
+}
+
+@media screen and (max-width : 768px) {
+    ul#links{
+        display: flex;
+        flex-direction: column;
+        border-top: 1px solid rgb(201, 201, 201);
+        border-bottom: 1px solid rgb(201, 201, 201);
+        margin: .5rem 0;
+
+        li{
+            margin: .5rem 0;
+            a{
+                svg{
+                    transform: scale(1.2);
+                    margin-left: 0 !important;
+                }
+
+                .text{
+                    display: inline !important;
+                }
+            }
+        }
+    }
+}

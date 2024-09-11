@@ -14,15 +14,15 @@
         border: 2px solid $primary-color;
         border-radius: 2rem;
 
-        img,
-        .img{
+        .img,
+        img{
             width: 10rem;
             aspect-ratio: 1 / 1;
             border-radius: 50%;
         }
 
         .img{
-            background-color: #e2e065;
+            background-color: #aefaa4;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -52,10 +52,7 @@
             }
         }
     }
-
-
 }
-
 
 @media screen and (max-width: 354px) {
     #home{
