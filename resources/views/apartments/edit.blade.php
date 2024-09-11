@@ -17,7 +17,7 @@
                     @csrf
 
                     <div class="form-group p-2">
-                        <label for="name">Nome dell'appartamento:</label>
+                        <label for="name">Nome dell'appartamento*</label>
                         <input type="text" class="form-control to-control" name="name" id="name" placeholder="Inserisci un nuovo nome per il tuo appartamento" value="{{ old('name', $apartment->name) }}">
                         <div class="error"></div>
                         @error('name')
@@ -25,7 +25,7 @@
                         @enderror
                     </div>
                     <div class="form-group p-2">
-                        <label for="description">Descrizione:</label>
+                        <label for="description">Descrizione*</label>
                         <input type="text" class="form-control to-control" name="description" id="description" placeholder="Aggiungi una descrizione" value="{{ old('description', $apartment->description) }}">
                         <div class="error"></div>
                         @error('description')
@@ -62,8 +62,9 @@
                         </div>
                     </div>
                     <div class="form-group p-2">
-                        <label for="surface">Superficie (m²):</label>
-                        <input type="number" class="form-control to-control" name="surface" id="surface" placeholder="Quanti metri quadri" value="{{ old('surface', $apartment->surface) }}">
+                        <label for="surface" >Superficie* (m<sup>2</sup>
+                            )</label>
+                        <input type="number" class="form-control to-control" style="width: 7%" name="surface" id="surface" value="{{ old('surface', $apartment->surface) }}">
                         <div class="error"></div>
                         @error('surface')
                             <div class="alert alert-danger">{{ $message }}</div>
@@ -79,40 +80,41 @@
                         @enderror
                     </div>
                     <div class="form-group p-2">
-                        <label class="m-2" for="n_room">Numero stanze:</label>
-                        <input type="number" class="to-control" name="n_room" id="n_room" value="{{ old('n_room', $apartment->n_room) }}">
+                        <label class="m-2" for="n_room">Stanze*</label>
+                        <input type="number" class="to-control me-5" style="width: 4%" name="n_room" id="n_room" value="{{ old('n_room', $apartment->n_room) }}">
                         <div class="error"></div>
                         @error('n_room')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
 
-                        <label class="m-2" for="n_bed">Numero letti:</label>
-                        <input type="number" class="to-control" name="n_bed" id="n_bed" value="{{ old('n_bed', $apartment->n_bed) }}">
+                        <label class="m-2" for="n_bed">Letti*</label>
+                        <input type="number" class="to-control me-5" style="width: 4%"  name="n_bed" id="n_bed" value="{{ old('n_bed', $apartment->n_bed) }}">
                         <div class="error"></div>
                         @error('n_bed')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
 
-                        <label class="m-2" for="n_bath">Numero bagni:</label>
-                        <input type="number" class="to-control" name="n_bath" id="n_bath" value="{{ old('n_bath', $apartment->n_bath) }}">
+                        <label class="m-2" for="n_bath">bagni*</label>
+                        <input type="number" class="to-control" style="width: 4%"  name="n_bath" id="n_bath" value="{{ old('n_bath', $apartment->n_bath) }}">
                         <div class="error"></div>
                         @error('n_bath')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
-                    <div class="form-group">
+                    <div class="form-group p-2">
                         <label for="service_id">Servizi</label>
                         <div class="customChechBoxHolder to-control">
                             @foreach ($services as $service)
-                                <input type="checkbox" class="btn-check" value="{{ $service->id }}" name="services[]" id="service-check-{{ $service->id }}" autocomplete="off"
+                                <input type="checkbox" class="btn-check " value="{{ $service->id }}" name="services[]" id="service-check-{{ $service->id }}" autocomplete="off"
                                 {{ in_array($service->id, old('services', $apartment->services->pluck('id')->toArray())) ? "checked" : ""}}>
-                                <label class="btn btn-outline-primary" for="service-check-{{$service->id}}">{{ $service->name }}</label>
+                                <label class="btn btn-outline-primary m-1" for="service-check-{{$service->id}}">{{ $service->name }}</label>
                             @endforeach
                         </div>
                     </div>
                     <div class="form-group p-2">
-                        <label class="m-2" for="price">Prezzo per notte:</label>
-                        <input type="price" class="to-control" name="price" id="price" value="{{ old('price', $apartment->price) }}">
+                        <label class="m-2" for="price">Prezzo per notte*</label>
+                        <input type="price" class="to-control" style="width: 5%" name="price" id="price" value="{{ old('price', $apartment->price) }}">
+                        &#8364;
                         <div class="error"></div>
                         @error('price')
                             <div class="alert alert-danger">{{ $message }}</div>
