@@ -20,15 +20,15 @@
         border-radius: 2rem;
         box-shadow: 0px 6px 15px 0px rgba(55, 172, 55, 0.46);
 
-        img,
-        .img{
+        .img,
+        img{
             width: 10rem;
             height: 10rem;
             border-radius: 50%;
         }
 
         .img{
-            background-color: #e2e065;
+            background-color: #aefaa4;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -88,10 +88,7 @@
             }
         }
     }
-
-
 }
-
 
 @media screen and (max-width: 354px) {
     #home{
