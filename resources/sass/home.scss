@@ -10,14 +10,20 @@
         text-align: center;
     }
 
+    background-color: whitesmoke;
+    border: 2px solid black;
+    border-radius: 5rem;
+    padding: 4rem;
+
     #profile{
         border: 2px solid $primary-color;
         border-radius: 2rem;
+        box-shadow: 0px 6px 15px 0px rgba(55, 172, 55, 0.46);
 
         img,
         .img{
             width: 10rem;
-            aspect-ratio: 1 / 1;
+            height: 10rem;
             border-radius: 50%;
         }
 
@@ -41,11 +47,12 @@
             color: white;
             font-size: 1.2rem;
             text-decoration: none;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.181);
             transition: all 0.3s ease;
 
             &:hover{
                 background-color: rgb(2, 159, 2);
+                transform: translateY(-2px);
             }
 
             &:focus{
@@ -55,20 +62,27 @@
     }
 
     #apartments{
-        a{
-            background-color: rgba(43, 204, 43, 0.61);
-            text-decoration: none;
-            color: $dark-primary;
-            transition: all 0.3s ease;
 
-            &:hover{
+        .card{
+            box-shadow: 0px 6px 15px 0px rgba(55, 172, 55, 0.46);
+        }
+
+        .card,
+        .card-top{
+            overflow: hidden;
+
+            a{
+                background-color: rgba(43, 204, 43, 0.61);
+                text-decoration: none;
+                color: $dark-primary;
+
+                &:hover img{
                     transform: scale(1.05);
                 }
 
-            img{
-                height: 3rem;
-
-
+                img{
+                    transition: all 0.3s ease;
+                }
             }
         }
     }
