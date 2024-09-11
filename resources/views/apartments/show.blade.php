@@ -22,10 +22,10 @@
                             <ul class="list-unstyled">
                                 @foreach ($apartment->services as $service)
                                     <span>
+                                        <i class= "{{ $service->icon }} me-1"></i>
                                         <strong>
                                             {{ $service->name }}
                                         </strong>
-                                        <i class= "{{ $service->icon }}"></i>
                                     </span>
                                 @endforeach
                             </ul>
