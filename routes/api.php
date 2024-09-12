@@ -5,7 +5,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApartmentController as ApartmentController;
 use App\Http\Controllers\ApiController as ApiController;
 
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -23,8 +22,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/statistics', [ApartmentController::class, 'getViewsData']);
 
+
+Route::get('apartments/{apartment}', [ApiController::class, 'show'])->name('api.apartment.show');
 Route::get('/sponsored-apartments', [ApiController::class, 'getSponsoredApartments']);
-
 Route::get('/apartments', [ApiController::class, 'research']);
-
-
