@@ -36,13 +36,16 @@
                 </div>
 
                 <!-- Right column: Infos and edit button -->
-                <div class="col-lg-4 col-md-4 col-sm-12 order-lg-2 order-md-2 order-sm-2 ">
+                <div class="col-lg-4 col-md-4 col-sm-12 order-lg-2 order-md-2 order-sm-2 rgt-column">
                     <div class="details">
                         <h1 class="apartment-name mb-3">{{ $apartment->name }}</h1>
                         <p class="apartment-description mb-2">{{ $apartment->description }}</p>
+
                         <!-- Badge Sponsorship -->
                         @if ($apartment->sponsorships->isNotEmpty())
                             @foreach ($apartment->sponsorships as $sponsorship)
+                            <div class="d-flex align-items-center gap-4">
+                                <p><strong>Il tuo piano attivo:</strong></p>
                                 <span
                                     class="sponsorship
                             @if ($sponsorship->id == 1) badge-silver
@@ -52,6 +55,7 @@
                                     {{ $sponsorship->name }}
                                 </span>
                             @endforeach
+                        </div>
                     </div>
                     @else
                         <p>Nessuna sponsorizzazione in corso</p>
@@ -68,17 +72,15 @@
                     </p>
                     <p class="apartment-created mb-2"><strong>Creato il giorno:</strong> {{ $apartment->created_at }}</p>
                     <p class="apartment-updated mb-4"><strong>Ultimo aggiornamento:</strong> {{ $apartment->updated_at }}</p>
-
                 </div>
                 <!-- Edit button -->
-                <div class="text-center order-lg-3 order-sm-3 d-flex flex-wrap justify-content-around">
+                <div class="text-center order-lg-3 order-sm-3 d-flex flex-wrap justify-content-around mt-3">
                     <a href="{{ route('apartments.edit', $apartment) }}" class="btn custom-btn warning text-decoration-none my-2">Modifica</a>
                     <form action="{{route('apartments.destroy', $apartment)}}" class="form-delete" method="POST" data-apartment-name="{{$apartment->name}}">
                         @method("delete")
                         @csrf
                         <button class="btn custom-btn danger text-decoration-none my-2" type="submit">Elimina</button>
                     </form>
-
                 </div>
             </div>
         </div>
