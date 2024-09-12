@@ -23,6 +23,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/statistics', [ApartmentController::class, 'getViewsData']);
 
 Route::get('/sponsored-apartments', function () {
-    $sponsoredApartments = Apartment::whereHas('sponsorships')->get();
+    $sponsoredApartments = Apartment::whereHas('sponsorships')->with('sponsorships')->get();
     return response()->json($sponsoredApartments);
-    });
+});
