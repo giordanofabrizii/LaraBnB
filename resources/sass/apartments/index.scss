@@ -21,21 +21,17 @@
             transform: scale(1.05);
         }
 
-        .row{
-            height: 16rem;
-        }
+        // .image{
+        //     position: relative;
+        //     overflow: hidden;
 
-        .image{
-            position: relative;
-            overflow: hidden;
-
-            img{
-                position: absolute;
-                left: 50%;
-                top: 50%;
-                transform:translate(-50%, -50%);
-            }
-        }
+        //     img{
+        //         position: absolute;
+        //         left: 50%;
+        //         top: 50%;
+        //         transform:translate(-50%, -50%);
+        //     }
+        // }
 
         .card-body{
 
