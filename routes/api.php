@@ -3,7 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApartmentController as ApartmentController;
-use App\Models\Apartment;
+use App\Http\Controllers\ApiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +22,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/statistics', [ApartmentController::class, 'getViewsData']);
 
-Route::get('/sponsored-apartments', function () {
-    $sponsoredApartments = Apartment::whereHas('sponsorships')->with('sponsorships')->get();
-    return response()->json($sponsoredApartments);
-});
+Route::get('/sponsored-apartments', [ApiController::class, 'getSponsoredApartments']);
+
