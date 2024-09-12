@@ -89,6 +89,23 @@
     }
 }
 
+
+#app.dark{
+
+    #home{
+        background-color: transparent !important;
+        color: white;
+        border: 2px solid $primary-color;
+
+        .card{
+            background-color: #515151 !important;
+            color: white;
+            border: 1px solid $primary-color;
+        }
+    }
+}
+
+
 @media screen and (max-width: 354px) {
     #home{
         #profile{

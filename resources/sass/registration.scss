@@ -26,3 +26,12 @@
         }
     }
 }
+
+#app.dark{
+
+    #register{
+        background-color: $dark-primary !important;
+        color: white;
+        border: 2px solid $primary-color;
+    }
+}
