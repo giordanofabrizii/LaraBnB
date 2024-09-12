@@ -14,17 +14,16 @@
             @if (Auth::user()->id == $apartment['user_id'])
             <div class="card mb-4">
                 <div class="row g-0 flex-column flex-md-row">
-                    <div class="image col-12 col-lg-4">
+                    <div class="image col-12 col-lg-6 col-xl-4">
                         <img src="{{ asset('storage/' . $apartment->image) }}" class="img-fluid rounded-start" alt="{{ $apartment->name}} image">
                     </div>
-                    <div class="col-12 col-lg-8">
+                    <div class="col-12 col-lg-6 col-xl-8">
                         <div class="card-body p-5">
                             <a class="title" href="{{ route('apartments.show',$apartment) }}">
                                 <h2 class="card-title mb-4">{{ $apartment->name}}</h2>
                             </a>
                             <p class="card-text">Sponsorizzazione:</p>
 
-                            <div class="d-flex justify-content-between flex-wrap">
                                 <div class="visibility d-flex align-items-baseline mb-2">
                                     @if ( $apartment->visible == 1)
                                         <p class="card-text me-3"><small class="text-body-secondary"> Visibilità:</small></p>
@@ -35,11 +34,10 @@
                                     @endif
                                 </div>
 
-                                <div class="buttons d-flex align-items-center">
+                                <div class="buttons d-flex align-items-center justify-content-end mt-5">
                                     <a class="btn btn-lg me-3" href="{{ route('apartments.edit', $apartment) }}">
                                         Modifica
                                     </a>
-
                                     <form action="{{route('apartments.destroy', $apartment)}}" class="form-delete" method="POST" data-apartment-name="{{$apartment->name}}">
                                         @method("delete")
                                         @csrf
@@ -48,7 +46,6 @@
                                         </button>
                                     </form>
                                 </div>
-                            </div>
                         </div>
                     </div>
                 </div>

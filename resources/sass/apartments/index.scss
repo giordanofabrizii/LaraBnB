@@ -21,18 +21,6 @@
             transform: scale(1.05);
         }
 
-        // .image{
-        //     position: relative;
-        //     overflow: hidden;
-
-        //     img{
-        //         position: absolute;
-        //         left: 50%;
-        //         top: 50%;
-        //         transform:translate(-50%, -50%);
-        //     }
-        // }
-
         .card-body{
 
             a.title{
@@ -88,5 +76,20 @@
             }
 
         }
+    }
+}
+
+
+@media (min-width: 1200px) {
+
+    .card{
+        max-height: 21rem;
+    }
+}
+
+@media (min-width: 1400px) {
+
+    .card{
+        max-height: 22rem;
     }
 }
