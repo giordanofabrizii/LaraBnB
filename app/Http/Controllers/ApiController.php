@@ -7,6 +7,13 @@ use App\Models\Apartment;
 
 class ApiController extends Controller
 {
+    public function getSponsoredApartments()
+    {
+        $sponsoredApartments = Apartment::whereHas('sponsorships')->with('sponsorships')->get();
+
+        return response()->json($sponsoredApartments);
+    }
+
     public function research(Request $request)
     {
         $query = Apartment::query(); // take the parameters
@@ -68,5 +75,6 @@ class ApiController extends Controller
         $apartments = $query->get();
 
         return response()->json($apartments); // return the json
+
     }
 }
