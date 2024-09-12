@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Apartment;
 use App\Models\Service;
+use App\Models\Sponsorship;
 use App\Http\Requests\StoreApartmentRequest as StoreApartmentRequest;
 use App\Http\Requests\UpdateApartmentRequest as UpdateApartmentRequest;
 use Illuminate\Support\Facades\Auth;
@@ -21,7 +22,8 @@ class ApartmentController extends Controller
      */
     public function index () {
         $apartments = Apartment::all();
-        return view('apartments.index', compact('apartments'));
+        $sponsorships = Sponsorship::all();
+        return view('apartments.index', compact('apartments', 'sponsorships'));
     }
 
     /**

@@ -28,7 +28,7 @@ class HomeController extends Controller
     public function index()
     {
         $apartments = Apartment::where('user_id', Auth::user()->id) // appartamenti dell'id
-            ->take(5) // solo 5 appartamenti
+            ->take(3) // solo 3 appartamenti
             ->get();
 
         return view('home', compact('apartments'));
@@ -37,8 +37,20 @@ class HomeController extends Controller
     // Show the inbox
     public function inbox()
     {
-        $messages = Message::all();
-        $notseen = Message::where('seen_date', null)
+        $userId = Auth::id();
+
+        $messages = Message::whereIn('apartment_id', function($query) use ($userId) {
+            $query->select('id')
+                ->from('apartments')
+                ->where('user_id', $userId);
+            })
+            ->get();
+        $notseen = Message::whereNull('seen_date')
+            ->whereIn('apartment_id', function($query) use ($userId) {
+                $query->select('id')
+                    ->from('apartments')
+                    ->where('user_id', $userId);
+            })
             ->get();
         return view('inbox', compact('messages', 'notseen'));
     }

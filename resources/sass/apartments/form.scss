@@ -1,3 +1,5 @@
+@import '../variables';
+
 .error{
     display: none; // IMPORTANTE
     background-color: rgba(255, 134, 134, 0.514);
@@ -11,6 +13,50 @@
     }
 }
 
+#edit-form{
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 5rem;
+    padding: 4rem;
+    font-size: 1.2rem;
+
+    h1{
+        color: $primary-color;
+    }
+
+    #collapseOne,
+    .accordion-body,
+    input{
+        background-color: white;
+    }
+
+    input{
+        margin-top: .7rem;
+    }
+
+    label{
+        margin-top: 1rem;
+    }
+
+    button.btn{
+        border: solid 2px rgb(23, 193, 23);
+            background-color: $primary-color;
+            color: white;
+            font-size: 1.2rem;
+            text-decoration: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.181);
+            transition: all 0.3s ease;
+
+            &:hover{
+                background-color: rgb(2, 159, 2);
+                transform: translateY(-2px);
+            }
+
+            &:focus{
+                box-shadow: 0 0 0 3px rgb(59, 168, 59);
+            }
+    }
+}
 
 img.apartment{
     width: 450px;
