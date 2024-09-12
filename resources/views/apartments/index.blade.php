@@ -22,7 +22,20 @@
                             <a class="title" href="{{ route('apartments.show',$apartment) }}">
                                 <h2 class="card-title mb-4">{{ $apartment->name}}</h2>
                             </a>
-                            <p class="card-text">Sponsorizzazione:</p>
+                            <span class="card-text me-2">Sponsorizzazione:</span>
+                                @if ($apartment->sponsorships->isNotEmpty())
+                                    @foreach ($apartment->sponsorships as $sponsorship)
+                                            <span class="sponsorship
+                                                @if ($sponsorship->id == 1) badge-silver
+                                                @elseif($sponsorship->id == 2) badge-gold
+                                                @elseif($sponsorship->id == 3) badge-platinum
+                                                @endif">
+                                                {{ $sponsorship->name }}
+                                            </span>
+                                    @endforeach
+                                @else
+                                    <span><small>Nessuna sponsorizzazione in corso</small></span>
+                                @endif
 
                                 <div class="visibility d-flex align-items-baseline mb-2">
                                     @if ( $apartment->visible == 1)
