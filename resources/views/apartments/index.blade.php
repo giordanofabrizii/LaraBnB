@@ -39,10 +39,10 @@
 
                                 <div class="visibility d-flex align-items-baseline mb-2">
                                     @if ( $apartment->visible == 1)
-                                        <p class="card-text me-3"><small class="text-body-secondary"> Visibilità:</small></p>
+                                        <p class="card-text me-3" class="text-body-secondary"> Visibilità:</p>
                                         <div class="green circle"></div>
                                     @else
-                                        <p class="card-text me-3"><small class="text-body-secondary"> Visibilità:</small></p>
+                                        <p class="card-text me-3" class="text-body-secondary"> Visibilità:</p>
                                         <div class="red circle"></div>
                                     @endif
                                 </div>
