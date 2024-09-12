@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApartmentController as ApartmentController;
+use App\Http\Controllers\ApiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/statistics', [ApartmentController::class, 'getViewsData']);
+
+Route::get('/apartments', [ApiController::class, 'index'])->name('api.apartment.index');
+Route::get('apartments/{apartment}', [ApiController::class, 'show'])->name('api.apartment.show');
