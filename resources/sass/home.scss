@@ -93,12 +93,16 @@
 #app.dark{
 
     #home{
-        background-color: transparent !important;
+        background-color: $dark-primary !important;
         color: white;
         border: 2px solid $primary-color;
 
+        #profile{
+            background-color: $dark-body;
+        }
+
         .card{
-            background-color: #515151 !important;
+            background-color: $dark-body !important;
             color: white;
             border: 1px solid $primary-color;
         }

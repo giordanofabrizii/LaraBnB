@@ -180,84 +180,71 @@
             text-decoration: none;
         }
     }
+}
 
-    #app.dark{
-        .apartment-name{
-            color: #A9A9A9;
-        }
+#app.dark{
+    .apartment-name{
+        color: white;
     }
 
-    /* Media Queries */
-    @media (max-width: 1290px) {
-        .apartment-name {
-            font-size: 2rem;
-        }
+    .rgt-column{
+        background-color: $dark-primary;
+    }
+}
 
-        // .apartment-img {
-        //     max-height: 300px;
-        // }
-
-        .apartment-description,
-        .apartment-price {
-            font-size: 1.2rem;
-        }
-
-        .apartment-services{
-            margin-top: 7rem;
-        }
+/* Media Queries */
+@media (max-width: 1290px) {
+    .apartment-name {
+        font-size: 2rem;
     }
 
-    @media (max-width: 1024px) {
-        .apartment-name {
-            font-size: 2.2rem;
-        }
-
-        // .apartment-img {
-        //     max-height: 270px;
-        // }
-
-        .apartment-description,
-        .apartment-price {
-            font-size: 1.3rem;
-        }
-
-        .apartment-services{
-            margin-top: 9rem;
-        }
+    .apartment-description,
+    .apartment-price {
+        font-size: 1.2rem;
     }
 
-    @media (max-width: 768px) {
-        .apartment-name {
-            font-size: 2rem;
-        }
+    .apartment-services{
+        margin-top: 7rem;
+    }
+}
 
-        // .apartment-img {
-        //     max-height: 250px;
-        // }
-
-        .apartment-description,
-        .apartment-price {
-            font-size: 1rem;
-        }
-
-        .apartment-services{
-            margin-top: 10rem;
-        }
+@media (max-width: 1024px) {
+    .apartment-name {
+        font-size: 2.2rem;
     }
 
-    @media (max-width: 576px) {
-        .apartment-name {
-            font-size: 1.8rem;
-        }
+    .apartment-description,
+    .apartment-price {
+        font-size: 1.3rem;
+    }
 
-        // .apartment-img {
-        //     max-height: 200px;
-        //     width: 80vw;
-        //     margin: 2rem auto;
-        // }
+    .apartment-services{
+        margin-top: 9rem;
+    }
+}
 
-        .apartment-description {
-            font-size: 0.9rem;
-        }
+@media (max-width: 768px) {
+    .apartment-name {
+        font-size: 2rem;
+    }
+
+    .apartment-description,
+    .apartment-price {
+        font-size: 1rem;
+    }
+
+    .apartment-services{
+        margin-top: 10rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .apartment-name {
+        font-size: 1.8rem;
+    }
+
+
+    .apartment-description {
+        font-size: 0.9rem;
     }
 }

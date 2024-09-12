@@ -106,7 +106,7 @@
                             @foreach ($services as $service)
                                 <input type="checkbox" class="btn-check " value="{{ $service->id }}" name="services[]" id="service-check-{{ $service->id }}" autocomplete="off"
                                 {{ in_array($service->id, old('services', $apartment->services->pluck('id')->toArray())) ? "checked" : ""}}>
-                                <label class="btn btn-outline-success m-1" for="service-check-{{$service->id}}">{{ $service->name }}</label>
+                                <label class="btn my-outline m-1" for="service-check-{{$service->id}}">{{ $service->name }}</label>
                             @endforeach
                         </div>
                     </div>

@@ -13,7 +13,8 @@
     }
 }
 
-#edit-form{
+#edit-form,
+#create{
     background-color: white;
     border: 2px solid black;
     border-radius: 5rem;
@@ -30,8 +31,18 @@
         background-color: white;
     }
 
-    input{
+    input:not(#map >){
         margin-top: .7rem;
+    }
+
+    .btn-check:checked + .btn{
+        background-color: $primary-color !important;
+        color: white;
+    }
+
+    .my-outline{
+        border: 1px solid $primary-color;
+        color: $primary-color;
     }
 
     label{
@@ -67,6 +78,7 @@ img.apartment{
 
 #app.dark{
     #edit-form,
+    #create,
     #show{
         background-color: #515151 !important;
         color: white;
@@ -74,12 +86,13 @@ img.apartment{
 
     #collapseOne,
     .accordion-body,
-    input{
+    input:not(#map >){
         background-color: #626262 !important;
         color: white;
     }
 
-    #edit-form{
+    #edit-form,
+    #create{
         border: 2px solid $primary-color;
     }
 }

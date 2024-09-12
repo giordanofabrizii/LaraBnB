@@ -88,7 +88,7 @@
                     <div class="customChechBoxHolder">
                         @foreach ($services as $service)
                             <input type="checkbox" class="btn-check" value="{{ $service->id }}" name="services[]" id="service-check-{{ $service->id }}" autocomplete="off">
-                            <label class="btn btn-outline-primary m-1" for="service-check-{{$service->id}}">{{ $service->name }}</label>
+                            <label class="btn my-outline m-1" for="service-check-{{$service->id}}">{{ $service->name }}</label>
                         @endforeach
                     </div>
                 </div>

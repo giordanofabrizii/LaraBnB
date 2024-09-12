@@ -34,18 +34,19 @@
 
         <section id="apartments" class="mt-5">
             <h2 class="mb-3">Link rapidi</h2>
-            <div class="row d-flex justify-content-center">
+            <div class="row d-flex justify-content-between">
                 @foreach ($apartments as $apartment)
-                <div class="card col-lg-3 col-md-4 col-12 p-0 m-3">
-                    <div class="card-top">
-                        <a href="{{ Route('apartments.show',$apartment) }}">
-                            <img src="{{ asset('storage/' . $apartment->image) }}" class="card-img-top" alt="...">
-                        </a>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">{{$apartment->name}}</h5>
-                        <p class="card-text">{{$apartment->address}}</p>
-                        {{-- <a href="{{ Route('apartments.show',$apartment) }}" class="btn">Vedi appartamento</a> --}}
+                <div class="d-flex col-lg-4 col-md-6 col-12 p-2">
+                    <div class="card">
+                        <div class="card-top">
+                            <a href="{{ Route('apartments.show',$apartment) }}">
+                                <img src="{{ asset('storage/' . $apartment->image) }}" class="card-img-top" alt="...">
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">{{$apartment->name}}</h5>
+                            <p class="card-text">{{$apartment->address}}</p>
+                        </div>
                     </div>
                 </div>
                 @endforeach
