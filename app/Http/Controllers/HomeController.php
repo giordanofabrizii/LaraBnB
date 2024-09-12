@@ -28,7 +28,7 @@ class HomeController extends Controller
     public function index()
     {
         $apartments = Apartment::where('user_id', Auth::user()->id) // appartamenti dell'id
-            ->take(5) // solo 5 appartamenti
+            ->take(3) // solo 3 appartamenti
             ->get();
 
         return view('home', compact('apartments'));
