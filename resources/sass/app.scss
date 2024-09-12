@@ -94,6 +94,9 @@
             a{
                 filter: invert(100%) !important;
             }
+            li:hover{
+                background-color: rgb(59, 59, 59)
+            }
         }
 
         ul.profile{
