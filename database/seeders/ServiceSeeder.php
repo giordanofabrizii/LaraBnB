@@ -80,7 +80,7 @@ class ServiceSeeder extends Seeder
             ],
             [
                 'name' => 'Parcheggio',
-                'icon' => '"fa-solid fa-square-parking"',
+                'icon' => "fa-solid fa-square-parking",
             ],
             [
                 'name' => 'Bidet',
