@@ -12,7 +12,7 @@
                 <h1>Modifica l'appartamento</h1>
             </div>
             <div class="col-12">
-                <form id="formEl" action="{{ route('apartments.update', $apartment) }}" method="POST" enctype="multipart/form-data">
+                <form class="d-flex flex-column" id="formEl" action="{{ route('apartments.update', $apartment) }}" method="POST" enctype="multipart/form-data">
                     @method('PUT')
                     @csrf
 
@@ -33,8 +33,8 @@
                         @enderror
                     </div>
                     <div class="form-group p-2">
-                        <div class="form-group p-2 mb-1 mt-1">
-                            <div class="accordion" id="accordionExample">
+                        <div class="form-group mb-1 mt-1">
+                            <div class="accordion" id="accordionMap">
                                 <div class="accordion-item">
                                     <h2 class="accordion-header">
                                         <button class="accordion-button" type="button" data-bs-toggle="collapse"
@@ -61,18 +61,17 @@
                             @enderror
                         </div>
                     </div>
-                    <div class="form-group p-2">
-                        <label for="surface" >Superficie* (m<sup>2</sup>
-                            )</label>
+                    <div class="form-group p-2 d-flex">
+                        <label for="surface" class="me-5">Superficie*: (m<sup>2</sup>)</label>
                         <input type="number" class="form-control to-control" style="width: 7%" name="surface" id="surface" value="{{ old('surface', $apartment->surface) }}">
                         <div class="error"></div>
                         @error('surface')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
-                    <div class="form-group p-2">
-                        <label for="image">Vuoi modificare la foto?</label>
-                        <img src="{{ asset('storage/' . $apartment->image) }}" class="m-4 apartment" alt="apartment old image">
+                    <div class="form-group p-2 mb-3">
+                        <label for="image">Vuoi modificare la foto?</label><br>
+                        <img src="{{ asset('storage/' . $apartment->image) }}" class="me-4 my-3 apartment" alt="apartment old image">
                         <input type="file" class="form-control to-control" name="image" id="image" placeholder="Upload an image">
                         <div class="error"></div>
                         @error('image')
@@ -94,7 +93,7 @@
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
 
-                        <label class="m-2" for="n_bath">bagni*</label>
+                        <label class="m-2" for="n_bath">Bagni*</label>
                         <input type="number" class="to-control" style="width: 4%"  name="n_bath" id="n_bath" value="{{ old('n_bath', $apartment->n_bath) }}">
                         <div class="error"></div>
                         @error('n_bath')
@@ -107,7 +106,7 @@
                             @foreach ($services as $service)
                                 <input type="checkbox" class="btn-check " value="{{ $service->id }}" name="services[]" id="service-check-{{ $service->id }}" autocomplete="off"
                                 {{ in_array($service->id, old('services', $apartment->services->pluck('id')->toArray())) ? "checked" : ""}}>
-                                <label class="btn btn-outline-primary m-1" for="service-check-{{$service->id}}">{{ $service->name }}</label>
+                                <label class="btn btn-outline-success m-1" for="service-check-{{$service->id}}">{{ $service->name }}</label>
                             @endforeach
                         </div>
                     </div>
@@ -120,7 +119,7 @@
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
-                    <button id="submitEl" type="submit" class="btn btn-primary mt-3">Modifica l'appartamento</button>
+                    <button id="submitEl" type="submit" class="btn btn-lg btn-primary mt-3 align-self-end">Modifica l'appartamento</button>
                 </form>
             </div>
         @else

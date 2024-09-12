@@ -10,7 +10,7 @@
         text-align: center;
     }
 
-    background-color: whitesmoke;
+    background-color: white;
     border: 2px solid black;
     border-radius: 5rem;
     padding: 4rem;
@@ -41,7 +41,6 @@
 
     #buttons{
         a{
-            border-radius: 50px;
             border: solid 2px rgb(23, 193, 23);
             background-color: $primary-color;
             color: white;

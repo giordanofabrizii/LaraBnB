@@ -2,30 +2,131 @@
 
 #index{
 
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 5rem;
+    padding: 4rem;
+    font-size: 1.3rem;
+
     h1{
         color: $primary-color;
     }
 
-    img{
-        height: 3rem;
+    .card{
+        overflow: hidden;
+        box-shadow: 0px 6px 15px 0px rgba(55, 172, 55, 0.46);
+        transition: all 0.3s ease;
+
+        &:hover{
+            transform: scale(1.05);
+        }
+
+        .card-body{
+
+            a.title{
+                text-decoration: none;
+                color: black;
+                transition: all 0.3s ease;
+
+                &:hover{
+                    text-decoration: underline;
+                }
+            }
+
+        }
     }
+
     .circle {
         width: 10px;
         height: 10px;
         background-color: green;
         border-radius: 50%;
+        box-shadow: 1px 2px 2px rgba(13, 1, 1, 0.382);
     }
 
-    .grey {
+    .red {
         width: 10px;
         height: 10px;
-        background-color: grey;
+        background-color: red;
         border-radius: 50%;
     }
 
-    .apartment-info{
-        color: black;
-        text-decoration: none;
+    .buttons{
+
+        .btn{
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.181);
+            transition: all 0.3s ease;
+        }
+
+        a.btn{
+            padding: 1rem;
+            background-color: $primary-color;
+            color: white;
+            text-decoration: none;
+            line-height: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.181);
+            transition: all 0.3s ease;
+
+            &:hover{
+                background-color: rgb(2, 159, 2);
+            }
+
+            &:focus{
+                box-shadow: 0 0 0 3px rgb(59, 168, 59);
+            }
+
+        }
     }
 
+    .sponsorship {
+        font-size: 1rem;
+        padding: 5px 10px;
+        margin-right: 5px;
+        color: white;
+        border-radius: 15px;
+        display: inline-block;
+        text-transform: uppercase;
+        font-weight: bold;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        margin-bottom: .7rem;
+        cursor: pointer;
+
+        &:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+        }
+    }
+
+    .badge-silver {
+        background-color: #C0C0C0;
+        border: solid 1px #A9A9A9;
+        color: #333;
+    }
+
+    .badge-gold {
+        background-color: #FFD700;
+        border: solid 1px #DAA520;
+        color: #333;
+    }
+
+    .badge-platinum {
+        background-color: #A5C9CA;
+        border: solid 1px #66B2B2;
+        color: #333;
+    }
+}
+
+
+@media (min-width: 1200px) {
+
+    .card{
+        max-height: 21rem;
+    }
+}
+
+@media (min-width: 1400px) {
+
+    .card{
+        max-height: 22rem;
+    }
 }
