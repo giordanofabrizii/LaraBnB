@@ -61,9 +61,9 @@
                             @enderror
                         </div>
                     </div>
-                    <div class="form-group p-2 d-flex">
+                    <div class="form-group p-2 d-flex flex-wrap">
                         <label for="surface" class="me-5">Superficie*: (m<sup>2</sup>)</label>
-                        <input type="number" class="form-control to-control" style="width: 7%" name="surface" id="surface" value="{{ old('surface', $apartment->surface) }}">
+                        <input type="number" class="form-control to-control me-3" style="width: 80px" name="surface" id="surface" value="{{ old('surface', $apartment->surface) }}">
                         <div class="error"></div>
                         @error('surface')
                             <div class="alert alert-danger">{{ $message }}</div>
@@ -80,21 +80,21 @@
                     </div>
                     <div class="form-group p-2">
                         <label class="m-2" for="n_room">Stanze*</label>
-                        <input type="number" class="to-control me-5" style="width: 4%" name="n_room" id="n_room" value="{{ old('n_room', $apartment->n_room) }}">
+                        <input type="number" class="to-control me-5 rounded-2" style="width: 60px" name="n_room" id="n_room" value="{{ old('n_room', $apartment->n_room) }}">
                         <div class="error"></div>
                         @error('n_room')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
 
                         <label class="m-2" for="n_bed">Letti*</label>
-                        <input type="number" class="to-control me-5" style="width: 4%"  name="n_bed" id="n_bed" value="{{ old('n_bed', $apartment->n_bed) }}">
+                        <input type="number" class="to-control me-5 rounded-2" style="width: 60px"  name="n_bed" id="n_bed" value="{{ old('n_bed', $apartment->n_bed) }}">
                         <div class="error"></div>
                         @error('n_bed')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
 
                         <label class="m-2" for="n_bath">Bagni*</label>
-                        <input type="number" class="to-control" style="width: 4%"  name="n_bath" id="n_bath" value="{{ old('n_bath', $apartment->n_bath) }}">
+                        <input type="number" class="to-control rounded-2" style="width: 60px"  name="n_bath" id="n_bath" value="{{ old('n_bath', $apartment->n_bath) }}">
                         <div class="error"></div>
                         @error('n_bath')
                             <div class="alert alert-danger">{{ $message }}</div>
