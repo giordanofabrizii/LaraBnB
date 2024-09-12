@@ -2,30 +2,95 @@
 
 #index{
 
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 5rem;
+    padding: 4rem;
+    font-size: 1.3rem;
+
     h1{
         color: $primary-color;
     }
 
-    img{
-        height: 3rem;
+    .card{
+        overflow: hidden;
+        box-shadow: 0px 6px 15px 0px rgba(55, 172, 55, 0.46);
+        transition: all 0.3s ease;
+
+        &:hover{
+            transform: scale(1.05);
+        }
+
+        .row{
+            height: 16rem;
+        }
+
+        .image{
+            position: relative;
+            overflow: hidden;
+
+            img{
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform:translate(-50%, -50%);
+            }
+        }
+
+        .card-body{
+
+            a.title{
+                text-decoration: none;
+                color: black;
+                transition: all 0.3s ease;
+
+                &:hover{
+                    text-decoration: underline;
+                }
+            }
+
+        }
     }
+
     .circle {
         width: 10px;
         height: 10px;
         background-color: green;
         border-radius: 50%;
+        box-shadow: 1px 2px 2px rgba(13, 1, 1, 0.382);
     }
 
-    .grey {
+    .red {
         width: 10px;
         height: 10px;
-        background-color: grey;
+        background-color: red;
         border-radius: 50%;
     }
 
-    .apartment-info{
-        color: black;
-        text-decoration: none;
-    }
+    .buttons{
 
+        .btn{
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.181);
+            transition: all 0.3s ease;
+        }
+
+        a.btn{
+            padding: 1rem;
+            background-color: $primary-color;
+            color: white;
+            text-decoration: none;
+            line-height: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.181);
+            transition: all 0.3s ease;
+
+            &:hover{
+                background-color: rgb(2, 159, 2);
+            }
+
+            &:focus{
+                box-shadow: 0 0 0 3px rgb(59, 168, 59);
+            }
+
+        }
+    }
 }
