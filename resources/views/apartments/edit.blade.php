@@ -119,6 +119,7 @@
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
+                    <p class="text-end"><small>I campi contrassegnati con l'asterisco (*) sono obbligatori.</small></p>
                     <button id="submitEl" type="submit" class="btn btn-lg btn-primary mt-3 align-self-end">Modifica l'appartamento</button>
                 </form>
             </div>
