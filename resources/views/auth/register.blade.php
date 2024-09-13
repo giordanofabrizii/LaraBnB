@@ -119,6 +119,12 @@
                             </div>
                         </div>
 
+                        <div class="row">
+                            <div class="col-12 text-center my-2">
+                                <p><small>I campi contrassegnati con l'asterisco (*) sono obbligatori.</small></p>
+                            </div>
+                        </div>
+
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button id="submitEl" type="submit" class="btn btn-primary">
