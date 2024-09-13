@@ -25,4 +25,5 @@ Route::get('/statistics', [ApartmentController::class, 'getViewsData']);
 
 Route::get('apartments/{apartment}', [ApiController::class, 'show'])->name('api.apartment.show');
 Route::get('/sponsored-apartments', [ApiController::class, 'getSponsoredApartments']);
-Route::get('/apartments', [ApiController::class, 'research']);
+Route::get('/apartments', [ApiController::class, 'research'])->name('api.apartments.searc');
+Route::post('/message', [ApiController::class, 'message'])->name('api.message.store');
