@@ -84,6 +84,15 @@ class ApiController extends Controller
             $query->where('price', '<=', $request->input('price'));
         }
 
+        // # SERVICES
+        if ($request->has('services') && is_array($request->input('services'))) {
+        $services = $request->input('services');
+        $query->whereHas('services', function($q) use ($services) {
+            $q->whereIn('name', $services);
+        });
+    }
+
+
         // get the apartments
         $apartments = $query->get();
 
