@@ -23,7 +23,7 @@ class ApartmentServiceSeeder extends Seeder
         $service_ids = range(1, $number_of_services);
 
         foreach ($apartment_ids as $apartment_id) {
-            $num_services = rand(1, 4); // from 1 to 4 services per apartment
+            $num_services = rand(1, 10); // from 1 to 10 services per apartment
 
             $selected_services = array_rand(array_flip($service_ids), $num_services); // select the services randomly
 
