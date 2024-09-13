@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Apartment;
 use Illuminate\Http\Request;
+use App\Models\Message;
 
 class ApiController extends Controller
 {
@@ -61,7 +62,7 @@ class ApiController extends Controller
             ", [$latitude, $longitude, $latitude])
             ->having("distance", "<", $radius)
             ->orderBy("distance", 'asc');
-    }
+        }
 
 
         // # ROOM
@@ -98,5 +99,25 @@ class ApiController extends Controller
 
         return response()->json($apartments); // return the json
 
+    }
+    public function message(Request $request)
+    {
+        $validated = $request->validate([
+            'email' => 'required|email',
+            'text' => 'required|string',
+        ]);
+
+        // Creazione del messaggio
+        $message = Message::create([
+            'apartment_id' => ['apartment_id'],
+            'sender_email' => $validated['email'],
+            'sender_name' => ['name'],
+            'text' => $validated['text'],
+            'date' => now(),
+            'seen_date' => null,
+        ]);
+
+        // Risposta di successo
+        return response()->json(['success' => 'Messaggio inviato con successo!']);
     }
 }
