@@ -87,11 +87,14 @@ class ApiController extends Controller
 
         // # SERVICES
         if ($request->has('services') && is_array($request->input('services'))) {
-        $services = $request->input('services');
-        $query->whereHas('services', function($q) use ($services) {
-            $q->whereIn('name', $services);
-        });
-    }
+            $services = $request->input('services');
+
+            foreach ($services as $service) {
+                $query->whereHas('services', function($q) use ($service) {
+                    $q->where('name', $service);
+                });
+            }
+        }
 
 
         // get the apartments
