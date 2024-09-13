@@ -64,12 +64,12 @@ class Apartment extends Model
         parent::boot();
 
         static::creating(function ($apartment) {
-            $apartment->slug = Str::random(10);
+            $apartment->slug = Str::slug($apartment->name, '-') . '-' . Str::random(5);
         });
 
         static::updating(function ($apartment) {
             if (!$apartment->slug) {
-                $apartment->slug = Str::random(10);
+                $apartment->slug = Str::slug($apartment->name, '-') . '-' . Str::random(5);
             }
         });
     }
