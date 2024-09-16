@@ -111,16 +111,18 @@ class ApiController extends Controller
         ]);
 
         // Creazione del messaggio
-        $message = Message::create([
-            'apartment_id' => ['apartment_id'],
+        $message = new Message([
+            'apartment_id' => $request['apartment_id'],
             'sender_email' => $validated['email'],
-            'sender_name' => ['name'],
+            'sender_name' => $request['name'],
             'text' => $validated['text'],
             'date' => now(),
             'seen_date' => null,
         ]);
 
+        $message->save();
+
         // Risposta di successo
-        return response()->json(['success' => 'Messaggio inviato con successo!']);
+        return response()->json($message);
     }
 }
