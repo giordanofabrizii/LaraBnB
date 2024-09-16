@@ -10,6 +10,10 @@
 #app{
     background-color: white;
 
+    li{
+        cursor: pointer;
+    }
+
     nav{
         background-color: white;
         .logo{
@@ -31,6 +35,7 @@
                 text-decoration: none;
                 color: black;
                 margin: 0 .4rem;
+
                 svg{
                     margin: 0 .5rem;
                 }

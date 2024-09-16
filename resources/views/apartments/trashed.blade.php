@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('custom-scss')
-    @vite(['resources/sass/index.scss'])
+    @vite(['resources/sass/index.scss', 'resources/sass/apartments/modale.scss'])
 @endsection
 
 
@@ -46,20 +46,69 @@
                                 <td class="text-center align-middle">{{ $apartment->n_bath}}</td>
                                 <td class="text-center align-middle">
                                     <div class="d-flex justify-content-center align-items-center">
-                                        <form action="{{route('apartments.restore',$apartment->id)}}" class="form-restore" method="POST" data-apartment-name="{{$apartment->name}}">
-                                            @method('PATCH')
-                                            @csrf
-
-                                            <button class="ms-2 btn btn-warning" type="submit">Restore</button>
-                                        </form>
-                                        <form action="{{route('apartments.forceDestroy', $apartment->id)}}" class="form-delete" method="POST" data-apartment-name="{{$apartment->name}}">
-                                            @method("delete")
-                                            @csrf
-                                            <button class="ms-2 btn btn-danger" type="submit">Destroy</button>
-                                        </form>
+                                        <button type="button" class="btn btn-lg btn-outline-warning" data-bs-toggle="modal" data-bs-target="#restoreModal{{$apartment->id}}">
+                                            Ripristina
+                                        </button>
+                                        <button type="button" class="btn btn-lg btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteModal{{$apartment->id}}">
+                                            Elimina
+                                        </button>
                                     </div>
                                 </td>
                             </tr>
+
+                            {{-- Restore --}}
+                            <div class="modal fade" id="restoreModal{{$apartment->id}}" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div>
+                                            <h1 id="deleteModalLabel">Ripristina Appartamento</h1>
+
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>Sei sicuro di voler ripristinare <strong>"{{ $apartment->name }}"</strong>?</p>
+                                            <div class="alert alert-warning warning">
+                                                <h2><i class="fa-solid fa-triangle-exclamation"></i> Attenzione</h2>
+                                                <p>Il ripristino dell'appartamento sarà immediato e risulterà automaticamente visibile.</p>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Annulla</button>
+                                            <form action="{{route('apartments.restore',$apartment->id)}}" method="POST">
+                                                @method('patch')
+                                                @csrf
+                                                <button type="submit" class="btn btn-outline-warning">Ripristina</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {{-- Perma Delete --}}
+                            <div class="modal fade" id="deleteModal{{$apartment->id}}" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div>
+                                            <h1 id="deleteModalLabel">Elimina appartamento definitivamente</h1>
+
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>Sei sicuro di voler eliminare <strong>"{{ $apartment->name }}"</strong>?</p>
+                                            <div class="alert alert-danger">
+                                                <h2><i class="fa-solid fa-triangle-exclamation"></i> Attenzione</h2>
+                                                <p>L'eliminazione di questo appartamento sarà definitivo, l'azione non è reversibile.</p>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Annulla</button>
+                                            <form action="{{route('apartments.forceDestroy', $apartment->id)}}" method="POST">
+                                                @method('delete')
+                                                @csrf
+                                                <button type="submit" class="btn btn-outline-danger">Elimina</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         @endif
                     @endforeach
                 </tbody>
@@ -71,9 +120,4 @@
     </div>
 </div>
 
-@endsection
-
-@section('scripts')
-    @vite('resources/js/perma-delete-confirmation.js')
-    @vite('resources/js/restore-confirmation.js')
 @endsection

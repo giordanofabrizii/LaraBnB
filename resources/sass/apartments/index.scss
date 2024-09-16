@@ -8,8 +8,15 @@
     padding: 4rem;
     font-size: 1.3rem;
 
+    .top{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 2rem;
+    }
     h1{
         color: $primary-color;
+        margin-bottom: 0;
     }
 
     .card{
