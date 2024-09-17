@@ -23,18 +23,16 @@
         }
 
         ul#links{
-            li{
-                padding: .5rem .2rem;
-                &:hover {
-                    background-color: rgb(233, 233, 233);
-                    border-radius: 1rem;
-
-                }
-            }
             a{
+                padding: .5rem .3rem;
                 text-decoration: none;
                 color: black;
                 margin: 0 .4rem;
+
+                &:hover {
+                    background-color: rgb(233, 233, 233);
+                    border-radius: 1rem;
+                }
 
                 svg{
                     margin: 0 .5rem;
