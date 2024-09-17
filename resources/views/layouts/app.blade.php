@@ -9,6 +9,9 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    {{-- Favicon --}}
+    <link rel="shortcut icon" href="{{ asset('storage/icons/logo-verde.png') }}" type="image/x-icon">
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
