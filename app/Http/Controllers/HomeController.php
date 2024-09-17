@@ -44,14 +44,17 @@ class HomeController extends Controller
                 ->from('apartments')
                 ->where('user_id', $userId);
             })
-            ->get();
+            ->with('apartment')
+            ->get()
+            ->groupBy('apartment_id');
         $notseen = Message::whereNull('seen_date')
             ->whereIn('apartment_id', function($query) use ($userId) {
                 $query->select('id')
                     ->from('apartments')
                     ->where('user_id', $userId);
             })
-            ->get();
+            ->get()
+            ->groupBy('apartment_id');
         return view('inbox', compact('messages', 'notseen'));
     }
 }
