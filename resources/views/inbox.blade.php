@@ -35,6 +35,12 @@
                                             <h6 class="card-subtitle mb-2 text-body-secondary">{{ $message->sender_email}}</h6>
                                             <p class="card-text">{{ $message->text}}</p>
                                             <p class="card-text"><em>Ricevuto: {{ $message->date}}</em></p>
+                                            <form action="{{ route('message.seen', $message) }}" method="POST">
+                                                @csrf
+                                                @method('PATCH')
+
+                                                <button type="submit" class="btn btn-success">Segna come letto</button>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>

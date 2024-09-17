@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Message;
 use App\Models\Apartment;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Carbon;
 
 
 class HomeController extends Controller
@@ -56,5 +57,15 @@ class HomeController extends Controller
             ->get()
             ->groupBy('apartment_id');
         return view('inbox', compact('messages', 'notseen'));
+    }
+
+    public function seen(Message $message){
+        // update the message "seen_date" value
+        $message['seen_date'] = Carbon::now('Europe/Rome');
+
+        // Salva le modifiche nel database
+        $message->save();
+
+        return redirect()->route('inbox');
     }
 }

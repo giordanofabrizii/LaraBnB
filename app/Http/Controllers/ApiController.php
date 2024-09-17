@@ -116,7 +116,7 @@ class ApiController extends Controller
             'sender_email' => $validated['email'],
             'sender_name' => $request['name'],
             'text' => $validated['text'],
-            'date' => now(),
+            'date' => now('Europe/Rome'),
             'seen_date' => null,
         ]);
 
