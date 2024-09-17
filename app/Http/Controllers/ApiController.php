@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Apartment;
 use Illuminate\Http\Request;
 use App\Models\Message;
+use App\Models\Visualization;
+use Carbon\Carbon;
 
 class ApiController extends Controller
 {
@@ -124,5 +126,30 @@ class ApiController extends Controller
 
         // Risposta di successo
         return response()->json($message);
+    }
+
+    public function newViews(Request $request) {
+
+        $now = Carbon::now('Europe/Rome');
+        $startOfDay = $now->copy()->startOfDay();
+        $endOfDay = $now->copy()->endOfDay();
+
+        // verify if user visualized in this day before
+        $existingView = Visualization::where('user_ip', $request->input('ip'))
+                                    ->whereBetween('date', [$startOfDay, $endOfDay])
+                                    ->first();
+
+        // if alredy exist
+        if ($existingView) {
+            return;
+        } else {
+            $view = new Visualization([
+                'apartment_id' => $request['apartment_id'],
+                'user_ip' => $request['ip'],
+                'date' => Carbon::now('Europe/Rome'),
+            ]);
+
+            $view->save();
+        }
     }
 }
