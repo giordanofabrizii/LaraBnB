@@ -23,6 +23,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/statistics', [ApartmentController::class, 'getViewsData']);
 
 
+Route::post('/apartments/view', [ApiController::class, 'newViews'])->name('apartments.view'); // add a view
 Route::get('apartments/{apartment}', [ApiController::class, 'show'])->name('api.apartment.show');
 Route::get('/sponsored-apartments', [ApiController::class, 'getSponsoredApartments']);
 Route::get('/apartments', [ApiController::class, 'research'])->name('api.apartments.searc');

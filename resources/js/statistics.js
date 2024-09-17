@@ -6,6 +6,15 @@ document.addEventListener('DOMContentLoaded', async function() {
         const data = await response.json();
         const graphEl = document.getElementsByClassName('graph');
 
+        // Trova il numero massimo di visualizzazioni tra tutti gli appartamenti
+        let maxViews = 0;
+        data.forEach(apartment => {
+            const maxForApartment = Math.max(...Object.values(apartment.views_by_month));
+            if (maxForApartment > maxViews) {
+                maxViews = maxForApartment;
+            }
+        });
+
         data.forEach(apartment => {
             for (let i = 0; i < graphEl.length; i++) {
                 let el = graphEl[i];
@@ -22,6 +31,14 @@ document.addEventListener('DOMContentLoaded', async function() {
                                 label: `Views for ${apartment.apartment_name}`,
                                 data: Object.values(apartment.views_by_month)
                             }]
+                        },
+                        options: {
+                            scales: {
+                                y: {
+                                    beginAtZero: true, // Partenza da 0 sull'asse y
+                                    suggestedMax: maxViews // Imposta il massimo comune per l'asse y
+                                }
+                            }
                         }
                     });
                 }
@@ -41,4 +58,5 @@ async function removeLoader(){
         document.querySelector('.loading').classList.remove('on');
     }, 1500);
 }
+
 

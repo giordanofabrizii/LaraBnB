@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApartmentController as ApartmentController;
+use App\Http\Controllers\HomeController as HomeController;
 use App\Models\Apartment;
 use Illuminate\Support\Facades\Auth;
 
@@ -31,5 +32,6 @@ Route::middleware('auth')->group(function () {
     Route::patch('/apartments/{apartment}/restore', [ApartmentController::class, 'restore'])->name('apartments.restore'); // restore the apartment
     Route::resource('apartments', ApartmentController::class)->parameters([
         'apartments' => 'apartment:slug']); // all the views
-    Route::get('/inbox', [App\Http\Controllers\HomeController::class, 'inbox'])->name('inbox'); // inbox with all your messages
+    Route::get('/inbox', [HomeController::class, 'inbox'])->name('inbox'); // inbox with all your messages
+    Route::patch('/inbox/{message}/seen', [HomeController::class, 'seen'])->name('message.seen'); // update the message seen date
 });

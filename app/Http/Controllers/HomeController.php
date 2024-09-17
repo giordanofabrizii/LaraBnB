@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Message;
 use App\Models\Apartment;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Carbon;
 
 
 class HomeController extends Controller
@@ -44,14 +45,27 @@ class HomeController extends Controller
                 ->from('apartments')
                 ->where('user_id', $userId);
             })
-            ->get();
+            ->with('apartment')
+            ->get()
+            ->groupBy('apartment_id');
         $notseen = Message::whereNull('seen_date')
             ->whereIn('apartment_id', function($query) use ($userId) {
                 $query->select('id')
                     ->from('apartments')
                     ->where('user_id', $userId);
             })
-            ->get();
+            ->get()
+            ->groupBy('apartment_id');
         return view('inbox', compact('messages', 'notseen'));
+    }
+
+    public function seen(Message $message){
+        // update the message "seen_date" value
+        $message['seen_date'] = Carbon::now('Europe/Rome');
+
+        // Salva le modifiche nel database
+        $message->save();
+
+        return redirect()->route('inbox');
     }
 }
