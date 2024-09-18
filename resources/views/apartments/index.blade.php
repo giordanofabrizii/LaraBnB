@@ -58,6 +58,9 @@
                                         <a class="btn btn-lg me-3" href="{{ route('apartments.edit', $apartment) }}">
                                             Modifica
                                         </a>
+                                        <a href="{{ route('checkout',$apartment) }}" class="btn btn-primary me-3">
+                                            Sponsorizza
+                                        </a>
                                         <button type="button" class="btn btn-lg btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteModal{{ $apartment->id}}">
                                             Elimina
                                         </button>
