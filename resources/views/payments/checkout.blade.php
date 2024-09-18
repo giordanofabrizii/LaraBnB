@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pagamento con Braintree</title>
     <script src="https://js.braintreegateway.com/web/dropin/1.33.4/js/dropin.min.js"></script>
+    @vite(['resources/js/checkout.js'])
 </head>
 <body>
     <h1>Checkout</h1>
@@ -16,8 +17,16 @@
 
     <form action="{{ route('payment.process') }}" method="POST" id="payment-form">
         @csrf
-        <label for="amount">Importo:</label>
-        <input type="text" id="amount" name="amount" placeholder="Inserisci l'importo">
+
+        <input type="hidden" name="apartment_id" id="apartment_id" value="{{$apartment->id}}">
+
+        <select name="sponsorship_id" id="sponsorship_id">
+            @foreach ($sponsorships as $sponsor)
+            <option value="{{ $sponsor->id }}" data-price="{{ $sponsor->price }}">{{ $sponsor->name }}</option>
+            @endforeach
+        </select>
+
+        <p>Importo: <span id="amount-display">{{ $sponsorships->first()->price }}</span></p>
 
         <div id="dropin-container"></div>
 

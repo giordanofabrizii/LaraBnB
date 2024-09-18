@@ -16,7 +16,10 @@ class Sponsorship extends Model
         'price',
     ];
 
-    public function apartments(){
-        return $this->belongsToMany(Apartment::class);
+    public function apartments()
+    {
+        return $this->belongsToMany(Apartment::class, 'apartment_sponsorship_transaction')
+                    ->withPivot('transaction_id')
+                    ->withTimestamps();
     }
 }
