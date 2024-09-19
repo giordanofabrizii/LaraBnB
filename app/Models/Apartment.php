@@ -49,12 +49,6 @@ class Apartment extends Model
         return $this->hasMany(Message::class);
     }
 
-    public function sponsorships()
-    {
-        return $this->belongsToMany(Sponsorship::class, 'apartment_sponsorship_transaction')
-                    ->withPivot('transaction_id')
-                    ->withTimestamps();
-    }
 
     public function services()
     {
@@ -79,5 +73,20 @@ class Apartment extends Model
     public function getRouteKeyName()
     {
         return 'slug';
+    }
+
+    public function sponsorships()
+    {
+        return $this->belongsToMany(Sponsorship::class, 'apartment_sponsorship_transaction')
+                    ->withPivot('start_date', 'end_date', 'transaction_id')
+                    ->withTimestamps();
+    }
+
+    public function getActiveSponsorship()
+    {
+        return $this->sponsorships()
+            ->wherePivot('end_date', '>', now())
+            ->orderByRaw("FIELD(name, 'Platinum', 'Gold', 'Silver') ASC")
+            ->first();
     }
 }

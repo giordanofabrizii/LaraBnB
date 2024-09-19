@@ -21,9 +21,13 @@ class ApartmentController extends Controller
      * @return view
      */
     public function index () {
-        $apartments = Apartment::all();
-        $sponsorships = Sponsorship::all();
-        return view('apartments.index', compact('apartments', 'sponsorships'));
+        $apartments = Apartment::with(['sponsorships' => function($query) {
+            // Ordina per livello di sponsorizzazione e seleziona solo quelle attive
+            $query->orderByRaw("FIELD(name, 'Platinum', 'Gold', 'Silver') ASC")
+                  ->wherePivot('end_date', '>', now()); // Controlla la scadenza della sponsorizzazione
+        }])->get();
+
+        return view('apartments.index', compact('apartments'));
     }
 
     /**
@@ -73,6 +77,8 @@ class ApartmentController extends Controller
         $apartment->save();
         $apartment->services()->sync($data['services']);
         return redirect()->Route('apartments.show',$apartment);
+
+
     }
 
     /**
@@ -206,6 +212,14 @@ class ApartmentController extends Controller
         }
 
         return response()->json($data);
+    }
+
+        public function getActiveSponsorship()
+    {
+        return $this->sponsorships()
+            ->wherePivot('end_date', '>', now()) // Seleziona solo le sponsorizzazioni attive
+            ->orderByRaw("FIELD(name, 'Platinum', 'Gold', 'Silver') ASC") // Ordina per livello
+            ->first(); // Prendi solo la sponsorizzazione più alta attiva
     }
 
 }
