@@ -208,4 +208,17 @@ class ApartmentController extends Controller
         return response()->json($data);
     }
 
+    // switch the visible attribute
+    public function visibleToggle(Apartment $apartment){
+        if ($apartment->visible === 0){
+            $apartment->visible = 1;
+        } else {
+            $apartment->visible = 0;
+        }
+
+        $apartment->update();
+
+        return redirect()->route('apartments.show',compact('apartment'));
+    }
+
 }

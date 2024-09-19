@@ -70,10 +70,21 @@
                             <strong>Longitudine:</strong> {{ $apartment->longitude }}
                         </p>
                         <p class="apartment-created mb-2"><strong>Creato il giorno:</strong> {{ $apartment->created_at }}</p>
-                        <p class="apartment-updated mb-4"><strong>Ultimo aggiornamento:</strong>
+                        <p class="apartment-updated mb-2"><strong>Ultimo aggiornamento:</strong>
                             {{ $apartment->updated_at }}
                         </p>
                     </div>
+
+                    <div class="d-flex align-items-center mb-4">
+                        <p class="m-0"><strong>Visibilit&agrave;:</strong> {{ ($apartment->visible === 0) ? 'non visibile' : 'visibile' }}</p>
+                        <form class="ms-2" action="{{route('apartment.visibility', $apartment)}}" method="POST">
+                            @csrf
+                            @method('PUT')
+
+                            <button class="btn btn-warning" type="submit">Switch</button>
+                        </form>
+                    </div>
+
                     <!-- Edit button -->
                     <div class="text-center order-lg-3 order-sm-3 d-flex flex-wrap justify-content-around mt-3">
                         <a href="{{ route('apartments.edit', $apartment) }}"
