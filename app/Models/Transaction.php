@@ -14,6 +14,7 @@ class Transaction extends Model
     protected $fillable = [
         "braintree_id",
         "status",
+        "amount"
     ];
 
     public function apartments()

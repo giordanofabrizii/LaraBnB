@@ -228,12 +228,26 @@ class ApartmentController extends Controller
         return response()->json($data);
     }
 
+
         public function getActiveSponsorship()
     {
         return $this->sponsorships()
             ->wherePivot('end_date', '>', now()) // Seleziona solo le sponsorizzazioni attive
             ->orderByRaw("FIELD(name, 'Platinum', 'Gold', 'Silver') ASC") // Ordina per livello
             ->first(); // Prendi solo la sponsorizzazione più alta attiva
+
+    // switch the visible attribute
+    public function visibleToggle(Apartment $apartment){
+        if ($apartment->visible === 0){
+            $apartment->visible = 1;
+        } else {
+            $apartment->visible = 0;
+        }
+
+        $apartment->update();
+
+        return redirect()->route('apartments.show',compact('apartment'));
+
     }
 
 }

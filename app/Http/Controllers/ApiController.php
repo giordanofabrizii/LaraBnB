@@ -10,9 +10,13 @@ use Carbon\Carbon;
 
 class ApiController extends Controller
 {
-
-
     public function show(Apartment $apartment){
+        if ($apartment->visible != 1) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Appartamento non visibile'
+            ], 404); // 404 if not visible
+        }
 
         $apartment->loadMissing("services");
 
@@ -25,7 +29,10 @@ class ApiController extends Controller
 
     public function getSponsoredApartments()
     {
-        $sponsoredApartments = Apartment::whereHas('sponsorships')->with('sponsorships')->get();
+        $sponsoredApartments = Apartment::where('visible', 1)
+            ->whereHas('sponsorships')
+            ->with('sponsorships')
+            ->get();
 
         return response()->json($sponsoredApartments);
     }
@@ -33,6 +40,9 @@ class ApiController extends Controller
     public function research(Request $request)
     {
         $query = Apartment::query(); // take the parameters
+
+        // # VISIBILITY
+        $query->where('visible', 1);
 
         // # NAME
         if (!is_null($request->has('name'))) {
@@ -98,13 +108,12 @@ class ApiController extends Controller
             }
         }
 
-
         // get the apartments
         $apartments = $query->get();
 
         return response()->json($apartments); // return the json
-
     }
+    
     public function message(Request $request)
     {
         $validated = $request->validate([
