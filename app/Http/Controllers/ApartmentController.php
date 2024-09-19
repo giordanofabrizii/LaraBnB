@@ -115,7 +115,7 @@ class ApartmentController extends Controller
      */
     public function update (UpdateApartmentRequest $request, Apartment $apartment) {
         $data = $request->validated();
-        if ($request->hasFile('image')) { // if the user want to replace the image
+        if ($request->hasFile('image')) { // if the user wants to replace the image
             if ($apartment->image) {
                 Storage::disk('public')->delete($apartment->image); // delete the hold image
             }
@@ -193,7 +193,7 @@ class ApartmentController extends Controller
     }
 
     public function statistics() {
-        $apartments = Apartment::where('user_id', Auth::user()->id)->get(); // appartamenti dell'id
+        $apartments = Apartment::where('user_id', Auth::user()->id)->get();
         return view('apartments.statistics', compact('apartments'));
     }
 
@@ -232,10 +232,9 @@ class ApartmentController extends Controller
         public function getActiveSponsorship()
     {
         return $this->sponsorships()
-            ->wherePivot('end_date', '>', now()) // Seleziona solo le sponsorizzazioni attive
-            ->orderByRaw("FIELD(name, 'Platinum', 'Gold', 'Silver') ASC") // Ordina per livello
-            ->first(); // Prendi solo la sponsorizzazione più alta attiva
-
+            ->wherePivot('end_date', '>', now())
+            ->orderByRaw("FIELD(name, 'Platinum', 'Gold', 'Silver') ASC")
+            ->first();
     }
     // switch the visible attribute
         public function visibleToggle(Apartment $apartment){
