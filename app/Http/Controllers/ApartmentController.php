@@ -20,15 +20,15 @@ class ApartmentController extends Controller
      *
      * @return view
      */
-    public function index()
-{
-    $apartments = Apartment::all()->map(function ($apartment) {
-        $apartment->activeSponsorship = $apartment->getActiveSponsorship();
-        return $apartment;
-    });
+    public function index() {
+        $apartments = Apartment::with(['sponsorships' => function($query) {
 
-    return view('apartments.index', compact('apartments'));
-}
+            $query->orderBy('pivot_start_date', 'asc')
+                    ->wherePivot('end_date', '>', now());
+        }])->get();
+
+        return view('apartments.index', compact('apartments'));
+    }
 
     /**
      * show a specific apartment
@@ -37,22 +37,24 @@ class ApartmentController extends Controller
      * @return view
      */
     public function show(Apartment $apartment) {
-        $apartment->load(['services', 'sponsorships']);
+        $apartment->load(['services', 'sponsorships' => function($query) {
+            $query->orderBy('pivot_start_date', 'asc');
+        }]);
 
-        // Finds the active sponsorship for the apartment
+
         $activeSponsorship = $apartment->sponsorships()
             ->wherePivot('end_date', '>', now())
-            ->orderByRaw("FIELD(name, 'Platinum', 'Gold', 'Silver') ASC")
+            ->orderBy('pivot_start_date', 'asc')
             ->first();
 
-        // finds other active sponsorships for the apartment
-        $otherActiveSponsorships = $apartment->sponsorships()
+
+        $futureSponsorships = $apartment->sponsorships()
             ->wherePivot('end_date', '>', now())
-            ->where('sponsorships.id', '!=', optional($activeSponsorship)->id) // Filters out the active sponsorship
-            ->orderByRaw("FIELD(name, 'Platinum', 'Gold', 'Silver') ASC")
+            ->where('sponsorship_id', '!=', optional($activeSponsorship)->id)
+            ->orderBy('pivot_start_date', 'asc')
             ->get();
 
-        return view('apartments.show', compact('apartment', 'activeSponsorship', 'otherActiveSponsorships'));
+        return view('apartments.show', compact('apartment', 'activeSponsorship', 'futureSponsorships'));
     }
 
     /**
