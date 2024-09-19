@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('braintree_id');
             $table->string('status');
+            $table->decimal('amount', 6, 2);
             $table->timestamps();
         });
     }

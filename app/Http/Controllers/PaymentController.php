@@ -48,6 +48,7 @@ class PaymentController extends Controller
             $transaction = new Transaction();
             $transaction->braintree_id = $result->transaction->id;
             $transaction->status = 'success';
+            $transaction->amount = $amount;
             $transaction->save();
 
             // control if a existing sponsor is active
