@@ -20,11 +20,15 @@ class ApartmentController extends Controller
      *
      * @return view
      */
-    public function index () {
-        $apartments = Apartment::all();
-        $sponsorships = Sponsorship::all();
-        return view('apartments.index', compact('apartments', 'sponsorships'));
-    }
+    public function index()
+{
+    $apartments = Apartment::all()->map(function ($apartment) {
+        $apartment->activeSponsorship = $apartment->getActiveSponsorship();
+        return $apartment;
+    });
+
+    return view('apartments.index', compact('apartments'));
+}
 
     /**
      * show a specific apartment
@@ -32,9 +36,23 @@ class ApartmentController extends Controller
      * @param Apartment $apartment
      * @return view
      */
-    public function show (Apartment $apartment) {
-        $apartment->load([ 'services','sponsorships' ]);
-        return view('apartments.show', compact('apartment'));
+    public function show(Apartment $apartment) {
+        $apartment->load(['services', 'sponsorships']);
+
+        // Finds the active sponsorship for the apartment
+        $activeSponsorship = $apartment->sponsorships()
+            ->wherePivot('end_date', '>', now())
+            ->orderByRaw("FIELD(name, 'Platinum', 'Gold', 'Silver') ASC")
+            ->first();
+
+        // finds other active sponsorships for the apartment
+        $otherActiveSponsorships = $apartment->sponsorships()
+            ->wherePivot('end_date', '>', now())
+            ->where('sponsorships.id', '!=', optional($activeSponsorship)->id) // Filters out the active sponsorship
+            ->orderByRaw("FIELD(name, 'Platinum', 'Gold', 'Silver') ASC")
+            ->get();
+
+        return view('apartments.show', compact('apartment', 'activeSponsorship', 'otherActiveSponsorships'));
     }
 
     /**
@@ -73,6 +91,8 @@ class ApartmentController extends Controller
         $apartment->save();
         $apartment->services()->sync($data['services']);
         return redirect()->Route('apartments.show',$apartment);
+
+
     }
 
     /**
@@ -208,6 +228,14 @@ class ApartmentController extends Controller
         return response()->json($data);
     }
 
+
+        public function getActiveSponsorship()
+    {
+        return $this->sponsorships()
+            ->wherePivot('end_date', '>', now()) // Seleziona solo le sponsorizzazioni attive
+            ->orderByRaw("FIELD(name, 'Platinum', 'Gold', 'Silver') ASC") // Ordina per livello
+            ->first(); // Prendi solo la sponsorizzazione più alta attiva
+
     // switch the visible attribute
     public function visibleToggle(Apartment $apartment){
         if ($apartment->visible === 0){
@@ -219,6 +247,7 @@ class ApartmentController extends Controller
         $apartment->update();
 
         return redirect()->route('apartments.show',compact('apartment'));
+
     }
 
 }

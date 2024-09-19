@@ -30,19 +30,21 @@
                                         <h2 class="card-title mb-4">{{ $apartment->name }}</h2>
                                     </a>
                                     <span class="card-text me-2">Sponsorizzazione:</span>
-                                    @if ($apartment->sponsorships->isNotEmpty())
-                                        @foreach ($apartment->sponsorships as $sponsorship)
-                                            <span
-                                                class="sponsorship
-                                                @if ($sponsorship->id == 1) badge-silver
-                                                @elseif($sponsorship->id == 2) badge-gold
-                                                @elseif($sponsorship->id == 3) badge-platinum @endif">
-                                                {{ $sponsorship->name }}
-                                            </span>
-                                        @endforeach
-                                    @else
-                                        <span><small>Nessuna sponsorizzazione in corso</small></span>
-                                    @endif
+                                    @php
+                            // Trova la sponsorizzazione attiva più alta
+                            $activeSponsorship = $apartment->getActiveSponsorship();
+                        @endphp
+
+                        @if ($activeSponsorship)
+                            <span class="sponsorship
+                                @if ($activeSponsorship->name == 'Silver') badge-silver
+                                @elseif($activeSponsorship->name == 'Gold') badge-gold
+                                @elseif($activeSponsorship->name == 'Platinum') badge-platinum @endif">
+                                {{ $activeSponsorship->name }}
+                            </span>
+                        @else
+                            <span><small>Nessuna sponsorizzazione in corso</small></span>
+                        @endif
 
                                     <div class="visibility d-flex align-items-baseline mb-2">
                                         @if ($apartment->visible == 1)
