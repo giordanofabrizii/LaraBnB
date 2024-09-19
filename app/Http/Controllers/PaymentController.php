@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Apartment;
 use App\Models\Sponsorship;
+use Illuminate\Support\Facades\Log;
 
 class PaymentController extends Controller
 {
@@ -31,6 +32,7 @@ class PaymentController extends Controller
     {
 
         $apartmentId = $request->input('apartment_id');
+        $apartment = Apartment::findOrFail($apartmentId);
         $sponsorshipId = $request->input('sponsorship_id');
         // find the sponsor and update the amount
         $sponsorship = Sponsorship::findOrFail($sponsorshipId);
@@ -63,9 +65,7 @@ class PaymentController extends Controller
                 'updated_at' => now('Europe/Rome'),
             ]);
 
-            $apartment = Sponsorship::findOrFail($apartmentId);
-
-            return redirect()->route('apartments.index')->with('success', 'Pagamento completato!');
+            return redirect()->route('apartments.show', compact('apartment'));
         } else {
             return redirect()->back()->with('error', 'Errore nel pagamento: ' . $result->message);
         }
