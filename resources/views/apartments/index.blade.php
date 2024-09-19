@@ -33,18 +33,21 @@
                                     @php
                             // Trova la sponsorizzazione attiva più alta
                             $activeSponsorship = $apartment->getActiveSponsorship();
-                        @endphp
+                                    @endphp
 
-                        @if ($activeSponsorship)
-                            <span class="sponsorship
-                                @if ($activeSponsorship->name == 'Silver') badge-silver
-                                @elseif($activeSponsorship->name == 'Gold') badge-gold
-                                @elseif($activeSponsorship->name == 'Platinum') badge-platinum @endif">
-                                {{ $activeSponsorship->name }}
-                            </span>
-                        @else
-                            <span><small>Nessuna sponsorizzazione in corso</small></span>
-                        @endif
+                                    @if ($apartment->sponsorships->isNotEmpty())
+                                    @php
+                                        $activeSponsorship = $apartment->sponsorships->first(); // Prendi la prima sponsorizzazione attiva
+                                    @endphp
+                                    <span class="sponsorship
+                                        @if ($activeSponsorship->id == 1) badge-silver
+                                        @elseif($activeSponsorship->id == 2) badge-gold
+                                        @elseif($activeSponsorship->id == 3) badge-platinum @endif">
+                                        {{ $activeSponsorship->name }}
+                                    </span>
+                                    @else
+                                    <span><small>Nessuna sponsorizzazione in corso</small></span>
+                                    @endif
 
                                     <div class="visibility d-flex align-items-baseline mb-2">
                                         @if ($apartment->visible == 1)

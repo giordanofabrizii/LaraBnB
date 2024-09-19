@@ -50,21 +50,30 @@ use Carbon\Carbon;
                         <!-- Sponsorizzazione attiva -->
                         @if ($activeSponsorship)
                         <div>
-                            <p>Sponsorizzazione attiva: {{ $activeSponsorship->name }} -> Scadenza: {{ \Carbon\Carbon::parse($activeSponsorship->pivot->end_date)->format('d/m/Y H:i') }}</p>
+                            <p>Sponsorizzazione attiva:
+                                <span class="sponsorship
+                                    @if ($activeSponsorship->id == 1) badge-silver
+                                    @elseif($activeSponsorship->id == 2) badge-gold
+                                    @elseif($activeSponsorship->id == 3) badge-platinum @endif">
+                                    {{ $activeSponsorship->name }}
+                                </span>
+                                Fino a: {{ \Carbon\Carbon::parse($activeSponsorship->pivot->end_date)->format('d/m/Y H:i') }}
+                            </p>
                         </div>
                         @endif
 
-                        <!-- Sponsorizzazioni attive di livello inferiore -->
-                        @if ($otherActiveSponsorships->isNotEmpty())
+                        <!-- Sponsorizzazioni future -->
+                        @if ($futureSponsorships->isNotEmpty())
+                        <h4>Prossime sponsorizzazioni:</h4>
                         <div class="scrollable-sponsorships mt-3">
-                            <p>Sponsorizzazioni attive di livello inferiore:</p>
-                            @foreach ($otherActiveSponsorships as $sponsorship)
-                                <div class="sponsorship-item">
-                                    <p>{{ $sponsorship->name }} -> Scadenza: {{ \Carbon\Carbon::parse($sponsorship->pivot->end_date)->format('d/m/Y H:i') }}</p>
+                            @foreach ($futureSponsorships as $sponsorship)
+                                <div>
+                                    <p>{{ $sponsorship->name }} fino a: {{ \Carbon\Carbon::parse($sponsorship->pivot->end_date)->format('d/m/Y H:i') }}</p>
                                 </div>
                             @endforeach
                         </div>
                         @endif
+
 
                         <p class="apartment-price mb-2"><strong>Prezzo:</strong> €{{ $apartment->price }}</p>
                         <p class="apartment-surface mb-2"><strong>Superficie:</strong> {{ $apartment->surface }} m²</p>

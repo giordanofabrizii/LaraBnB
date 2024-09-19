@@ -46,6 +46,15 @@
         }
     }
 
+    .scrollable-sponsorships {
+        max-height: 40px;
+        overflow-y: auto;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        margin: 1rem 0;
+        padding-top: .5rem;
+    }
+
     .badge-silver {
         background-color: #C0C0C0;
         border: solid 1px #A9A9A9;
