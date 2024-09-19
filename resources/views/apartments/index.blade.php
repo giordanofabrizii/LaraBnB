@@ -31,13 +31,11 @@
                                     </a>
                                     <span class="card-text me-2">Sponsorizzazione:</span>
                                     @php
-                            // Trova la sponsorizzazione attiva più alta
-                            $activeSponsorship = $apartment->getActiveSponsorship();
+                                        $activeSponsorship = $apartment->getActiveSponsorship();
                                     @endphp
-
                                     @if ($apartment->sponsorships->isNotEmpty())
                                     @php
-                                        $activeSponsorship = $apartment->sponsorships->first(); // Prendi la prima sponsorizzazione attiva
+                                        $activeSponsorship = $apartment->sponsorships->first();
                                     @endphp
                                     <span class="sponsorship
                                         @if ($activeSponsorship->id == 1) badge-silver

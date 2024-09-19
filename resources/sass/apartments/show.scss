@@ -28,17 +28,37 @@
     }
 
 
+    .button-sponsor{
+        background-image: linear-gradient(#20ea0d, #05832f);
+        border: 0;
+        border-radius: 4px;
+        box-shadow: rgba(0, 0, 0, .3) 0 5px 15px;
+        box-sizing: border-box;
+        color: #020000;
+        cursor: pointer;
+        font-weight: 800;
+        font-size: 1.2em;
+        margin: 5px;
+        padding: 10px 15px;
+        text-align: center;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+        text-decoration: none;
+    }
     .sponsorship {
         font-size: 1rem;
         padding: 5px 10px;
-        margin-right: 5px;
         color: white;
         border-radius: 15px;
         display: inline-block;
         text-transform: uppercase;
+        text-align: center;
         font-weight: bold;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
-        margin-bottom: .7rem;
+        margin: 1rem 0;
+        width: 30%;
+
 
         &:hover {
             transform: scale(1.05);
@@ -56,19 +76,20 @@
     }
 
     .badge-silver {
-        background-color: #C0C0C0;
+        background-image: linear-gradient(#b9b9b8, #575756);
         border: solid 1px #A9A9A9;
         color: #333;
     }
 
     .badge-gold {
-        background-color: #FFD700;
+        background-image: linear-gradient(#fffb00, #918e03);
         border: solid 1px #DAA520;
         color: #333;
+        font-weight: 900;
     }
 
     .badge-platinum {
-        background-color: #A5C9CA;
+        background-image: linear-gradient(#addbdd, #70c2c2);
         border: solid 1px #66B2B2;
         color: #333;
     }
@@ -127,8 +148,8 @@
         }
 
         &.warning {
-            background-color: #ffd700;
-            color: #8b4513;
+            background-image: linear-gradient(#eee487, #bb9f00);
+            color: #000000;
             border: solid 2px #b8860b;
 
             &:hover {
@@ -142,7 +163,7 @@
         }
 
         &.danger {
-            background-color: #d32f2f;
+            background-image: linear-gradient(#ff5d5d, #af0000);
             color: white;
             border: solid 2px #b71c1c;
 
@@ -156,11 +177,8 @@
             }
         }
 
-
-
         &.danger{
-            background-color: #fc6602;
-            color: #973000;
+            color: #000000;
             border: solid 2px #b62a07;
 
             &:hover{
