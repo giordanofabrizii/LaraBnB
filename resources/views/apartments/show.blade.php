@@ -40,17 +40,30 @@ use Carbon\Carbon;
                         @endif
                     </div>
                 </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-8">
+                            <h1 class="apartment-name mb-3">{{ $apartment->name }}</h1>
+                            <p class="apartment-description mb-2">{{ $apartment->description }}</p>
+                        </div>
+                        <div class="col-4 d-flex justify-content-center align-items-center">
+                            <!-- HTML !-->
+                        <a class="button-sponsor" href="{{ route('checkout',$apartment) }}" role="button">Sponsorizza!</a>
+                        </div>
+
+                    </div>
+
+                </div>
 
                 <!-- Right column: Infos and edit button -->
                 <div class="col-lg-4 col-md-12 col-sm-12 order-lg-2 order-md-2 order-sm-2 rgt-column p-4">
                     <div class="details">
-                        <h1 class="apartment-name mb-3">{{ $apartment->name }}</h1>
-                        <p class="apartment-description mb-2">{{ $apartment->description }}</p>
 
                         <!-- Sponsorizzazione attiva -->
                         @if ($activeSponsorship)
-                        <div>
-                            <p>Sponsorizzazione attiva:
+                        <div >
+                            <p class="d-flex flex-column">
+                                Sponsorizzazione attiva:
                                 <span class="sponsorship
                                     @if ($activeSponsorship->id == 1) badge-silver
                                     @elseif($activeSponsorship->id == 2) badge-gold
