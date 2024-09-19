@@ -68,6 +68,10 @@ class PaymentController extends Controller
 
             $end_date = $start_date->copy()->addHours($sponsorship->period);
 
+            // update the visible apartment
+            $apartment->visible = 1;
+            $apartment->update();
+
 
             // update the pivot table
             DB::table('apartment_sponsorship_transaction')->insert([
