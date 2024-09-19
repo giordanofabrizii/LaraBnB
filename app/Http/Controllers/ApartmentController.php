@@ -20,15 +20,15 @@ class ApartmentController extends Controller
      *
      * @return view
      */
-    public function index () {
-        $apartments = Apartment::with(['sponsorships' => function($query) {
-            // Ordina per livello di sponsorizzazione e seleziona solo quelle attive
-            $query->orderByRaw("FIELD(name, 'Platinum', 'Gold', 'Silver') ASC")
-                  ->wherePivot('end_date', '>', now()); // Controlla la scadenza della sponsorizzazione
-        }])->get();
+    public function index()
+{
+    $apartments = Apartment::all()->map(function ($apartment) {
+        $apartment->activeSponsorship = $apartment->getActiveSponsorship();
+        return $apartment;
+    });
 
-        return view('apartments.index', compact('apartments'));
-    }
+    return view('apartments.index', compact('apartments'));
+}
 
     /**
      * show a specific apartment
@@ -36,9 +36,23 @@ class ApartmentController extends Controller
      * @param Apartment $apartment
      * @return view
      */
-    public function show (Apartment $apartment) {
-        $apartment->load([ 'services','sponsorships' ]);
-        return view('apartments.show', compact('apartment'));
+    public function show(Apartment $apartment) {
+        $apartment->load(['services', 'sponsorships']);
+
+        // Finds the active sponsorship for the apartment
+        $activeSponsorship = $apartment->sponsorships()
+            ->wherePivot('end_date', '>', now())
+            ->orderByRaw("FIELD(name, 'Platinum', 'Gold', 'Silver') ASC")
+            ->first();
+
+        // finds other active sponsorships for the apartment
+        $otherActiveSponsorships = $apartment->sponsorships()
+            ->wherePivot('end_date', '>', now())
+            ->where('sponsorships.id', '!=', optional($activeSponsorship)->id) // Filters out the active sponsorship
+            ->orderByRaw("FIELD(name, 'Platinum', 'Gold', 'Silver') ASC")
+            ->get();
+
+        return view('apartments.show', compact('apartment', 'activeSponsorship', 'otherActiveSponsorships'));
     }
 
     /**

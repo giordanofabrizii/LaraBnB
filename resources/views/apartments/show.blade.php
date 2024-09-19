@@ -4,6 +4,11 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/sass/apartments/show.scss'])
 @endsection
 
+@php
+use Carbon\Carbon;
+@endphp
+
+
 @section('content')
     @if (Auth::user()->id == $apartment->user_id)
         <div class="container apartment-show" id="show">
@@ -42,23 +47,25 @@
                         <h1 class="apartment-name mb-3">{{ $apartment->name }}</h1>
                         <p class="apartment-description mb-2">{{ $apartment->description }}</p>
 
-                        <!-- Badge Sponsorship -->
-                        @if ($apartment->sponsorships->isNotEmpty())
-                            @foreach ($apartment->sponsorships as $sponsorship)
-                                <div class="d-flex align-items-center gap-4">
-                                    <p><strong>Il tuo piano attivo:</strong></p>
-                                    <span
-                                        class="sponsorship
-                                        @if ($sponsorship->id == 1) badge-silver
-                                        @elseif($sponsorship->id == 2) badge-gold
-                                        @elseif($sponsorship->id == 3) badge-platinum @endif">
-                                        {{ $sponsorship->name }}
-                                    </span>
+                        <!-- Sponsorizzazione attiva -->
+                        @if ($activeSponsorship)
+                        <div>
+                            <p>Sponsorizzazione attiva: {{ $activeSponsorship->name }} -> Scadenza: {{ \Carbon\Carbon::parse($activeSponsorship->pivot->end_date)->format('d/m/Y H:i') }}</p>
+                        </div>
+                        @endif
+
+                        <!-- Sponsorizzazioni attive di livello inferiore -->
+                        @if ($otherActiveSponsorships->isNotEmpty())
+                        <div class="scrollable-sponsorships mt-3">
+                            <p>Sponsorizzazioni attive di livello inferiore:</p>
+                            @foreach ($otherActiveSponsorships as $sponsorship)
+                                <div class="sponsorship-item">
+                                    <p>{{ $sponsorship->name }} -> Scadenza: {{ \Carbon\Carbon::parse($sponsorship->pivot->end_date)->format('d/m/Y H:i') }}</p>
                                 </div>
                             @endforeach
-                        @else
-                            <p>Nessuna sponsorizzazione in corso</p>
+                        </div>
                         @endif
+
                         <p class="apartment-price mb-2"><strong>Prezzo:</strong> €{{ $apartment->price }}</p>
                         <p class="apartment-surface mb-2"><strong>Superficie:</strong> {{ $apartment->surface }} m²</p>
                         <p class="apartment-rooms mb-2"><strong>Stanze:</strong> {{ $apartment->n_room }}</p>
