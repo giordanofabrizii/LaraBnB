@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Apartment;
 use App\Models\Sponsorship;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Log;
 
 class PaymentController extends Controller
@@ -52,8 +53,21 @@ class PaymentController extends Controller
             $transaction->save();
 
             // control if a existing sponsor is active
-            $start_date = now('Europe/Rome');
-            $end_date = $start_date->addHours($sponsorship->period);
+            $existingSponsorships = DB::table('apartment_sponsorship_transaction')
+                ->where('apartment_id', $apartmentId)
+                ->orderBy('start_date')
+                ->get();
+
+            $start_date = Carbon::now('Europe/Rome');
+            foreach ($existingSponsorships as $spons) {
+                $end_date_existing = Carbon::parse($spons->end_date);
+                if ($start_date->lessThanOrEqualTo($end_date_existing)) { // if exist an active sponsor
+                    $start_date = $end_date_existing->copy()->addSecond(); // Imposta il giorno successivo
+                }
+            }
+
+            $end_date = $start_date->copy()->addHours($sponsorship->period);
+
 
             // update the pivot table
             DB::table('apartment_sponsorship_transaction')->insert([
