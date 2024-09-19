@@ -31,6 +31,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/apartments/trashed', [ApartmentController::class, 'trashed'])->name('apartments.trashed'); // bin of the apartments
     Route::delete('/apartments/{apartment:slug}/force', [ApartmentController::class, 'forceDestroy'])->name('apartments.forceDestroy'); // force destroy your apartment
     Route::patch('/apartments/{apartment}/restore', [ApartmentController::class, 'restore'])->name('apartments.restore'); // restore the apartment
+    Route::put('apartments/{apartment:slug}/visible',[ApartmentController::class, 'visibleToggle'])->name('apartment.visibility');
     Route::resource('apartments', ApartmentController::class)->parameters([
         'apartments' => 'apartment:slug']); // all the views
     Route::get('/inbox', [HomeController::class, 'inbox'])->name('inbox'); // inbox with all your messages
