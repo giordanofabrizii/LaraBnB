@@ -105,12 +105,16 @@ use Carbon\Carbon;
                     </div>
 
                     <div class="d-flex align-items-center mb-4">
-                        <p class="m-0"><strong>Visibilit&agrave;:</strong> {{ ($apartment->visible === 0) ? 'non visibile' : 'visibile' }}</p>
+                        <p class="m-0"><strong>Visibilit&agrave;:</strong></p>
                         <form class="ms-2" action="{{route('apartment.visibility', $apartment)}}" method="POST">
                             @csrf
                             @method('PUT')
 
-                            <button class="btn btn-warning" type="submit">Switch</button>
+                            <!-- Switch -->
+                            <label class="switch">
+                                <input type="checkbox" name="visible" {{ $apartment->visible === 1 ? 'checked' : '' }} onchange="this.form.submit()">
+                                <span class="slider"></span>
+                            </label>
                         </form>
                     </div>
 
