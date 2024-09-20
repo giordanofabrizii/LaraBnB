@@ -123,6 +123,27 @@
     }
 }
 
+.button-trash-access {
+    background-color: #fd7e14;
+    border: solid 3px rgb(180, 82, 2);
+    color: white;
+    padding: 10px 15px;
+    text-align: center;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    &:hover {
+        background-color: #e36b0c;
+        transform: translateY(-2px);
+        text-decoration: none;
+    }
+}
+
+
 
 #app.dark{
 

@@ -120,93 +120,139 @@
 
     .apartment-description,
     .apartment-price {
-        font-size: 1.5vw;
         transition: font-size 0.5s ease;
     }
 
 
-    .custom-btn {
-        border-radius: 50px;
-        padding: 5px 20px;
-        font-size: 1.2rem;
-        font-weight: 900;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        cursor: pointer;
-        transition: all 0.3s ease;
-        color: white;
-        text-transform: uppercase;
-        background-color: #008000;
-        border: solid 2px #006400;
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 50px;
+        height: 26px;
 
-        &:hover {
-            background-color: #006400;
-            border: solid 2px #004d00;
+        input {
+            opacity: 0;
+            width: 0;
+            height: 0;
         }
 
-        &:focus {
-            box-shadow: 0 0 0 3px rgba(0, 128, 0, 0.5);
-        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: 0.4s;
+            border-radius: 26px;
 
-        &.warning {
-            background-image: linear-gradient(#eee487, #bb9f00);
-            color: #000000;
-            border: solid 2px #b8860b;
-
-            &:hover {
-                background-color: #ffcc00;
-                border: solid 2px #b8860b;
-            }
-
-            &:focus {
-                box-shadow: 0 0 0 3px rgba(255, 204, 0, 0.5);
-            }
-        }
-
-        &.danger {
-            background-image: linear-gradient(#ff5d5d, #af0000);
-            color: white;
-            border: solid 2px #b71c1c;
-
-            &:hover {
-                background-color: #c62828;
-                border: solid 2px #b71c1c;
-            }
-
-            &:focus {
-                box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.5);
+            &:before {
+                position: absolute;
+                content: "";
+                height: 20px;
+                width: 20px;
+                left: 3px;
+                bottom: 3px;
+                background-color: white;
+                transition: 0.4s;
+                border-radius: 50%;
+                border: solid 2px rgb(173, 172, 172);
             }
         }
 
-        &.danger{
-            color: #000000;
-            border: solid 2px #b62a07;
+        input:checked + .slider {
+            background-color: #28a745;
 
-            &:hover{
-                background-color: #ff5100;
-                border: solid 2px #a70000;
-            }
-
-            &:focus{
-                box-shadow: 0 0 0 3px rgba(255, 51, 0, 0.5);
+            &:before {
+                transform: translateX(24px);
             }
         }
+}
 
-        &:hover {
-            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
-            transform: translateY(-2px);
-            color: #000000;
-            text-decoration: none;
-        }
 
-        &:focus {
-            outline: none;
-        }
+    // .custom-btn {
+    //     border-radius: 50px;
+    //     padding: 5px 20px;
+    //     font-size: 1.2rem;
+    //     font-weight: 900;
+    //     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    //     cursor: pointer;
+    //     transition: all 0.3s ease;
+    //     color: white;
+    //     text-transform: uppercase;
+    //     background-color: #008000;
+    //     border: solid 2px #006400;
 
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-    }
+    //     &:hover {
+    //         background-color: #006400;
+    //         border: solid 2px #004d00;
+    //     }
+
+    //     &:focus {
+    //         box-shadow: 0 0 0 3px rgba(0, 128, 0, 0.5);
+    //     }
+
+    //     &.warning {
+    //         background-image: linear-gradient(#eee487, #bb9f00);
+    //         color: #000000;
+    //         border: solid 2px #b8860b;
+
+    //         &:hover {
+    //             background-color: #ffcc00;
+    //             border: solid 2px #b8860b;
+    //         }
+
+    //         &:focus {
+    //             box-shadow: 0 0 0 3px rgba(255, 204, 0, 0.5);
+    //         }
+    //     }
+
+    //     &.danger {
+    //         background-image: linear-gradient(#ff5d5d, #af0000);
+    //         color: white;
+    //         border: solid 2px #b71c1c;
+
+    //         &:hover {
+    //             background-color: #c62828;
+    //             border: solid 2px #b71c1c;
+    //         }
+
+    //         &:focus {
+    //             box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.5);
+    //         }
+    //     }
+
+    //     &.danger{
+    //         color: #000000;
+    //         border: solid 2px #b62a07;
+
+    //         &:hover{
+    //             background-color: #ff5100;
+    //             border: solid 2px #a70000;
+    //         }
+
+    //         &:focus{
+    //             box-shadow: 0 0 0 3px rgba(255, 51, 0, 0.5);
+    //         }
+    //     }
+
+    //     &:hover {
+    //         box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+    //         transform: translateY(-2px);
+    //         color: #000000;
+    //         text-decoration: none;
+    //     }
+
+    //     &:focus {
+    //         outline: none;
+    //     }
+
+    //     a {
+    //         color: inherit;
+    //         text-decoration: none;
+    //     }
+    // }
 }
 
 #app.dark{
