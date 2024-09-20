@@ -127,6 +127,74 @@ body.dark{
     background-color: $dark-body;
 }
 
+
+// ###############
+// BUTTONS
+// ###############
+
+.custom-btn {
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 8px 15px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+}
+
+.custom-btn-green {
+    background-color: #28a745;
+    border: solid 3px rgba(32, 136, 56, 0.7);
+    color: white;
+
+    &:hover {
+        background-color: #218838;
+        border-color: rgba(33, 136, 56, 0.7);
+        transform: translateY(-2px);
+    }
+}
+
+.custom-btn-yellow {
+    background-color: #ffc107;
+    border: solid 3px rgba(180, 136, 2, 0.87);
+    color: white;
+
+    &:hover {
+        background-color: #e0a800;
+        border-color: rgba(224, 168, 0, 0.7);
+        transform: translateY(-2px);
+    }
+}
+
+.custom-btn-blue {
+    background-color: #007bff;
+    border: solid 3px rgba(0, 123, 255, 0.7);
+    color: white;
+
+
+    &:hover {
+        background-color: #0069d9;
+        border-color: rgba(0, 87, 180, 0.993);
+        transform: translateY(-2px);
+    }
+}
+
+.custom-btn-red {
+    background-color: #dc3545;
+    border: solid 3px rgb(158, 12, 26);
+    color: white;
+
+
+    &:hover {
+        background-color: #c82333;
+        border-color: rgba(200, 35, 51, 0.7);
+        transform: translateY(-2px);
+    }
+}
+
+
 // ###############
 // MEDIA QUERY
 // ###############
