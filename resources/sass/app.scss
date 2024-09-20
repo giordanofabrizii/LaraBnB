@@ -94,11 +94,16 @@
         background-color: $dark-primary !important;
 
         ul#links{
-            a{
-                filter: invert(100%) !important;
+            a:hover{
+                background-color: #00bf63;
+                svg,
+                span{
+                    filter: invert(0%) !important;
+                }
             }
-            li:hover{
-                background-color: rgb(59, 59, 59)
+            svg,
+            span{
+                filter: invert(100%) !important;
             }
         }
 

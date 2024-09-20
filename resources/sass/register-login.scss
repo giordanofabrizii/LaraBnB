@@ -1,0 +1,45 @@
+@use './variables' as *;
+
+.card{
+    background-color: white;
+
+    label,
+    .card-header{
+        color: black;
+    }
+
+    input{
+        background-color: white;
+    }
+
+    .form-control:focus{
+        background-color: white;
+        border-color: $primary-color;
+        box-shadow: 0 0 0 0.25rem $primary-color;
+    }
+
+    [type=submit]{
+        background-color: $primary-color;
+        border: none;
+
+        &:active{
+            background-color: $primary-color !important;
+            filter: saturate(70%);
+        }
+    }
+
+    a.btn{
+        color: $primary-color;
+    }
+}
+
+#app.dark{
+    .card{
+        background-color: $dark-primary;
+    }
+
+    label,
+    .card-header{
+        color: white;
+    }
+}
