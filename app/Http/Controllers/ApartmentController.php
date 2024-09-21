@@ -207,7 +207,7 @@ class ApartmentController extends Controller
 
         $apartments = Apartment::with(['visualizations' => function($query) {
             // get last 6 months views
-            $query->where('date', '>=', Carbon::now()->subMonths(6)->startOfMonth());
+            $query->where('date', '>=', Carbon::now()->subMonths(12)->startOfMonth());
         }])->get();
 
         foreach ($apartments as $apartment) {
@@ -219,6 +219,15 @@ class ApartmentController extends Controller
                     // get number of views by month
                     return $group->count();
                 });
+
+            // Ordina le visualizzazioni per mese in ordine crescente (m-Y)
+            $viewsByMonth = $viewsByMonth->toArray(); // Converte in array
+            uksort($viewsByMonth, function ($a, $b) {
+                // Confronta le date in formato m-Y usando Carbon
+                $dateA = Carbon::createFromFormat('m-Y', $a);
+                $dateB = Carbon::createFromFormat('m-Y', $b);
+                return $dateA->lt($dateB) ? -1 : 1;
+            });
 
             $data[] = [
                 'apartment_id' => $apartment->id,
