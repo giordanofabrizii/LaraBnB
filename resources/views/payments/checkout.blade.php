@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pagamento con Braintree</title>
     <script src="https://js.braintreegateway.com/web/dropin/1.33.4/js/dropin.min.js"></script>
-    @vite(['resources/js/checkout.js'])
+    @vite(['resources/js/checkout.js', 'resources/sass/checkout.scss', 'resources/sass/app.scss'])
 </head>
 <body>
     <h1>Checkout</h1>
@@ -26,11 +26,11 @@
             @endforeach
         </select>
 
-        <p>Importo: <span id="amount-display">{{ $sponsorships->first()->price }}</span></p>
+        <p>Importo: <span id="amount-display">{{ $sponsorships->first()->price }}</span>&euro;</p>
 
         <div id="dropin-container"></div>
 
-        <button type="submit">Paga</button>
+        <button class="custom-btn custom-btn-green" type="submit" >Paga</button>
     </form>
 
     <script>
