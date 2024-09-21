@@ -8,9 +8,9 @@
 @section('content')
     <div class="container" id="index">
         <div class="top">
-            <h1>I tuoi appartamenti</h1>
+            <h1 class="me-2">I tuoi appartamenti</h1>
             <div class="trashed-link text-end mt-4">
-                <a class="btn btn-lg btn-warning text-decoration-none text-end me-3" href="{{ route('apartments.trashed') }}">
+                <a class="btn btn-lg btn-warning text-decoration-none text-center me-3" href="{{ route('apartments.trashed') }}">
                     Vai al cestino
                 </a>
             </div>
@@ -47,7 +47,7 @@
                                     <span><small>Nessuna sponsorizzazione in corso</small></span>
                                     @endif
 
-                                    <div class="visibility d-flex align-items-baseline mb-2">
+                                    <div class="visibility d-flex align-items-baseline my-2">
                                         @if ($apartment->visible == 1)
                                             <p class="card-text me-3" class="text-body-secondary"> Visibilità:</p>
                                             <div class="green circle"></div>
@@ -58,13 +58,13 @@
                                     </div>
 
                                     <div class="buttons d-flex align-items-center justify-content-end mt-5" >
-                                        <a class="btn btn-lg me-3" href="{{ route('apartments.edit', $apartment) }}">
+                                        <a class="btn btn-custom me-3" href="{{ route('apartments.edit', $apartment) }}">
                                             Modifica
                                         </a>
                                         <a href="{{ route('checkout',$apartment) }}" class="btn btn-primary me-3">
                                             Sponsorizza
                                         </a>
-                                        <button type="button" class="btn btn-lg btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteModal{{ $apartment->id}}">
+                                        <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteModal{{ $apartment->id}}">
                                             Elimina
                                         </button>
 
