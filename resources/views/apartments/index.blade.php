@@ -10,7 +10,7 @@
         <div class="top">
             <h1 class="me-2">I tuoi appartamenti</h1>
             <div class="trashed-link text-end mt-4">
-                <a class="btn btn-lg btn-warning text-decoration-none text-center me-3" href="{{ route('apartments.trashed') }}">
+                <a class="btn btn-lg btn-warning text-decoration-none me-3" href="{{ route('apartments.trashed') }}">
                     Vai al cestino
                 </a>
             </div>
