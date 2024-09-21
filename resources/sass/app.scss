@@ -188,13 +188,13 @@ body.dark{
 
 .custom-btn-red {
     background-color: #dc3545;
-    border: solid 3px rgb(158, 12, 26);
+    border: solid 3px rgb(128, 4, 16);
     color: white;
 
 
     &:hover {
         background-color: #c82333;
-        border-color: rgba(200, 35, 51, 0.7);
+        border-color: rgb(146, 8, 22);
         transform: translateY(-2px);
     }
 }
