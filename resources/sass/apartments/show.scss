@@ -20,13 +20,17 @@
         }
     }
 
+    .apartment-services{
+        font-size: .7rem;
+
+    }
+
     .rgt-column{
         border: solid 2px $primary-color;
         border-radius: 10px;
         box-shadow: 0px 6px 15px 0px rgba(55, 172, 55, 0.46);
         background-color: white;
     }
-
 
     .button-sponsor{
         background-image: linear-gradient(#20ea0d, #05832f);
@@ -46,7 +50,8 @@
         touch-action: manipulation;
         text-decoration: none;
     }
-    .sponsorship {
+
+        .sponsorship {
         font-size: 1rem;
         padding: 5px 10px;
         color: white;
@@ -58,7 +63,6 @@
         transition: transform 0.3s ease, box-shadow 0.3s ease;
         margin: 1rem 0;
         width: 30%;
-
 
         &:hover {
             transform: scale(1.05);
@@ -123,7 +127,6 @@
         transition: font-size 0.5s ease;
     }
 
-
     .switch {
         position: relative;
         display: inline-block;
@@ -168,91 +171,7 @@
                 transform: translateX(24px);
             }
         }
-}
-
-
-    // .custom-btn {
-    //     border-radius: 50px;
-    //     padding: 5px 20px;
-    //     font-size: 1.2rem;
-    //     font-weight: 900;
-    //     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    //     cursor: pointer;
-    //     transition: all 0.3s ease;
-    //     color: white;
-    //     text-transform: uppercase;
-    //     background-color: #008000;
-    //     border: solid 2px #006400;
-
-    //     &:hover {
-    //         background-color: #006400;
-    //         border: solid 2px #004d00;
-    //     }
-
-    //     &:focus {
-    //         box-shadow: 0 0 0 3px rgba(0, 128, 0, 0.5);
-    //     }
-
-    //     &.warning {
-    //         background-image: linear-gradient(#eee487, #bb9f00);
-    //         color: #000000;
-    //         border: solid 2px #b8860b;
-
-    //         &:hover {
-    //             background-color: #ffcc00;
-    //             border: solid 2px #b8860b;
-    //         }
-
-    //         &:focus {
-    //             box-shadow: 0 0 0 3px rgba(255, 204, 0, 0.5);
-    //         }
-    //     }
-
-    //     &.danger {
-    //         background-image: linear-gradient(#ff5d5d, #af0000);
-    //         color: white;
-    //         border: solid 2px #b71c1c;
-
-    //         &:hover {
-    //             background-color: #c62828;
-    //             border: solid 2px #b71c1c;
-    //         }
-
-    //         &:focus {
-    //             box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.5);
-    //         }
-    //     }
-
-    //     &.danger{
-    //         color: #000000;
-    //         border: solid 2px #b62a07;
-
-    //         &:hover{
-    //             background-color: #ff5100;
-    //             border: solid 2px #a70000;
-    //         }
-
-    //         &:focus{
-    //             box-shadow: 0 0 0 3px rgba(255, 51, 0, 0.5);
-    //         }
-    //     }
-
-    //     &:hover {
-    //         box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
-    //         transform: translateY(-2px);
-    //         color: #000000;
-    //         text-decoration: none;
-    //     }
-
-    //     &:focus {
-    //         outline: none;
-    //     }
-
-    //     a {
-    //         color: inherit;
-    //         text-decoration: none;
-    //     }
-    // }
+    }
 }
 
 #app.dark{
