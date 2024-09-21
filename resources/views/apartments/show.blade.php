@@ -27,11 +27,9 @@ use Carbon\Carbon;
                         @if ($apartment->services->isNotEmpty())
                             <ul class="list-unstyled">
                                 @foreach ($apartment->services as $service)
-                                    <span>
-                                        <i class= "{{ $service->icon }} me-1"></i>
-                                        <strong>
+                                    <span class="me-4">
+                                        <i class="{{ $service->icon }} fs-5 mt-1"></i>
                                             {{ $service->name }}
-                                        </strong>
                                     </span>
                                 @endforeach
                             </ul>
@@ -47,7 +45,7 @@ use Carbon\Carbon;
                             <p class="apartment-description mb-2">{{ $apartment->description }}</p>
                         </div>
                         <div class="col-4 d-flex justify-content-center align-items-center">
-                            <!-- HTML !-->
+
                         <a class="custom-btn custom-btn-green" href="{{ route('checkout',$apartment) }}" role="button">Sponsorizza!</a>
                         </div>
 
