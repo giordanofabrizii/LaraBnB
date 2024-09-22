@@ -1,6 +1,10 @@
 @import "resources/sass/variables";
 @import "resources/sass/app.scss";
 
+a{
+    text-decoration: none;
+    color:white;
+}
 
 .apartment-show {
     .apartment-img {
