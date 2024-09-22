@@ -110,7 +110,11 @@ use Carbon\Carbon;
                             @csrf
                             @method('PUT')
 
-                            <button class="btn btn-warning" type="submit">Switch</button>
+                            <!-- Switch -->
+                            <label class="switch">
+                                <input type="checkbox" name="visible" {{ $apartment->visible === 1 ? 'checked' : '' }} onchange="this.form.submit()">
+                                <span class="slider"></span>
+                            </label>
                         </form>
                     </div>
 
