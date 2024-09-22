@@ -120,9 +120,9 @@ use Carbon\Carbon;
 
                     <!-- Edit button -->
                     <div class="text-center order-lg-3 order-sm-3 d-flex flex-wrap justify-content-around mt-3">
-                        <button href="{{ route('apartments.edit', $apartment) }}"
+                        <a href="{{ route('apartments.edit', $apartment) }}"
                             class="custom-btn custom-btn-yellow">Modifica
-                        </button>
+                        </a>
                         <form action="{{ route('apartments.destroy', $apartment) }}" class="form-delete" method="POST"
                             data-apartment-name="{{ $apartment->name }}">
                             @method('delete')
