@@ -34,6 +34,7 @@
         </div>
 
         <section id="apartments" class="mt-lg-5 mt-3">
+            @if(count($apartments)>0)
             <h2 class="mb-3">Link rapidi</h2>
             <div class="row d-flex justify-content-between">
                 @foreach ($apartments as $apartment)
@@ -52,6 +53,7 @@
                 </div>
                 @endforeach
             </div>
+            @endif
         </section>
         @endif
     </div>
