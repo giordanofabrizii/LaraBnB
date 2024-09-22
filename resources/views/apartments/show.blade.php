@@ -14,7 +14,7 @@ use Carbon\Carbon;
         <div class="container apartment-show" id="show">
             <div class="row">
                 <!-- Left Column: Image and Services -->
-                <div class="col-lg-8 col-md-12 col-sm-12 mb-4 order-lg-1 order-md-1 order-sm-1">
+                <div class="col-lg-8 col-md-12 col-sm-12 mb-4 order-2 px-3">
                     <!-- IMG section -->
                     <div class="apartment-img mb-4">
                         <img src="{{ asset('storage/' . $apartment->image) }}" alt="{{ $apartment->name }}"
@@ -38,15 +38,17 @@ use Carbon\Carbon;
                         @endif
                     </div>
                 </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-8">
+                <div class="container order-1">
+                    <div class="row d-flex flex-column flex-md-row p-2">
+                        <div class="col-md-8 col-12">
                             <h1 class="apartment-name mb-3">{{ $apartment->name }}</h1>
-                            <p class="apartment-description mb-2">{{ $apartment->description }}</p>
+                            <p class="apartment-description mb-3">{{ $apartment->description }}</p>
                         </div>
-                        <div class="col-4 d-flex justify-content-center align-items-center">
 
+                        <div class="col-md-4 col-12 d-flex justify-content-end justify-content-md-center align-items-center">
+                            <!-- HTML !-->
                         <a class="custom-btn custom-btn-green" href="{{ route('checkout',$apartment) }}" role="button">Sponsorizza!</a>
+
                         </div>
 
                     </div>
@@ -54,7 +56,7 @@ use Carbon\Carbon;
                 </div>
 
                 <!-- Right column: Infos and edit button -->
-                <div class="col-lg-4 col-md-12 col-sm-12 order-lg-2 order-md-2 order-sm-2 rgt-column p-4">
+                <div class="col-lg-4 col-12 order-3 rgt-column p-4">
                     <div class="details">
 
                         <!-- Sponsorizzazione attiva -->
@@ -79,7 +81,7 @@ use Carbon\Carbon;
                         <div class="scrollable-sponsorships mt-3">
                             @foreach ($futureSponsorships as $sponsorship)
                                 <div>
-                                    <p>{{ $sponsorship->name }} fino a: {{ \Carbon\Carbon::parse($sponsorship->pivot->end_date)->format('d/m/Y H:i') }}</p>
+                                    <p class="ms-2">{{ $sponsorship->name }} fino a: {{ \Carbon\Carbon::parse($sponsorship->pivot->end_date)->format('d/m/Y H:i') }}</p>
                                 </div>
                             @endforeach
                         </div>

@@ -116,16 +116,12 @@
     }
 
     .apartment-name {
-        font-size: 2.5vw;
         font-weight: bold;
         color: #2c3e50;
-        transition: font-size 0.5s ease;
     }
 
-    .apartment-description,
-    .apartment-price {
-        transition: font-size 0.5s ease;
-    }
+    .apartment-description{
+        font-size: medium;
 
     .switch {
         position: relative;

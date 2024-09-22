@@ -11,7 +11,7 @@
         @else
         <h1 class="mb-4">Dashboard</h1>
         <div class="row mb-3 d-flex justify-content-between">
-            <div id="profile" class="p-3  col-lg-6 col-md-8 col-sm-12 d-flex align-items-center">
+            <div id="profile" class="p-3  col-lg-6 col-md-12 col-sm-12 d-flex align-items-center">
                 @if(Auth::user()->image != null)
                     <img class="ms-3" src="{{ asset('storage/uploads/' . Auth::user()->image) }}" alt="profile picture">
                 @else
@@ -22,8 +22,9 @@
                     <p>{{ Auth::user()->email }}</p>
                 </div>
             </div>
-            <section id="buttons" class="col-lg-4 col-md-8 col-12 my-5 me-3 d-flex flex-column flex-wrap">
+            <section id="buttons" class="col-lg-5 col-12 my-5 me-3 d-flex flex-column flex-wrap">
                 <a href="{{ Route('apartments.create') }}" class="custom-btn custom-btn-green p-3 m-2 text-center rounded-3">
+
                     Aggiungi un nuovo appartamento
                 </a>
                 <a href="{{ Route('apartments.index') }}" class="custom-btn custom-btn-green p-3 m-2 mt-2 text-center rounded-3">
@@ -32,11 +33,11 @@
             </section>
         </div>
 
-        <section id="apartments" class="mt-5">
+        <section id="apartments" class="mt-lg-5 mt-3">
             <h2 class="mb-3">Link rapidi</h2>
             <div class="row d-flex justify-content-between">
                 @foreach ($apartments as $apartment)
-                <div class="d-flex col-lg-4 col-md-6 col-12 p-2">
+                <div class="d-flex col-lg-4 col-md-6 col-12 p-3 p-md-2">
                     <div class="card">
                         <div class="card-top">
                             <a href="{{ Route('apartments.show',$apartment) }}">
