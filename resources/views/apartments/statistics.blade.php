@@ -32,15 +32,6 @@
         </div>
         @endforeach
     </div>
-
-    {{-- @foreach ($apartments as $apartment)
-    <div class="row d-flex justify-content-center">
-        <div class="col-8">
-            <h2>{{$apartment->name}}</h2>
-            <div class="graph" id="{{$apartment->id}}"></div>
-        </div>
-    </div>
-    @endforeach --}}
 </div>
 <div class="loading on">
     <svg class="pl" width="240" height="240" viewBox="0 0 240 240">
