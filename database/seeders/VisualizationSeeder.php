@@ -18,7 +18,7 @@ class VisualizationSeeder extends Seeder
         $faker = Faker::create();
 
         $apartmentNumber = 41;
-        $monthsBack = 5;
+        $monthsBack = 12;
 
         for ($apartmentId = 1; $apartmentId <= $apartmentNumber; $apartmentId++) { //foreach apartment
 

@@ -10,7 +10,7 @@
         <div class="top">
             <h1 class="me-2">I tuoi appartamenti</h1>
             <div class="trashed-link text-end mt-4">
-                <a class="btn btn-lg btn-warning text-decoration-none me-3" href="{{ route('apartments.trashed') }}">
+                <a class="custom-btn button-trash-access" href="{{ route('apartments.trashed') }}">
                     Vai al cestino
                 </a>
             </div>
@@ -57,14 +57,17 @@
                                         @endif
                                     </div>
 
-                                    <div class="buttons d-flex align-items-center justify-content-end mt-5" >
-                                        <a class="btn btn-custom me-3" href="{{ route('apartments.edit', $apartment) }}">
+                                    <div class="buttons gap-3 d-flex align-items-center justify-content-end mt-5" >
+                                        <a class="custom-btn custom-btn-yellow" href="{{ route('apartments.edit', $apartment) }}">
+
                                             Modifica
                                         </a>
-                                        <a href="{{ route('checkout',$apartment) }}" class="btn btn-primary me-3">
+                                        <a href="{{ route('checkout',$apartment) }}" class="custom-btn custom-btn-blue">
                                             Sponsorizza
                                         </a>
-                                        <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteModal{{ $apartment->id}}">
+
+                                        <button type="button" class="custom-btn custom-btn-red" data-bs-toggle="modal" data-bs-target="#deleteModal{{ $apartment->id}}">
+
                                             Elimina
                                         </button>
 

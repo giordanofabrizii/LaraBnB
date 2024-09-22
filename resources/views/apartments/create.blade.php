@@ -114,7 +114,7 @@
                         @enderror
                     </div>
                     <p class="text-end"><small>I campi contrassegnati con l'asterisco (*) sono obbligatori.</small></p>
-                    <button type="submitEl" class="btn btn-primary mt-3 align-self-end">Pubblica l'appartamento</button>
+                    <button type="submitEl" class="custom-btn custom-btn-green mt-3 align-self-end">Pubblica l'appartamento</button>
                 </form>
             </div>
         </div>

@@ -27,11 +27,9 @@ use Carbon\Carbon;
                         @if ($apartment->services->isNotEmpty())
                             <ul class="list-unstyled">
                                 @foreach ($apartment->services as $service)
-                                    <span>
-                                        <i class= "{{ $service->icon }} me-1"></i>
-                                        <strong>
+                                    <span class="me-4">
+                                        <i class="{{ $service->icon }} fs-5 mt-1"></i>
                                             {{ $service->name }}
-                                        </strong>
                                     </span>
                                 @endforeach
                             </ul>
@@ -46,9 +44,11 @@ use Carbon\Carbon;
                             <h1 class="apartment-name mb-3">{{ $apartment->name }}</h1>
                             <p class="apartment-description mb-3">{{ $apartment->description }}</p>
                         </div>
+
                         <div class="col-md-4 col-12 d-flex justify-content-end justify-content-md-center align-items-center">
                             <!-- HTML !-->
-                        <a class="button-sponsor my-3" href="{{ route('checkout',$apartment) }}" role="button">Sponsorizza!</a>
+                        <a class="custom-btn custom-btn-green" href="{{ route('checkout',$apartment) }}" role="button">Sponsorizza!</a>
+
                         </div>
 
                     </div>
@@ -105,25 +105,29 @@ use Carbon\Carbon;
                     </div>
 
                     <div class="d-flex align-items-center mb-4">
-                        <p class="m-0"><strong>Visibilit&agrave;:</strong> {{ ($apartment->visible === 0) ? 'non visibile' : 'visibile' }}</p>
+                        <p class="m-0"><strong>Visibilit&agrave;:</strong></p>
                         <form class="ms-2" action="{{route('apartment.visibility', $apartment)}}" method="POST">
                             @csrf
                             @method('PUT')
 
-                            <button class="btn btn-warning" type="submit">Switch</button>
+                            <!-- Switch -->
+                            <label class="switch">
+                                <input type="checkbox" name="visible" {{ $apartment->visible === 1 ? 'checked' : '' }} onchange="this.form.submit()">
+                                <span class="slider"></span>
+                            </label>
                         </form>
                     </div>
 
                     <!-- Edit button -->
                     <div class="text-center order-lg-3 order-sm-3 d-flex flex-wrap justify-content-around mt-3">
                         <a href="{{ route('apartments.edit', $apartment) }}"
-                            class="btn custom-btn warning text-decoration-none my-2">Modifica
+                            class="custom-btn custom-btn-yellow">Modifica
                         </a>
                         <form action="{{ route('apartments.destroy', $apartment) }}" class="form-delete" method="POST"
                             data-apartment-name="{{ $apartment->name }}">
                             @method('delete')
                             @csrf
-                            <button class="btn custom-btn danger text-decoration-none my-2" type="submit">Elimina</button>
+                            <button class="custom-btn custom-btn-red" type="submit">Elimina</button>
                         </form>
                     </div>
                 </div>

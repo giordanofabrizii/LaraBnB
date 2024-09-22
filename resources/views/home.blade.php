@@ -22,11 +22,12 @@
                     <p>{{ Auth::user()->email }}</p>
                 </div>
             </div>
-            <section id="buttons" class="col-lg-5 col-md-12 col-12 my-5 me-3 d-flex flex-column flex-wrap">
-                <a href="{{ Route('apartments.create') }}" class="p-3 m-2 text-center rounded-3">
+            <section id="buttons" class="col-lg-5 col-12 my-5 me-3 d-flex flex-column flex-wrap">
+                <a href="{{ Route('apartments.create') }}" class="custom-btn custom-btn-green p-3 m-2 text-center rounded-3">
+
                     Aggiungi un nuovo appartamento
                 </a>
-                <a href="{{ Route('apartments.index') }}" class="p-3 m-2 mt-2 text-center rounded-3">
+                <a href="{{ Route('apartments.index') }}" class="custom-btn custom-btn-green p-3 m-2 mt-2 text-center rounded-3">
                     I tuoi appartamenti
                 </a>
             </section>
