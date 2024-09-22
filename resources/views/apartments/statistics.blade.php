@@ -20,14 +20,27 @@
         </div>
     </div>
 
-    @foreach ($apartments as $apartment)
+    <div class="row">
+        @foreach ($apartments as $apartment)
+        <div class="col-4">
+            <a href="{{ route('apartments.show', $apartment)}}">
+                <article class="p-2">
+                    <div class="graph mb-1" id="{{$apartment->id}}"></div>
+                    <h2 class="m-0">{{$apartment->name}}</h2>
+                </article>
+            </a>
+        </div>
+        @endforeach
+    </div>
+
+    {{-- @foreach ($apartments as $apartment)
     <div class="row d-flex justify-content-center">
         <div class="col-8">
             <h2>{{$apartment->name}}</h2>
             <div class="graph" id="{{$apartment->id}}"></div>
         </div>
     </div>
-    @endforeach
+    @endforeach --}}
 </div>
 <div class="loading on">
     <svg class="pl" width="240" height="240" viewBox="0 0 240 240">

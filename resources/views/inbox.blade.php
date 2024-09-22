@@ -1,7 +1,10 @@
 @extends('layouts.app')
 
-@section('content')
+@section('custom-scss')
+    @vite(['resources/sass/inbox.scss'])
+@endsection
 
+@section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-12">

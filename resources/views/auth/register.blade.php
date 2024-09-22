@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('custom-scss')
-    @vite(['resources/js/user-validation.js', 'resources/sass/registration.scss'])
+    @vite(['resources/js/user-validation.js', 'resources/sass/registration.scss', 'resources/sass/register-login.scss'])
 @endsection
 
 @section('content')
