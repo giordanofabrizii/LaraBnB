@@ -22,11 +22,12 @@
 
         <select name="sponsorship_id" id="sponsorship_id">
             @foreach ($sponsorships as $sponsor)
-            <option value="{{ $sponsor->id }}" data-price="{{ $sponsor->price }}">{{ $sponsor->name }}</option>
+            <option value="{{ $sponsor->id }}" data-price="{{ $sponsor->price }}" data-period="{{ $sponsor->period }}">{{ $sponsor->name }}</option>
             @endforeach
         </select>
 
         <p>Importo: <span id="amount-display">{{ $sponsorships->first()->price }}</span>&euro;</p>
+        <p>Durata: <span id="period-display">{{ $sponsorships->first()->period}}</span> ore</p>
 
         <div id="dropin-container"></div>
 
