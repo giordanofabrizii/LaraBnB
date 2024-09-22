@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('custom-scss')
-    @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/sass/apartments/show.scss'])
+    @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/sass/apartments/show.scss','resources/sass/apartments/index.scss', 'resources/sass/apartments/modale.scss'])
 @endsection
 
 @php
@@ -127,7 +127,9 @@ use Carbon\Carbon;
                             data-apartment-name="{{ $apartment->name }}">
                             @method('delete')
                             @csrf
-                            <button class="custom-btn custom-btn-red" type="submit">Elimina</button>
+                            <button type="button" class="custom-btn custom-btn-red" data-bs-toggle="modal" data-bs-target="#deleteModal{{ $apartment->id}}">
+                                Elimina
+                            </button>
                         </form>
                     </div>
                 </div>

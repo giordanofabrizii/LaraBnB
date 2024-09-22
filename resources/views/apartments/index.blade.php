@@ -67,7 +67,6 @@
                                         </a>
 
                                         <button type="button" class="custom-btn custom-btn-red" data-bs-toggle="modal" data-bs-target="#deleteModal{{ $apartment->id}}">
-
                                             Elimina
                                         </button>
 
