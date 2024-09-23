@@ -132,6 +132,30 @@ use Carbon\Carbon;
                             </button>
                         </form>
                     </div>
+                    <div class="modal fade" id="deleteModal{{$apartment->id}}" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div>
+                                    <h1 id="deleteModalLabel" class="orange">Elimina appartamento</h1>
+
+                                </div>
+                                <div class="modal-body">
+                                    <p>Sei sicuro di voler eliminare <strong>"{{ $apartment->name }}"</strong>?</p>
+                                    <div class="alert alert-warning warning">
+                                        <h2><i class="fa-solid fa-triangle-exclamation"></i> Attenzione</h2>
+                                        <p>L'eliminazione di questo appartamento non sarà definitiva. Puoi ripristinare il tuo appartamento nel cestino.</p>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Annulla</button>
+                                    <form action="{{ route('apartments.destroy', $apartment) }}" method="POST">
+                                        @method('DELETE')
+                                        @csrf
+                                        <button type="submit" class="btn btn-outline-danger">Elimina</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                 </div>
             </div>
         </div>
